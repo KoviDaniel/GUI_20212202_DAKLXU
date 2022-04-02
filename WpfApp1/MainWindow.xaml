@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Shores of Gold" Height="720" Width="1280">
+        Title="Shores of Gold" Height="720" Width="1280" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -23,6 +23,7 @@
         <Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"
+                Click="Button_Click"/>
     </Grid>
 </Window>
