@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <None Remove="Fonts\BTTTRIAL.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\BTTTRIAL.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
