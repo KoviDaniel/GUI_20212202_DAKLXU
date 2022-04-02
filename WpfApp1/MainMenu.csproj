@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\BTTTRIAL.otf" />
+    <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\background.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Fonts\BTTTRIAL.otf">
+    <Resource Include="Fonts\Windlass.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\background.png">
