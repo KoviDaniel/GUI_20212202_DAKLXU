@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Shores of Gold" Height="450" Width="800">
+        Title="Shores of Gold" Height="720" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -17,12 +17,12 @@
             <ImageBrush ImageSource="/Images/background.png"/>
         </Grid.Background>
         <Label Content="Shores of Gold" HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Style="{StaticResource lblDesign}" FontSize="80" Grid.Row="0" Foreground="Gold"/>
+               Style="{StaticResource lblDesign}" FontSize="130" Grid.Row="0" Foreground="Gold"/>
         <Button Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="55" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="55" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="55" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
     </Grid>
 </Window>

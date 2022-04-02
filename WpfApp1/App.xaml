@@ -6,7 +6,7 @@
     <Application.Resources>
         <Style x:Key="lblDesign">
             <Setter Property="TextElement.FontFamily" 
-                    Value="/Fonts/Windlass.ttf #Windlass"/>
+                    Value="/Fonts/#Windlass"/>
         </Style>
     </Application.Resources>
 </Application>
