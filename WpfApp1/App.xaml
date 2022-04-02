@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="lblDesign" TargetType="Label">
+            <Setter Property="FontFamily" Value="Fonts/BTTTRIAL.otf #BTTTRIAL"/>
+        </Style>
+        <Style x:Key="buttonDesign" TargetType="Button">
+            <Setter Property="FontFamily" Value="Fonts/BTTTRIAL.otf #BTTTRIAL"/>
+        </Style>
     </Application.Resources>
 </Application>
