@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Shores of Gold" Height="450" Width="800">
-    <Grid Background="">
-        
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/background.png"/>
+        </Grid.Background>
     </Grid>
 </Window>
