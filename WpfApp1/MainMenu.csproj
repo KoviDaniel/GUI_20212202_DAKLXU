@@ -8,16 +8,16 @@
 
   <ItemGroup>
     <None Remove="Fonts\BTTTRIAL.otf" />
+    <None Remove="Images\background.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\BTTTRIAL.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
