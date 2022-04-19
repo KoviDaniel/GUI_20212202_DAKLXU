@@ -47,6 +47,7 @@ namespace WpfApp1
         private void Dt_Tick(object sender, EventArgs e)
         {
             gameLogic.TimeStep();
+            this.InvalidateVisual();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -54,19 +55,24 @@ namespace WpfApp1
             if (e.Key == Key.W)
             {
                 gameLogic.Control(Controls.Up);
+                
             }
             else if (e.Key == Key.S)
             {
                 gameLogic.Control(Controls.Down);
+                
             }
             else if (e.Key == Key.A)
             {
                 gameLogic.Control(Controls.Left);
+                
             }
             else if (e.Key == Key.D)
             {
                 gameLogic.Control(Controls.Right);
+                
             }
+            this.InvalidateVisual();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -32,7 +32,7 @@ namespace WpfApp1.Logic
 
         public void Control(Controls control)
         {
-            switch (control)
+            /*switch (control)
             {
                 case Controls.Up:
                     Player.Move(control);
@@ -46,7 +46,9 @@ namespace WpfApp1.Logic
                 case Controls.Right:
                     Player.Move(control);
                     break;
-            }
+            }*/
+
+            Player.Move(control);
         }
 
         public void TimeStep()
