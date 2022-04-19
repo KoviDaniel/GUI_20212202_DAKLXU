@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using WpfApp1.Logic;
 
 namespace WpfApp1
 {
@@ -21,17 +22,18 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameLogic gameLogic;
 
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //gameLogic = new GameLogic();
-            //display.SetupModel(gameLogic);
+            gameLogic = new GameLogic();
+            // logic.GameOver += Logic_GameOver;
+            display.SetupModel(gameLogic);
 
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(100);
@@ -39,41 +41,41 @@ namespace WpfApp1
             dt.Start();
 
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            //gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
         }
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            //gameLogic.TimeStep();
+            gameLogic.TimeStep();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.Key == Key.Up)
-            //{
-            //    gameLogic.Control(GameLogic.Controls.Up);
-            //}
-            //else if (e.Key == Key.Down)
-            //{
-            //    gameLogic.Control(GameLogic.Controls.Down);
-            //}
-            //else if (e.Key == Key.Left)
-            //{
-            //    gameLogic.Control(GameLogic.Controls.Left);
-            //}
-            //else if (e.Key == Key.Right)
-            //{
-            //    gameLogic.Control(GameLogic.Controls.Right);
-            //}
+            if (e.Key == Key.W)
+            {
+                gameLogic.Control(Controls.Up);
+            }
+            else if (e.Key == Key.S)
+            {
+                gameLogic.Control(Controls.Down);
+            }
+            else if (e.Key == Key.A)
+            {
+                gameLogic.Control(Controls.Left);
+            }
+            else if (e.Key == Key.D)
+            {
+                gameLogic.Control(Controls.Right);
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            //if (gameLogic != null)
-            //{
-            //    display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            //    gameLogic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            //}
+            if (gameLogic != null)
+            {
+                display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+                gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            }
         }
     }
 }
