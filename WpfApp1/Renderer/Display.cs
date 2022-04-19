@@ -5,22 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using WpfApp1.Logic;
 
 namespace WpfApp1.Renderer
 {
     public class Display : FrameworkElement
     {
-        Size windowSize;
+        Size mapArea;
+        IGameModel model;
 
-        public void SetupSizes(Size windowSize)
+        public void SetupSizes(Size mapArea)
         {
-            this.windowSize = windowSize;
+            this.mapArea = mapArea;
             this.InvalidateVisual();
         }
 
-        public void SetupModel()
+        public void SetupModel(IGameModel model)
         {
-            
+            this.model = model;
+            this.model.Changed += (sender, eventargs) => this.InvalidateVisual();
         }
 
         public Brush PlayerBrush
@@ -31,9 +34,9 @@ namespace WpfApp1.Renderer
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
-            if (windowSize.Width > 0 && windowSize.Height > 0)
+            if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-                drawingContext.DrawRectangle(PlayerBrush, null, new Rect(windowSize.Width / 2, windowSize.Height / 2, 25, 25));
+                drawingContext.DrawRectangle(PlayerBrush, null, new Rect(mapArea.Width / 2, mapArea.Height / 2, 25, 25));
             }
         }
     }
