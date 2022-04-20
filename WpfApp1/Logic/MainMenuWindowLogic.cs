@@ -15,7 +15,7 @@ namespace MainMenu.Logic
             this.service = service;
         }
         public void LoadLobby() {
-            
+            this.service.LobbyOpener();
         }
     }
 }
