@@ -17,6 +17,7 @@ namespace MainMenu.ViewModel
     {
         public IMainMenuWindowLogic logic;
         public ICommand LobbyOpenerCommand { get; set; }
+        public ICommand LobbyOpenerNewGameCommand { get; set; }
         static bool IsInDesignMode
         {
             get
@@ -36,6 +37,9 @@ namespace MainMenu.ViewModel
             this.logic = logic;
             LobbyOpenerCommand = new RelayCommand(
                 () => logic.LoadLobby()
+                );
+            LobbyOpenerNewGameCommand = new RelayCommand(
+                () => logic.LoadLobbyWithNew()
                 );
         }
     }

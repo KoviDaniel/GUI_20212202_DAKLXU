@@ -16,6 +16,12 @@ namespace MainMenu.Logic
         }
         public void LoadLobby()
         {
+            //check save files, if these are not avaible, then call the LoadLobbyWithNew method
+            this.service.LobbyOpener();
+        }
+        public void LoadLobbyWithNew() 
+        {
+            //deletes earlier save files
             this.service.LobbyOpener();
         }
     }
