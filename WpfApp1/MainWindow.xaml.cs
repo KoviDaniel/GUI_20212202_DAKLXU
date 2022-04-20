@@ -22,69 +22,69 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameLogic gameLogic;
+       // private GameLogic gameLogic;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            gameLogic = new GameLogic();
-            // logic.GameOver += Logic_GameOver;
-            display.SetupModel(gameLogic);
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    gameLogic = new GameLogic();
+        //    // logic.GameOver += Logic_GameOver;
+        //    display.SetupModel(gameLogic);
 
-            DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(10);
-            dt.Tick += Dt_Tick;
-            dt.Start();
+        //    DispatcherTimer dt = new DispatcherTimer();
+        //    dt.Interval = TimeSpan.FromMilliseconds(10);
+        //    dt.Tick += Dt_Tick;
+        //    dt.Start();
 
-            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-        }
+        //    display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+        //    gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+        //}
 
-        private void Dt_Tick(object sender, EventArgs e)
-        {           
-            Control();
-            gameLogic.TimeStep();
-            this.InvalidateVisual();
-        }
+        //private void Dt_Tick(object sender, EventArgs e)
+        //{           
+        //    Control();
+        //    gameLogic.TimeStep();
+        //    this.InvalidateVisual();
+        //}
 
-        private void Window_KeyDown(object sender, KeyEventArgs e) { }
+        //private void Window_KeyDown(object sender, KeyEventArgs e) { }
 
-        private void Window_KeyUp(object sender, KeyEventArgs e) { }
+        //private void Window_KeyUp(object sender, KeyEventArgs e) { }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (gameLogic != null)
-            {
-                display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-                gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            }
-        }
+        //private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    if (gameLogic != null)
+        //    {
+        //        display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+        //        gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+        //    }
+        //}
 
-        private void Control()
-        {
-            if (Keyboard.IsKeyDown(Key.W))
-            {
-                gameLogic.PlayerControl(Controls.Up);
-            }
-            if (Keyboard.IsKeyDown(Key.S))
-            {
-                gameLogic.PlayerControl(Controls.Down);
+        //private void Control()
+        //{
+        //    if (Keyboard.IsKeyDown(Key.W))
+        //    {
+        //        gameLogic.PlayerControl(Controls.Up);
+        //    }
+        //    if (Keyboard.IsKeyDown(Key.S))
+        //    {
+        //        gameLogic.PlayerControl(Controls.Down);
 
-            }
-            if (Keyboard.IsKeyDown(Key.A))
-            {
-                gameLogic.PlayerControl(Controls.Left);
+        //    }
+        //    if (Keyboard.IsKeyDown(Key.A))
+        //    {
+        //        gameLogic.PlayerControl(Controls.Left);
 
-            }
-            if (Keyboard.IsKeyDown(Key.D))
-            {
-                gameLogic.PlayerControl(Controls.Right);
-            }
-        }
+        //    }
+        //    if (Keyboard.IsKeyDown(Key.D))
+        //    {
+        //        gameLogic.PlayerControl(Controls.Right);
+        //    }
+        //}
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
