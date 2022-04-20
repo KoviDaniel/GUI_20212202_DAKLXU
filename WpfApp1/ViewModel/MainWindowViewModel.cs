@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MainMenu.ViewModel
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : ObservableRecipient
     {
+
     }
 }

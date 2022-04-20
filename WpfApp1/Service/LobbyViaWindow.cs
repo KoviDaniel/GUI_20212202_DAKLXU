@@ -10,7 +10,9 @@ namespace MainMenu.Service
     {
         public void LobbyOpener()
         {
+
             new LobbyWindow().ShowDialog();
+            
         }
     }
 }
