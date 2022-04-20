@@ -84,22 +84,6 @@ namespace WpfApp1
             {
                 gameLogic.PlayerControl(Controls.Right);
             }
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
-            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                Application.Current.Shutdown();
-            }
-            else {
-                e.Cancel = true;
-            }
-        }
+        }      
     }
 }
