@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Shores of Gold" WindowState="Maximized">
+        Title="Shores of Gold" WindowState="Maximized" Closing="Window_Closing"
+        KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"  
+        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
     <Grid x:Name="mainwindow_grid">
+        <renderer:Display x:Name="display"/>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
