@@ -8,7 +8,6 @@
         mc:Ignorable="d"
         Title="Lobby" Height="450" Width="800" WindowState="Maximized"
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
-    
     <Grid x:Name="grid">
         
     </Grid>

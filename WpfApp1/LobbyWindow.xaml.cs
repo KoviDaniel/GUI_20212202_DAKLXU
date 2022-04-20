@@ -24,10 +24,10 @@ namespace MainMenu
     {
         private GameLogic gameLogic;
         private Display display;
+
         public LobbyWindow()
         {
-            InitializeComponent();
-            
+            InitializeComponent(); 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
