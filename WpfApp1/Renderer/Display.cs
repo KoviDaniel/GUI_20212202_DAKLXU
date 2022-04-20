@@ -42,7 +42,7 @@ namespace WpfApp1.Renderer
                 //    ));
                 drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
                     model.Player.Center.X, model.Player.Center.Y,
-                    model.Player.PlayerWidth, model.Player.PlayerHeight
+                    model.Player.EntityWidth, model.Player.EntityHeight
                     ));
             }
         }
