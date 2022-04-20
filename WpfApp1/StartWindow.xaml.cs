@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ namespace MainMenu
         {
             InitializeComponent();
             frame.NavigationService.Navigate(new MainWindow());           
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            
         }
     }
 }

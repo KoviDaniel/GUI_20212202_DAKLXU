@@ -38,17 +38,13 @@ namespace WpfApp1
                 click_counter++;
             }
         }
-        private void Button_Click_Exit(object sender, CancelEventArgs e)
+        private void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
                 MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+            } 
         }
     }
 }
