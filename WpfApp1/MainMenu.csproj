@@ -19,11 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Fonts\Windlass.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

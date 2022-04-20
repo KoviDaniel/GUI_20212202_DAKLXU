@@ -14,7 +14,7 @@
     <!--Closing="Window_Closing"-->
     
     <Canvas x:Name="lobby_canvas">
-        <renderer:Display x:Name="display" />
+        <renderer:Display x:Name="display"/>
     </Canvas>
     
 </Page>

@@ -1,6 +1,7 @@
 ﻿using MainMenu;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,18 @@ namespace WpfApp1
                 click_counter++;
             }
         }
-        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        private void Button_Click_Exit(object sender, CancelEventArgs e)
         {
             Application.Current.Shutdown();
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
+                MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

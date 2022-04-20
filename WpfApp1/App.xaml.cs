@@ -1,7 +1,4 @@
-﻿using MainMenu.Logic;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Mvvm.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
