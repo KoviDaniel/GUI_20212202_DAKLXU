@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>WpfApp1.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +19,11 @@
     </Content>
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+	</ItemGroup>
+	
   <ItemGroup>
     <Resource Include="Fonts\Windlass.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -25,6 +31,10 @@
     <Resource Include="Images\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 
 </Project>

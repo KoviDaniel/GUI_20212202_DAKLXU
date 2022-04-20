@@ -40,7 +40,6 @@ namespace WpfApp1
         }
         private void Button_Click_Exit(object sender, CancelEventArgs e)
         {
-            Application.Current.Shutdown();
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
                 MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
