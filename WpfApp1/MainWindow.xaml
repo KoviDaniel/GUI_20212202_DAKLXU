@@ -5,11 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Shores of Gold" WindowState="Maximized" Closing="Window_Closing"
-        KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"  
-        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
-    <Grid x:Name="grid">
-        <renderer:Display x:Name="display"/>
+        Title="Shores of Gold" WindowState="Maximized">
+    <Grid x:Name="mainwindow_grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
@@ -22,11 +19,12 @@
         <Label Content="Shores of Gold" HorizontalAlignment="Center" VerticalAlignment="Center" 
                Style="{StaticResource lblDesign}" FontSize="130" Grid.Row="0" Foreground="Gold"/>
         <Button Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"
+                Click="Button_Click_Continue"/>
         <Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"
-                Click="Button_Click"/>
+                Click="Button_Click_Exit"/>
     </Grid>
 </Window>
