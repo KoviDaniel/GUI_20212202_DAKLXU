@@ -12,7 +12,7 @@ namespace ShoresOfGold.Models
     {
         public int Gold { get; set; }
 
-        public Player(Size mapArea)  // A palya merete double x, double y 
+        public Player(Size mapArea) 
         {
             Health = 100;
             Stamina = 150;

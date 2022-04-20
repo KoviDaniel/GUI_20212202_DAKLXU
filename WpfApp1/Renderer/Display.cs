@@ -34,6 +34,14 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush ZombieBrush
+        {
+            get
+            {
+                return Brushes.Black;
+                //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -43,6 +51,10 @@ namespace ShoresOfGold.Renderer
                 drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
                     model.Player.Center.X, model.Player.Center.Y,
                     model.Player.Width, model.Player.Height
+                    ));
+                drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
+                    model.Zombie.Center.X, model.Zombie.Center.Y,
+                    model.Zombie.Width, model.Zombie.Height
                     ));
             }
         }
