@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainMenu.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace MainMenu.Logic
 {
     public class MainMenuWindowLogic
     {
-        public MainMenuWindowLogic()
+        ILobbyOpenerService service;
+        public MainMenuWindowLogic(ILobbyOpenerService service)
         {
-
+            this.service = service;
         }
         public void LoadLobby() {
             
