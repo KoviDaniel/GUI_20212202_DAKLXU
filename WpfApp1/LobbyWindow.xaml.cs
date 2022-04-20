@@ -24,16 +24,15 @@ namespace MainMenu
     {
         private GameLogic gameLogic;
         private Display display;
-
         public LobbyWindow()
         {
-            InitializeComponent(); 
+            InitializeComponent();          
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             gameLogic = new GameLogic();
-            display = new Display();
+            
             display.SetupModel(gameLogic);
 
             DispatcherTimer dt = new DispatcherTimer();
@@ -71,6 +70,7 @@ namespace MainMenu
             {
                 gameLogic.PlayerControl(Controls.Right);
             }
+            if (Keyboard.IsKeyDown(Key.Escape)) this.Close();
 
         }
 
@@ -79,6 +79,19 @@ namespace MainMenu
             if (gameLogic != null) {
                 display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
                 gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to return to the menu?", "Confirm",
+           MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

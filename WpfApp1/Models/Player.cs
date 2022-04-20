@@ -20,8 +20,8 @@ namespace WpfApp1.Models
 
             Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
             Speed = new Vector(3, 3);
-            EntityWidth = 25;
-            EntityHeight = 25;
+            EntityWidth = 50; //25
+            EntityHeight = 50; //25
         }
 
         public void Move(Controls control)

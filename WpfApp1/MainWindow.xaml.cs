@@ -38,7 +38,8 @@ namespace WpfApp1
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
             MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Application.Current.Shutdown();
+                //Application.Current.Shutdown();
+                this.DialogResult = true;
             }
             else {
                 e.Cancel = true;

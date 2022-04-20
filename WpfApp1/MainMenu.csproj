@@ -9,6 +9,18 @@
   <ItemGroup>
     <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\background.png" />
+    <None Remove="Images\pirate.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\pirate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
   </ItemGroup>
 
   <ItemGroup>

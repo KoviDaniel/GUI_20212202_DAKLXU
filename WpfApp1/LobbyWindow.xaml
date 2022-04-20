@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:MainMenu"
         xmlns:renderer="clr-namespace:WpfApp1.Renderer"
         mc:Ignorable="d"
-        Title="Lobby" Height="450" Width="800" WindowState="Maximized"
+        Title="Lobby" WindowState="Maximized" Closing="Window_Closing"
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
     <Grid x:Name="grid">
-        
+        <renderer:Display x:Name="display" />
     </Grid>
 </Window>
