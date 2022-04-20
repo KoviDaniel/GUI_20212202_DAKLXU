@@ -1,4 +1,7 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using MainMenu.Logic;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +15,8 @@ namespace MainMenu.ViewModel
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-        public ICommand LobbyOpener { get; set; }
+        public IMainMenuWindowLogic logic;
+        public ICommand LobbyOpenerCommand { get; set; }
         static bool IsInDesignMode
         {
             get
@@ -20,6 +24,19 @@ namespace MainMenu.ViewModel
                 var prop = DesignerProperties.IsInDesignModeProperty;
                 return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
             }
+        }
+        public MainWindowViewModel()
+            : this(IsInDesignMode ? null : Ioc.Default.GetService<IMainMenuWindowLogic>())
+        {
+
+        }
+
+        public MainWindowViewModel(IMainMenuWindowLogic logic)
+        {
+            this.logic = logic;
+            LobbyOpenerCommand = new RelayCommand(
+                () => logic.LoadLobby()
+                );
         }
     }
 }

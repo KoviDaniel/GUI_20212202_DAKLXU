@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:vm="clr-namespace:MainMenu.ViewModel"
         mc:Ignorable="d"
          Title="Shores of Gold" WindowState="Maximized" Closing="Window_Closing">
+    <Window.DataContext>
+        <vm:MainWindowViewModel x:Name="vm" />
+    </Window.DataContext>
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -19,7 +23,7 @@
         <Label Content="Shores of Gold" HorizontalAlignment="Center" VerticalAlignment="Center" 
                Style="{StaticResource lblDesign}" FontSize="130" Grid.Row="0" Foreground="Gold"/>
         <Button Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+                Style="{StaticResource lblDesign}" Command="{Binding LobbyOpenerCommand}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
         <Button Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" 
