@@ -20,13 +20,14 @@ namespace MainMenu
     /// <summary>
     /// Interaction logic for LobbyWindow.xaml
     /// </summary>
-    public partial class LobbyWindow : Window
+    public partial class LobbyWindow : Page
     {
         private GameLogic gameLogic;
         //private Display display;
         public LobbyWindow()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            GraphicalEffects.EndTransiton(lobby_canvas, LobbyPage);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -40,8 +41,8 @@ namespace MainMenu
             dt.Tick += Dt_Tick;
             dt.Start();
 
-            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            display.SetupSizes(new Size(lobby_canvas.ActualWidth, lobby_canvas.ActualHeight));
+            gameLogic.SetupSizes(new Size((int)lobby_canvas.ActualWidth, (int)lobby_canvas.ActualHeight));
         }
 
         private void Dt_Tick(object sender, EventArgs e)
@@ -70,29 +71,29 @@ namespace MainMenu
             {
                 gameLogic.PlayerControl(Controls.Right);
             }
-            if (Keyboard.IsKeyDown(Key.Escape)) this.Close();
+            if (Keyboard.IsKeyDown(Key.Escape)) Application.Current.Shutdown();
 
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (gameLogic != null) {
-                display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-                gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            }
-        }
+        //private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    if (gameLogic != null) {
+        //        display.SetupSizes(new Size(lobby_canvas.ActualWidth, lobby_canvas.ActualHeight));
+        //        gameLogic.SetupSizes(new Size((int)lobby_canvas.ActualWidth, (int)lobby_canvas.ActualHeight));
+        //    }
+        //}
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to return to the menu?", "Confirm",
-           MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                Application.Current.Shutdown();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        //private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    if (MessageBox.Show("Are you sure you want to return to the menu?", "Confirm",
+        //   MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+        //    {
+        //        Application.Current.Shutdown();
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = true;
+        //    }
+        //}
     }
 }

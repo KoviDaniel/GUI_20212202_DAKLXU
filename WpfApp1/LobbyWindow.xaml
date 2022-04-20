@@ -1,4 +1,5 @@
-﻿<Window x:Class="MainMenu.LobbyWindow"
+﻿<Page x:Name="LobbyPage"
+        x:Class="MainMenu.LobbyWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +7,14 @@
         xmlns:local="clr-namespace:MainMenu"
         xmlns:renderer="clr-namespace:WpfApp1.Renderer"
         mc:Ignorable="d"
-        Title="Lobby" WindowState="Maximized" Closing="Window_Closing"
-        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
-    <Grid x:Name="grid">
-        <renderer:Display x:Name="display" />
-    </Grid>
+        Title="Lobby"  
+        Loaded="Window_Loaded" >
+    <!--WindowState="Maximized"-->
+    <!--SizeChanged="Window_SizeChanged"-->
+    <!--Closing="Window_Closing"-->
     
-</Window>
+    <Canvas x:Name="lobby_canvas">
+        <renderer:Display x:Name="display" />
+    </Canvas>
+    
+</Page>

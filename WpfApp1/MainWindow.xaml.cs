@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainMenu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,30 +21,25 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    { 
-
+    public partial class MainWindow : Page
+    {
+        private int click_counter = 0;
         public MainWindow()
         {
             InitializeComponent();
-        }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        }     
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Button_Click_Continue(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
-            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (click_counter == 0)
             {
-                //Application.Current.Shutdown();
-                this.DialogResult = true;
+                GraphicalEffects.StartTransition<LobbyWindow>(mainmenu_canvas, MainMenuPage);
+                click_counter++;
             }
-            else {
-                e.Cancel = true;
-            }
+        }
+        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
