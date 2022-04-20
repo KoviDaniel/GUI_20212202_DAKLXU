@@ -40,6 +40,9 @@ namespace MainMenu
             dt.Interval = TimeSpan.FromMilliseconds(10);
             dt.Tick += Dt_Tick;
             dt.Start();
+
+            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+            gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
         }
 
         private void Dt_Tick(object sender, EventArgs e)
@@ -69,6 +72,14 @@ namespace MainMenu
                 gameLogic.PlayerControl(Controls.Right);
             }
 
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (gameLogic != null) {
+                display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+                gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            }
         }
     }
 }
