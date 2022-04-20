@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace MainMenu.Logic
 {
-    public class MainMenuWindowLogic
+    public class MainMenuWindowLogic : IMainMenuWindowLogic
     {
         ILobbyOpenerService service;
         public MainMenuWindowLogic(ILobbyOpenerService service)
         {
             this.service = service;
         }
-        public void LoadLobby() {
+        public void LoadLobby()
+        {
             this.service.LobbyOpener();
         }
     }
