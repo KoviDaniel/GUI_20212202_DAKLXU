@@ -8,52 +8,26 @@ using WpfApp1.Logic;
 
 namespace WpfApp1.Models
 {
-    public class Player
+    public class Player : Entity
     {
-        //private double speedX, speedY;
-        //public double X { get; set; }
-        //public double Y { get; set; }
-        public int PlayerWidth { get; set; }
-        public int PlayerHeight { get; set; }
-
-        public System.Drawing.Point Center { get; set; } // A jatekos kozeppontja
-        public Vector Speed { get; set; }
+        public int Gold { get; set; }
 
         public Player(Size mapArea)  // A palya merete double x, double y 
         {
+            Health = 100;
+            Stamina = 150;
+            Gold = 0;
+
             Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
             Speed = new Vector(3, 3);
-
-            this.PlayerHeight = 25;
-            this.PlayerWidth = 25;
-
-            //this.X = x;
-            //this.Y = y;
-            //speedX = 5;
-            //speedY = 5;
+            EntityWidth = 25;
+            EntityHeight = 25;
         }
 
         public void Move(Controls control)
         {
             //System.Drawing.Point newCenter = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y + (int)Speed.Y);
             //if (newCenter.X >= 0 && newCenter.X <= mapArea.Width && newCenter.Y >= 0 && newCenter.Y <= mapArea.Height)
-
-            //if (control == Controls.Up)
-            //{
-            //    Y = Y - speedY;
-            //}
-            //else if (control == Controls.Down)
-            //{
-            //    Y = Y + speedY;
-            //}
-            //else if (control == Controls.Left)
-            //{
-            //    X = X - speedX;
-            //}
-            //else if (control == Controls.Right)
-            //{
-            //    X = X + speedX;
-            //}
 
             if (control == Controls.Up)
             {
