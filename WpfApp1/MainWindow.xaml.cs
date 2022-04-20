@@ -45,7 +45,7 @@ namespace WpfApp1
         }
 
         private void Dt_Tick(object sender, EventArgs e)
-        {           
+        {
             Control();
             gameLogic.TimeStep();
             this.InvalidateVisual();
@@ -83,6 +83,8 @@ namespace WpfApp1
             if (Keyboard.IsKeyDown(Key.D))
             {
                 gameLogic.PlayerControl(Controls.Right);
+            }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
