@@ -10,7 +10,7 @@ namespace MainMenu.Service
     {
         public void LobbyOpener()
         {
-            throw new NotImplementedException();
+            new LobbyWindow().ShowDialog();
         }
     }
 }
