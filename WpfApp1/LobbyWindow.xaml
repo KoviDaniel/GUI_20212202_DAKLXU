@@ -4,11 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainMenu"
-        xmlns:renderer="clr-namespace:WpfApp1.Renderer"
+        xmlns:renderer="clr-namespace:MainMenu.Renderer"
         mc:Ignorable="d"
         Title="Lobby" Height="450" Width="800" WindowState="Maximized"
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
-    
     <Grid x:Name="grid">
         
     </Grid>

@@ -27,13 +27,13 @@ namespace MainMenu
         public LobbyWindow()
         {
             InitializeComponent();
-            
+            display = new Display();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             gameLogic = new GameLogic();
-            display = new Display();
+            
             display.SetupModel(gameLogic);
 
             DispatcherTimer dt = new DispatcherTimer();
