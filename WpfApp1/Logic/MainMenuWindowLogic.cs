@@ -8,5 +8,12 @@ namespace MainMenu.Logic
 {
     public class MainMenuWindowLogic
     {
+        public MainMenuWindowLogic()
+        {
+
+        }
+        public void LoadLobby() {
+            
+        }
     }
 }
