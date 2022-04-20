@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using WpfApp1.Logic;
 
 namespace WpfApp1.Renderer
@@ -28,7 +29,10 @@ namespace WpfApp1.Renderer
 
         public Brush PlayerBrush
         {
-            get { return Brushes.Red; } // Img brush lesz
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+            }
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -38,7 +42,7 @@ namespace WpfApp1.Renderer
             {
                 drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
                     model.Player.Center.X, model.Player.Center.Y,
-                    model.Player.EntityWidth, model.Player.EntityHeight
+                    model.Player.Width, model.Player.Height
                     ));
             }
         }

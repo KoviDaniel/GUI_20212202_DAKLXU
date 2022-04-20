@@ -40,7 +40,7 @@ namespace WpfApp1.Logic
         public void TimeStep()
         {
             //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
-            Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.EntityWidth, Player.EntityHeight);
+            Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.Width, Player.Height);
             Changed?.Invoke(this, null);
         }
     }
