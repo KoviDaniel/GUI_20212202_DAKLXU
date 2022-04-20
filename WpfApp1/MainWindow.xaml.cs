@@ -83,7 +83,8 @@ namespace WpfApp1
             if (Keyboard.IsKeyDown(Key.D))
             {
                 gameLogic.PlayerControl(Controls.Right);
-
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
