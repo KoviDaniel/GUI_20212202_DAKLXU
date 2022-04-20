@@ -9,6 +9,13 @@
   <ItemGroup>
     <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\background.png" />
+    <None Remove="Images\pirate.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\pirate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
