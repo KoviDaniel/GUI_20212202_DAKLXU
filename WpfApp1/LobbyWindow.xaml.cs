@@ -23,11 +23,10 @@ namespace MainMenu
     public partial class LobbyWindow : Window
     {
         private GameLogic gameLogic;
-        //private Display display;
+        private Display display;
         public LobbyWindow()
         {
-            InitializeComponent();
-           // display = new Display();
+            InitializeComponent();          
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
