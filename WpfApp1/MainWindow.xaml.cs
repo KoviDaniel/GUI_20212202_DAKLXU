@@ -36,7 +36,7 @@ namespace WpfApp1
             display.SetupModel(gameLogic);
 
             DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(100);
+            dt.Interval = TimeSpan.FromMilliseconds(10);
             dt.Tick += Dt_Tick;
             dt.Start();
 
@@ -45,35 +45,15 @@ namespace WpfApp1
         }
 
         private void Dt_Tick(object sender, EventArgs e)
-        {
+        {           
+            Control();
             gameLogic.TimeStep();
             this.InvalidateVisual();
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W)
-            {
-                gameLogic.Control(Controls.Up);
-                
-            }
-            else if (e.Key == Key.S)
-            {
-                gameLogic.Control(Controls.Down);
-                
-            }
-            else if (e.Key == Key.A)
-            {
-                gameLogic.Control(Controls.Left);
-                
-            }
-            else if (e.Key == Key.D)
-            {
-                gameLogic.Control(Controls.Right);
-                
-            }
-            this.InvalidateVisual();
-        }
+        private void Window_KeyDown(object sender, KeyEventArgs e) { }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e) { }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -81,6 +61,29 @@ namespace WpfApp1
             {
                 display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
                 gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            }
+        }
+
+        private void Control()
+        {
+            if (Keyboard.IsKeyDown(Key.W))
+            {
+                gameLogic.PlayerControl(Controls.Up);
+            }
+            if (Keyboard.IsKeyDown(Key.S))
+            {
+                gameLogic.PlayerControl(Controls.Down);
+
+            }
+            if (Keyboard.IsKeyDown(Key.A))
+            {
+                gameLogic.PlayerControl(Controls.Left);
+
+            }
+            if (Keyboard.IsKeyDown(Key.D))
+            {
+                gameLogic.PlayerControl(Controls.Right);
+
             }
         }
     }

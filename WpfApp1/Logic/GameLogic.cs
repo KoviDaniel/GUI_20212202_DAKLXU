@@ -22,7 +22,9 @@ namespace WpfApp1.Logic
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
-            Player = new Player(mapArea.Width / 2, mapArea.Height / 2, 25, 25);
+
+            //Player = new Player(mapArea.Width / 2, mapArea.Height / 2);
+            Player = new Player(mapArea);
         }
 
         public GameLogic()
@@ -30,30 +32,15 @@ namespace WpfApp1.Logic
 
         }
 
-        public void Control(Controls control)
+        public void PlayerControl(Controls control)
         {
-            /*switch (control)
-            {
-                case Controls.Up:
-                    Player.Move(control);
-                    break;
-                case Controls.Down:
-                    Player.Move(control);
-                    break;
-                case Controls.Left:
-                    Player.Move(control);
-                    break;
-                case Controls.Right:
-                    Player.Move(control);
-                    break;
-            }*/
-
             Player.Move(control);
         }
 
         public void TimeStep()
         {
-            Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
+            //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
+            Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.PlayerWidth, Player.PlayerHeight);
             Changed?.Invoke(this, null);
         }
     }
