@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Logic;
 
 namespace MainMenu
 {
@@ -19,6 +20,7 @@ namespace MainMenu
     /// </summary>
     public partial class LobbyWindow : Window
     {
+        private GameLogic gameLogic;
         public LobbyWindow()
         {
             InitializeComponent();
