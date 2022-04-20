@@ -9,6 +9,7 @@
          Title="Shores of Gold" WindowState="Maximized" Closing="Window_Closing"
         KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"  
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
-    
-  
+
+    <Grid x:Name="grid">
+    </Grid>
 </Window>
