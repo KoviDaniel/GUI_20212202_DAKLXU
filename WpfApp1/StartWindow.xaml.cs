@@ -27,9 +27,17 @@ namespace MainMenu
             frame.NavigationService.Navigate(new MainWindow());           
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closing(object sender, CancelEventArgs e)
         {
-            
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
+            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown(); 
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
