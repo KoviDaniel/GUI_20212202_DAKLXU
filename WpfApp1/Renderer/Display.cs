@@ -36,10 +36,6 @@ namespace WpfApp1.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-                //drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
-                //    model.Player.X, model.Player.Y, 
-                //    model.Player.PlayerWidth, model.Player.PlayerWidth
-                //    ));
                 drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
                     model.Player.Center.X, model.Player.Center.Y,
                     model.Player.EntityWidth, model.Player.EntityHeight
