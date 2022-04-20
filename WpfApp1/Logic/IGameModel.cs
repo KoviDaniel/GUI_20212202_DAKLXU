@@ -1,7 +1,7 @@
 ﻿using System;
-using WpfApp1.Models;
+using ShoresOfGold.Models;
 
-namespace WpfApp1.Logic
+namespace ShoresOfGold.Logic
 {
     public interface IGameModel
     {

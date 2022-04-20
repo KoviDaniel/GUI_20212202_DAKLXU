@@ -14,9 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using WpfApp1.Logic;
+using ShoresOfGold.Logic;
 
-namespace WpfApp1
+namespace ShoresOfGold
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

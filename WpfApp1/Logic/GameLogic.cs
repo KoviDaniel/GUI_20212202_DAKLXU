@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfApp1.Models;
+using ShoresOfGold.Models;
 
-namespace WpfApp1.Logic
+namespace ShoresOfGold.Logic
 {
     public enum Controls
     {
