@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="lblDesign">
+            <Setter Property="TextElement.FontFamily" 
+                    Value="/Fonts/#Windlass"/>
+        </Style>
     </Application.Resources>
 </Application>
