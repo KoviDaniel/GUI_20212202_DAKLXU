@@ -118,11 +118,14 @@ namespace ShoresOfGold.Models
 
         public void NewFollowPlayer() 
         {
-            double distance = this.Distance;
-            if (distance <= this.DetectionRange && distance >= this.StoppingRange) 
+            if (player != null)
             {
-                Vector v = this.DirectionVector();
-                this.Center = new System.Drawing.Point(Center.X + (int)(v.X*this.Speed.X), Center.Y + (int)(v.Y * this.Speed.Y));
+                double distance = this.Distance;
+                if (distance <= this.DetectionRange && distance >= this.StoppingRange)
+                {
+                    Vector v = this.DirectionVector();
+                    this.Center = new System.Drawing.Point(Center.X + (int)(v.X * this.Speed.X), Center.Y + (int)(v.Y * this.Speed.Y));
+                }
             }
         }
         #endregion

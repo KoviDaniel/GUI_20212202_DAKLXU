@@ -10,5 +10,6 @@
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowState="Maximized" Closing="Window_Closing">
     <Grid x:Name="lobby_grid">
         <renderer:Display x:Name="display"/>
+        
     </Grid>
 </Window>

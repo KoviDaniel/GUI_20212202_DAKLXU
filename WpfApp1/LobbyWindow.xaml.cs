@@ -40,6 +40,7 @@ namespace MainMenu
 
             display.SetupSizes(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
             gameLogic.SetupSizes(new Size((int)lobby_grid.ActualWidth, (int)lobby_grid.ActualHeight));
+            
         }
 
         private void Dt_Tick(object sender, EventArgs e)
