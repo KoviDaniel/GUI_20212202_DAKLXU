@@ -39,5 +39,15 @@ namespace ShoresOfGold.Models
 
             AttackIntensity = 100;
         }
+
+        public override void Attack() 
+        {
+            cooldown++;
+            if (Distance <= AttackRange && cooldown >= AttackIntensity)
+            {
+                this.player.GetDamage(this.Power);
+                cooldown = 0;
+            }
+        }
     }
 }

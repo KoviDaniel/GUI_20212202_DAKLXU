@@ -97,8 +97,8 @@ namespace ShoresOfGold.Models
         public int StoppingRange { get; set; } //the enemy won't go any closer, but the player can
 
 
-        private Player player;
-        private double Distance
+        protected Player player;
+        protected double Distance
         {
             get
             {
@@ -130,17 +130,11 @@ namespace ShoresOfGold.Models
         #region Attack
         //1 sec = 1000 msec, it will be set by ctor
         //it will increase in every tick and when it reach the proper value, the enemy can attack
-        private int cooldown = 0;
+        protected int cooldown = 0;
         public int AttackIntensity { get; set; }
 
-        public void Attack() 
+        public virtual void Attack() 
         {
-            cooldown++;
-            if (Distance <= AttackRange && cooldown >= AttackIntensity) 
-            {
-                this.player.GetDamage(this.Power);
-                cooldown = 0;
-            }
         }
         #endregion
     }
