@@ -93,12 +93,21 @@ namespace ShoresOfGold.Models
         }
 
         private Player player;
-        public double Distance
+        private double Distance
         {
             get
             {
                 return Math.Sqrt(Math.Pow((player.Center.X-this.Center.X), 2)+Math.Pow((player.Center.Y - this.Center.Y), 2));
             }
+        }
+        private Vector DirectionVector() 
+        {
+            Vector v = new Vector();
+            v.X = this.player.Center.X - this.Center.X;
+            v.Y = this.player.Center.Y - this.Center.Y;
+            v.X /= v.Length;
+            v.Y /= v.Length;
+            return v;
         }
         #endregion
     }
