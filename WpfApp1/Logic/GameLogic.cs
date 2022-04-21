@@ -41,6 +41,7 @@ namespace ShoresOfGold.Logic
         {
             // Zombie.FollowPlayer(this.Player, this.mapArea);
             Zombie.NewFollowPlayer();
+            Zombie.Attack();
         }
 
         public void TimeStep()
