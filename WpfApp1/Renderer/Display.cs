@@ -48,7 +48,7 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-                drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
+                drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
                     model.Player.Center.X, model.Player.Center.Y,
                     model.Player.Width, model.Player.Height
                     ));
