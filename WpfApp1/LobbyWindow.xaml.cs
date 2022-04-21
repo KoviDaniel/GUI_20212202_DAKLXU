@@ -44,7 +44,7 @@ namespace MainMenu
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            Control();
+            PlayerControl();        
             gameLogic.TimeStep();
             this.InvalidateVisual();
         }
@@ -62,7 +62,7 @@ namespace MainMenu
             }
         }
 
-        private void Control()
+        private void PlayerControl()
         {
             if (Keyboard.IsKeyDown(Key.W))
             {
