@@ -128,7 +128,15 @@ namespace ShoresOfGold.Models
         #endregion
 
         #region Attack
+        //1 sec = 1000 msec, it will be set by ctor
+        //it will increase in every tick and when it reach the proper value, the enemy can attack
+        private int cooldown;
+        public int AttackIntensity { get; set; }
 
+        public void Attack() 
+        {
+        
+        }
         #endregion
     }
 }
