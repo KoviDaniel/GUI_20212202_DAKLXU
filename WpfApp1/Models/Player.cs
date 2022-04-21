@@ -18,7 +18,7 @@ namespace ShoresOfGold.Models
             Stamina = 150;
             Gold = 0;
 
-            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
+            Center = new System.Drawing.Point((int)mapArea.Width / 2 - 50, (int)mapArea.Height / 2 - 50);
             Speed = new Vector(3, 3);
             Width = 100;
             Height = 100;

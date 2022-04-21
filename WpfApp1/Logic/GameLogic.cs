@@ -46,6 +46,7 @@ namespace ShoresOfGold.Logic
         {
             Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.Width, Player.Height);
             Rect zombieRect = new Rect(Zombie.Center.X, Zombie.Center.Y, Zombie.Width, Zombie.Height);
+            Zombie.FollowPlayer(Player, mapArea);
             Changed?.Invoke(this, null);
         }
     }

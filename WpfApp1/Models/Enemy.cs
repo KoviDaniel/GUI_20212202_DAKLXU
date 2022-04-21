@@ -17,32 +17,69 @@ namespace ShoresOfGold.Models
             
         }
 
-        public void Move() 
+        public void Move() // idk yet
         {
-            //Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
+            
         }
 
         public void FollowPlayer(Player player, Size mapArea) // TODO
         {
-            while (true) // TODO: addig koveti amig utesi rangen belul nincs a player
+            var enemyPos = this.Center;
+            var playerPos = player.Center;
+
+            var upperLimit = player.Center.Y; //- (player.Height / 2);
+            var lowerLimit = player.Center.Y; //+ (player.Height / 2);
+            var leftLimit = player.Center.X; //- (player.Width / 2);
+            var rightlimit = player.Center.X; //+ (player.Width / 2);
+            
+            if (((playerPos.X >= leftLimit && playerPos.X <= rightlimit) && // Addig koveti amig utesi rangen belul nincs a player
+                (playerPos.Y >= upperLimit && playerPos.Y <= lowerLimit))) // TODO: korrigalas
             {
-                //var enemyCurrPos = this.Center;
-                var playerCurrPos = player.Center;
-
-                var upperLimit = player.Center.Y + (player.Height / 2);
-                var lowerLimit = player.Center.Y + mapArea.Height - (player.Height / 2);
-
-                var leftlimit = player.Center.X + (player.Width / 2);
-                var rightlimit = player.Center.X + mapArea.Width - (player.Width / 2);
-
-                if ((playerCurrPos.X > leftlimit && playerCurrPos.X < rightlimit) && (playerCurrPos.Y > upperLimit && playerCurrPos.Y < lowerLimit))
+                //if (enemyPos.Y < playerPos.Y) // felette
+                //{
+                //    Center = new System.Drawing.Point(enemyPos.X, enemyPos.Y + (int)Speed.Y);
+                //    //enemyPos.Y = this.Center.Y + (int)Speed.Y;
+                //}
+                if (enemyPos.X < playerPos.X && enemyPos.Y < playerPos.Y) // bal fent
                 {
-                    Center = new (playerCurrPos.X - (player.Width / 2), playerCurrPos.Y - (player.Height / 2));
-                    //Canvas.SetLeft(player, playerCurrPos.X - (player.Width / 2));
-                    //Canvas.SetTop(player, playerCurrPos.Y - (player.Height / 2));
+                    Center = new System.Drawing.Point(enemyPos.X + (int)Speed.X, enemyPos.Y + (int)Speed.Y);
+                    //enemyPos.X = this.Center.X + (int)Speed.X;
+                    //enemyPos.Y = this.Center.Y + (int)Speed.Y;
                 }
+                else if(enemyPos.X > playerPos.X && enemyPos.Y < playerPos.Y) // jobb fent
+                {
+                    Center = new System.Drawing.Point(enemyPos.X - (int)Speed.X, enemyPos.Y + (int)Speed.Y);
+                    //enemyPos.X = this.Center.X - (int)Speed.X;
+                    //enemyPos.Y = this.Center.Y + (int)Speed.Y;
+                }
+                //else if(enemyPos.X < playerPos.X) // balra
+                //{
+                //    Center = new System.Drawing.Point(enemyPos.X + (int)Speed.X, enemyPos.Y);
+                //    //enemyPos.X = this.Center.X + (int)Speed.X;
+                //}
+                //else if(enemyPos.X > playerPos.X) // jobbra
+                //{
+                //    Center = new System.Drawing.Point(enemyPos.X - (int)Speed.X, enemyPos.Y);
+                //    //enemyPos.X = this.Center.X - (int)Speed.X;
+                //}
+                else if(enemyPos.X < playerPos.X && enemyPos.Y > playerPos.Y) // bal lent
+                {
+                    Center = new System.Drawing.Point(enemyPos.X + (int)Speed.X, enemyPos.Y - (int)Speed.Y);
+                    //enemyPos.X = this.Center.X + (int)Speed.X;
+                    //enemyPos.Y = this.Center.Y - (int)Speed.Y;
+                }
+                else if(enemyPos.X > playerPos.X && enemyPos.Y > playerPos.Y) // jobb lent
+                {
+                    Center = new System.Drawing.Point(enemyPos.X - (int)Speed.X, enemyPos.Y - (int)Speed.Y);
+                    //enemyPos.X = this.Center.X - (int)Speed.X;
+                    //enemyPos.Y = this.Center.Y - (int)Speed.Y;
+                }
+                //else if(enemyPos.Y > playerPos.Y) // alatta
+                //{
+                //    Center = new System.Drawing.Point(enemyPos.X, enemyPos.Y - (int)Speed.Y);
+                //    //enemyPos.Y = this.Center.Y - (int)Speed.Y;
+                //}
             }
         }
-
     }
 }
