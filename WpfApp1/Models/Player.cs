@@ -46,5 +46,16 @@ namespace ShoresOfGold.Models
                 Center = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y);
             }
         }
+
+        public void Heal() 
+        {
+            //increases the HP of the player
+        }
+
+        public void GetDamage(int damage) 
+        {
+            this.Health -= damage;
+            if (this.Health <= 0) { /*the player dies*/}
+        }
     }
 }
