@@ -114,6 +114,15 @@ namespace ShoresOfGold.Models
             v.Y /= v.Length;
             return v;
         }
+
+        public void NewFollowPlayer() 
+        {
+            double distance = this.Distance;
+            while (distance <= this.DetectionRange && distance >= this.StoppingRange) 
+            {
+                
+            }
+        }
         #endregion
     }
 }
