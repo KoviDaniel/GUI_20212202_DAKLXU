@@ -24,7 +24,7 @@ namespace ShoresOfGold.Logic
         {
             this.mapArea = mapArea;
             Player = new Player(mapArea);
-            Zombie= new Zombie(mapArea);
+            Zombie= new Zombie(mapArea, this.Player);
         }
 
         public GameLogic()
@@ -39,7 +39,8 @@ namespace ShoresOfGold.Logic
 
         public void EnemyControl()
         {
-            Zombie.FollowPlayer(this.Player, this.mapArea);
+            // Zombie.FollowPlayer(this.Player, this.mapArea);
+            Zombie.NewFollowPlayer();
         }
 
         public void TimeStep()
