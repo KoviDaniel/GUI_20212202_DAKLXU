@@ -94,7 +94,7 @@ namespace ShoresOfGold.Models
 
         public int AttackRange { get; set; }
         public int DetectionRange { get; set; }
-        public int StoppingRange { get; set; }
+        public int StoppingRange { get; set; } //the enemy won't go any closer, but the player can
 
 
         private Player player;
@@ -105,6 +105,7 @@ namespace ShoresOfGold.Models
                 return Math.Sqrt(Math.Pow((player.Center.X-this.Center.X), 2)+Math.Pow((player.Center.Y - this.Center.Y), 2));
             }
         }
+        //gets a direction vector towards the player
         private Vector DirectionVector() 
         {
             Vector v = new Vector();
