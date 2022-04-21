@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{8E6F7A76-CBA1-4CFF-8D6B-DBFE0934F6F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoresOfGold", "WpfApp1\ShoresOfGold.csproj", "{8E6F7A76-CBA1-4CFF-8D6B-DBFE0934F6F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

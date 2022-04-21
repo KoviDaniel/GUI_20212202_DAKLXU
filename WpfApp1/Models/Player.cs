@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfApp1.Logic;
+using ShoresOfGold.Logic;
 
-namespace WpfApp1.Models
+namespace ShoresOfGold.Models
 {
     public class Player : Entity
     {
         public int Gold { get; set; }
 
-        public Player(Size mapArea)  // A palya merete double x, double y 
+        public Player(Size mapArea) 
         {
             Health = 100;
             Stamina = 150;
             Gold = 0;
 
-            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
+            Center = new System.Drawing.Point((int)mapArea.Width / 2 - 50, (int)mapArea.Height / 2 - 50);
             Speed = new Vector(3, 3);
-            EntityWidth = 25;
-            EntityHeight = 25;
+            Width = 100;
+            Height = 100;
         }
 
         public void Move(Controls control)

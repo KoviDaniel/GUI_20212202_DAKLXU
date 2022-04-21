@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainMenu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,77 +14,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using WpfApp1.Logic;
+using ShoresOfGold.Logic;
 
-namespace WpfApp1
+namespace ShoresOfGold
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameLogic gameLogic;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click_Continue(object sender, RoutedEventArgs e)
         {
-            gameLogic = new GameLogic();
-            // logic.GameOver += Logic_GameOver;
-            display.SetupModel(gameLogic);
-
-            DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(10);
-            dt.Tick += Dt_Tick;
-            dt.Start();
-
-            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
+            var cApp = ((App)Application.Current);
+            cApp.MainWindow = new LobbyWindow();
+            cApp.MainWindow.Show();
+            this.Close();
         }
 
-        private void Dt_Tick(object sender, EventArgs e)
-        {           
-            Control();
-            gameLogic.TimeStep();
-            this.InvalidateVisual();
-        }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e) { }
-
-        private void Window_KeyUp(object sender, KeyEventArgs e) { }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
-            if (gameLogic != null)
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
+            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-                gameLogic.SetupSizes(new Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            }
-        }
-
-        private void Control()
-        {
-            if (Keyboard.IsKeyDown(Key.W))
-            {
-                gameLogic.PlayerControl(Controls.Up);
-            }
-            if (Keyboard.IsKeyDown(Key.S))
-            {
-                gameLogic.PlayerControl(Controls.Down);
-
-            }
-            if (Keyboard.IsKeyDown(Key.A))
-            {
-                gameLogic.PlayerControl(Controls.Left);
-
-            }
-            if (Keyboard.IsKeyDown(Key.D))
-            {
-                gameLogic.PlayerControl(Controls.Right);
-
+                Application.Current.Shutdown();
             }
         }
     }

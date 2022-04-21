@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfApp1.Models
+namespace ShoresOfGold.Models
 {
     public class Entity
     {
@@ -13,7 +13,7 @@ namespace WpfApp1.Models
         public double Stamina { get; set; }
         public System.Drawing.Point Center { get; set; }
         public Vector Speed { get; set; }
-        public int EntityWidth { get; set; }
-        public int EntityHeight { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }
