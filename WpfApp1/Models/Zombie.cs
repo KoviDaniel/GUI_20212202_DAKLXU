@@ -28,14 +28,14 @@ namespace ShoresOfGold.Models
             Stamina = 100; // ??
             Power = 10;
 
-            Speed = new Vector(1, 1);
+            Speed = new Vector(2, 2);
             Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
             Width = 50;
             Height = 50;
 
-            DetectionRange = 200;
-            AttackRange = 150;
-            StoppingRange = 90;
+            DetectionRange = 300;
+            AttackRange = 250;
+            StoppingRange = 10+(player.Width+player.Height)/2;
         }
     }
 }
