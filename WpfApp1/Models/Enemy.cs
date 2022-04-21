@@ -86,7 +86,7 @@ namespace ShoresOfGold.Models
 
         #endregion
 
-        #region newIdea
+        #region newMovementIdea
         public Enemy(Player player)
         {
             this.player = player;
@@ -126,5 +126,7 @@ namespace ShoresOfGold.Models
             }
         }
         #endregion
+
+
     }
 }
