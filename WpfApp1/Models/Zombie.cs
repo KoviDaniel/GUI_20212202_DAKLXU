@@ -32,6 +32,10 @@ namespace ShoresOfGold.Models
             Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
             Width = 50;
             Height = 50;
+
+            DetectionRange = 200;
+            AttackRange = 150;
+            StoppingRange = 90;
         }
     }
 }
