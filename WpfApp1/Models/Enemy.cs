@@ -10,7 +10,9 @@ namespace ShoresOfGold.Models
 {
     public class Enemy : Entity
     {
+        #region OlderIdea
         public double Power { get; set; }
+        
 
         public Enemy()
         {
@@ -81,5 +83,20 @@ namespace ShoresOfGold.Models
                 //}
             }
         }
+
+        #endregion
+
+        #region newIdea
+
+
+        private Player
+        public double Distance
+        {
+            get
+            {
+
+            }
+        }
+        #endregion
     }
 }
