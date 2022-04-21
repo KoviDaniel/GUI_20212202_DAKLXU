@@ -92,6 +92,11 @@ namespace ShoresOfGold.Models
             this.player = player;
         }
 
+        public int AttackRange { get; set; }
+        public int DetectionRange { get; set; }
+        public int StoppingRange { get; set; }
+
+
         private Player player;
         private double Distance
         {
