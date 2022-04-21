@@ -52,7 +52,7 @@ namespace ShoresOfGold.Models
             //increases the HP of the player
         }
 
-        public void GetDamage(int damage) 
+        public void GetDamage(double damage) 
         {
             this.Health -= damage;
             if (this.Health <= 0) { /*the player dies*/}
