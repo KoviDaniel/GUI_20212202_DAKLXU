@@ -127,6 +127,8 @@ namespace ShoresOfGold.Models
         }
         #endregion
 
+        #region Attack
 
+        #endregion
     }
 }
