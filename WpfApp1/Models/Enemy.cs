@@ -87,14 +87,17 @@ namespace ShoresOfGold.Models
         #endregion
 
         #region newIdea
+        public Enemy(Player player)
+        {
+            this.player = player;
+        }
 
-
-        private Player
+        private Player player;
         public double Distance
         {
             get
             {
-
+                return Math.Sqrt(Math.Pow((player.Center.X-this.Center.X), 2)+Math.Pow((player.Center.Y - this.Center.Y), 2));
             }
         }
         #endregion
