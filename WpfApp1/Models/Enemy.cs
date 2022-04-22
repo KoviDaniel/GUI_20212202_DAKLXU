@@ -133,7 +133,7 @@ namespace ShoresOfGold.Models
         #region Attack
         //1 sec = 1000 msec, it will be set by ctor
         //it will increase in every tick and when it reach the proper value, the enemy can attack
-        protected int cooldown = 0;
+        public int cooldown = 0;
         public int AttackIntensity { get; set; }
 
         public virtual void Attack() 

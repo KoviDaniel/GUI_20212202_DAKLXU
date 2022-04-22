@@ -37,7 +37,7 @@ namespace ShoresOfGold.Models
             AttackRange = 290;
             StoppingRange = 10+(player.Width+player.Height)/2;
 
-            AttackIntensity = 100;
+            AttackIntensity = 50;
         }
 
         public override void Attack() 

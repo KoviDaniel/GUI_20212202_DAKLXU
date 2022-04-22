@@ -59,6 +59,7 @@ namespace ShoresOfGold.Renderer
                     model.Zombie.Center.X, model.Zombie.Center.Y,
                     model.Zombie.Width, model.Zombie.Height
                     ));
+                
             }
         }
     }
