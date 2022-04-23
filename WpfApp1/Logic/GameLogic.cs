@@ -15,16 +15,35 @@ namespace ShoresOfGold.Logic
 
     public class GameLogic : IGameModel
     {
+        Random r = new Random();
         private Size mapArea;
         public event EventHandler Changed; //public event EventHandler GameOver;
         public Player Player { get; set; }
-        public Zombie Zombie { get; set; }
-
+        //public Zombie Zombie { get; set; }
+        public List<Enemy> Enemies { get; set; }
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
             Player = new Player(mapArea);
-            Zombie= new Zombie(mapArea, this.Player);
+            //Zombie= new Zombie(mapArea, this.Player);
+            this.Enemies = new List<Enemy>();
+        }
+
+        public void GenerateEnemies() 
+        {
+            int num = r.Next(0, 3);
+            if (num == 0)
+            {
+                this.Enemies.Add(new Zombie(mapArea, Player));
+            }
+            else if (num == 1)
+            {
+                this.Enemies.Add(new Brute(mapArea, Player));
+            }
+            else 
+            {
+                this.Enemies.Add(new Sniper(mapArea, Player));
+            }
         }
 
         public GameLogic()

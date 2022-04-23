@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Logic
@@ -6,7 +7,8 @@ namespace ShoresOfGold.Logic
     public interface IGameModel
     {
         Player Player { get; set; }
-        Zombie Zombie { get; set; }
+        //Zombie Zombie { get; set; }
+        List<Enemy> Enemies { get; set; }
 
         event EventHandler Changed;
     }
