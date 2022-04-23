@@ -10,6 +10,7 @@ namespace ShoresOfGold.Models
     public class Sniper : Enemy
     {
         Random tr = new Random();
+        public List<Bullet> bullets;
         public Sniper(Size mapArea, Player player) : base(mapArea, player)
         {
             Health = 50;
@@ -24,6 +25,7 @@ namespace ShoresOfGold.Models
             StoppingRange = 100 + (player.Width + player.Height) / 2;
 
             AttackIntensity = 300;
+            this.bullets = new List<Bullet>();
         }
 
         private void Accuracy(ref System.Drawing.Point target) 
@@ -53,11 +55,14 @@ namespace ShoresOfGold.Models
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
                 {
+                    cooldown = 0;
                     System.Drawing.Point target = player.Center;
                     Accuracy(ref target);
-
+                    Bullet b = new Bullet(this.Center, target);
+                    bullets.Add(b);
                 }
             }
+            bullets.ForEach(b => b.Moving());
         }
     }
 }
