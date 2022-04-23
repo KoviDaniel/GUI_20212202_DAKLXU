@@ -31,7 +31,7 @@ namespace ShoresOfGold.Logic
             //Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
-            for (int i = 0; i < r.Next(3,11); i++)
+            for (int i = 0; i < r.Next(3,7); i++)
             {
                 GenerateEnemies();
             }
