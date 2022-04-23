@@ -88,9 +88,11 @@ namespace ShoresOfGold.Models
         #endregion
 
         #region newMovementIdea
-        public Enemy(Player player)
+        static Random r = new Random();
+        public Enemy(Size mapArea,Player player)
         {
             this.player = player;
+            Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
         }
 
         public int AttackRange { get; set; }
