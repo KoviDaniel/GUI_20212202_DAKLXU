@@ -55,10 +55,17 @@ namespace ShoresOfGold.Renderer
                         model.Player.Width, model.Player.Height
                         ));
                 }
-                drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
+                /*drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
                     model.Zombie.Center.X, model.Zombie.Center.Y,
                     model.Zombie.Width, model.Zombie.Height
+                    ));*/
+                foreach (var e in model.Enemies)
+                {
+                    drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
+                    e.Center.X, e.Center.Y,
+                    e.Width, e.Height
                     ));
+                }
                 
             }
         }
