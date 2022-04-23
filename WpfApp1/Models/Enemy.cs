@@ -114,8 +114,9 @@ namespace ShoresOfGold.Models
             Vector v = new Vector();
             v.X = this.player.Center.X - this.Center.X;
             v.Y = this.player.Center.Y - this.Center.Y;
-            v.X /= v.Length;
-            v.Y /= v.Length;
+            double l = v.Length;
+            v.X /= l;
+            v.Y /= l;
             return v;
         }
 

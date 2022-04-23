@@ -19,8 +19,8 @@ namespace ShoresOfGold.Models
             v.X = target.X - start.X;
             v.Y = target.Y - start.Y;
             double l = v.Length;
-            v.X /= v.Length;
-            v.Y /= v.Length;
+            v.X /= l;
+            v.Y /= l;
             return v;
         }
 
