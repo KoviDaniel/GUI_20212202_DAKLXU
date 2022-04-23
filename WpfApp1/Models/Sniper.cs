@@ -55,6 +55,7 @@ namespace ShoresOfGold.Models
                 {
                     System.Drawing.Point target = player.Center;
                     Accuracy(ref target);
+
                 }
             }
         }
