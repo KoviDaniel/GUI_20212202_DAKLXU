@@ -66,5 +66,13 @@ namespace ShoresOfGold.Models
             }
             bullets.ForEach(b => b.Moving());
         }
+
+        private void HitDetection() 
+        {
+            foreach (var b in bullets)
+            {
+                if(b.)
+            }
+        }
     }
 }
