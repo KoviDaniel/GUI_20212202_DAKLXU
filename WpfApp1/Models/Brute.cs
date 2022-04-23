@@ -8,5 +8,7 @@ namespace ShoresOfGold.Models
 {
     public class Brute : Enemy
     {
+        static Random r = new Random();
+
     }
 }
