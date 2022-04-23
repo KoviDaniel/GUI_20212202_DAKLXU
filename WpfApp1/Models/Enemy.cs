@@ -95,6 +95,8 @@ namespace ShoresOfGold.Models
             Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
         }
 
+        public Rect EnemyRect { get; set; }
+
         public int AttackRange { get; set; }
         public int DetectionRange { get; set; }
         public int StoppingRange { get; set; } //the enemy won't go any closer, but the player can

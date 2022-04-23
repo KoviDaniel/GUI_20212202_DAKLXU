@@ -17,8 +17,8 @@ namespace ShoresOfGold.Models
             Stamina = 100; // ??
             Power = 60;
             Speed = new Vector(2, 2);
-            Width = 50;
-            Height = 50;
+            Width = 25;
+            Height = 25;
 
             DetectionRange = 500;
             AttackRange = 500;
@@ -26,6 +26,8 @@ namespace ShoresOfGold.Models
 
             AttackIntensity = 300;
             this.bullets = new List<Bullet>();
+
+            EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
         private void Accuracy(ref System.Drawing.Point target) 
