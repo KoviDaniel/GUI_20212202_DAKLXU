@@ -12,7 +12,7 @@ namespace ShoresOfGold.Models
     {
         public int Gold { get; set; }
 
-        public Player(Size mapArea) 
+        public Player(Size mapArea)
         {
             Health = 100;
             Stamina = 150;
@@ -22,7 +22,9 @@ namespace ShoresOfGold.Models
             Speed = new Vector(3, 3);
             Width = 100;
             Height = 100;
+            PlayerRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
+        public Rect PlayerRect { get; set; }
 
         public void Move(Controls control)
         {

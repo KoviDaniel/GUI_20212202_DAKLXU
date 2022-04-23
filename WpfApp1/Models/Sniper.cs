@@ -65,13 +65,17 @@ namespace ShoresOfGold.Models
                 }
             }
             bullets.ForEach(b => b.Moving());
+            HitDetection();
         }
 
         private void HitDetection() 
         {
             foreach (var b in bullets)
             {
-                if(b.)
+                if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
+                {
+                    this.player.GetDamage(this.Power);
+                }
             }
         }
     }
