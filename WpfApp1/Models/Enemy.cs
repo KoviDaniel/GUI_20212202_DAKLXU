@@ -142,6 +142,8 @@ namespace ShoresOfGold.Models
         public virtual void Attack() 
         {
         }
+
+        public void GetDamage(double damage) { this.Health -= damage; }
         #endregion
     }
 }
