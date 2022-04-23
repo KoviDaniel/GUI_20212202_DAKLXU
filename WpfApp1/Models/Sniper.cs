@@ -26,23 +26,23 @@ namespace ShoresOfGold.Models
             AttackIntensity = 300;
         }
 
-        private void Accuracy(ref Point target) 
+        private void Accuracy(ref System.Drawing.Point target) 
         {
             if (tr.Next(1) == 0)
             {
-                target.X += tr.NextDouble();
+                target.X += tr.Next(0,4);
             }
             else 
             {
-                target.X -= tr.NextDouble();
+                target.X -= tr.Next(0, 4);
             }
             if (tr.Next(1) == 0)
             {
-                target.Y += tr.NextDouble();
+                target.Y += tr.Next(0, 4);
             }
             else
             {
-                target.Y -= tr.NextDouble();
+                target.Y -= tr.Next(0, 4);
             }
         }
 
@@ -53,7 +53,8 @@ namespace ShoresOfGold.Models
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
                 {
-                    
+                    System.Drawing.Point target = player.Center;
+                    Accuracy(ref target);
                 }
             }
         }
