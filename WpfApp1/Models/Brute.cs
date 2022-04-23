@@ -19,8 +19,8 @@ namespace ShoresOfGold.Models
             Width = 70;
             Height = 70;
 
-            DetectionRange = 290;
-            AttackRange = 290;
+            DetectionRange = 350;
+            AttackRange = 300;
             StoppingRange = 10 + (player.Width + player.Height) / 2;
 
             AttackIntensity = 150;
