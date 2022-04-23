@@ -10,6 +10,7 @@ namespace ShoresOfGold.Models
 {
     public class Enemy : Entity
     {
+        
         #region OlderIdea
         public double Power { get; set; }
         
