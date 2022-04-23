@@ -21,12 +21,16 @@ namespace ShoresOfGold.Logic
         public Player Player { get; set; }
         //public Zombie Zombie { get; set; }
         public List<Enemy> Enemies { get; set; }
+        public List<Bullet> Bullets { get; set; }
+        
+
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
             Player = new Player(mapArea);
             //Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
+            this.Bullets = new List<Bullet>();
             for (int i = 0; i < r.Next(3,11); i++)
             {
                 GenerateEnemies();
@@ -65,6 +69,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(this.Player, this.mapArea);
             /*Zombie.NewFollowPlayer();
             Zombie.Attack();*/
+            
             foreach (var e in Enemies)
             {
                 e.NewFollowPlayer();
@@ -79,6 +84,7 @@ namespace ShoresOfGold.Logic
                 if (e is Sniper)
                 {
                     (e as Sniper).Attack();
+                    Bullets.AddRange((e as Sniper).bullets);
                 }
             }
         }

@@ -9,6 +9,7 @@ namespace ShoresOfGold.Logic
         Player Player { get; set; }
         //Zombie Zombie { get; set; }
         List<Enemy> Enemies { get; set; }
+        List<Bullet> Bullets { get; set; }
 
         event EventHandler Changed;
     }

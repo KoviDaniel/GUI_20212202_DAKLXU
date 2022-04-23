@@ -42,6 +42,14 @@ namespace ShoresOfGold.Renderer
                 //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush BulletBrush
+        {
+            get
+            {
+                return Brushes.Red;
+                //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -65,6 +73,10 @@ namespace ShoresOfGold.Renderer
                     e.Center.X, e.Center.Y,
                     e.Width, e.Height
                     ));
+                }
+                foreach (var b in model.Bullets)
+                {
+                    drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                 }
                 
             }
