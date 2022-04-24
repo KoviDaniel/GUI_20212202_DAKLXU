@@ -89,6 +89,11 @@ namespace ShoresOfGold.Logic
             }
         }
 
+        private void BulletControl() 
+        {
+            this.Bullets.ForEach(b => b.Moving());
+        }
+
         public void TimeStep()
         {
             Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.Width, Player.Height);
