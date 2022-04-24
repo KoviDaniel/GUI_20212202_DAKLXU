@@ -14,7 +14,7 @@ namespace ShoresOfGold.Models
         public Vector Direction { get; }
 
         public System.Drawing.Point Center { get; set; }
-        public Rect BulletRect { get; set; }
+        public Rect BulletRect { get { return new Rect(this.Center.X, this.Center.Y, 3, 3); } }
 
         private Vector DirectionVector(System.Drawing.Point start, System.Drawing.Point target) 
         {
@@ -30,9 +30,9 @@ namespace ShoresOfGold.Models
         public Bullet(System.Drawing.Point start, System.Drawing.Point target)
         {
             this.Center = start;
-            Speed = new Vector(10, 10);
+            Speed = new Vector(3, 3);
             Direction = DirectionVector(start, target); 
-            BulletRect = new Rect(this.Center.X, this.Center.Y, 3, 3);
+            //BulletRect = new Rect(this.Center.X, this.Center.Y, 3, 3);
         }
 
         public void Moving() 
