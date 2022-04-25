@@ -39,5 +39,6 @@ namespace ShoresOfGold.Models
         {
             this.Center = new System.Drawing.Point(Center.X + (int)(Direction.X * this.Speed.X), Center.Y + (int)(Direction.Y * this.Speed.Y));
         }
+        //public void HitDetection() { }
     }
 }

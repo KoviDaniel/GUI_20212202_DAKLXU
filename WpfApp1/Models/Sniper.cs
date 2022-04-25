@@ -64,11 +64,11 @@ namespace ShoresOfGold.Models
                     bullets.Add(b);
                 }
             }
-            //bullets.ForEach(b => b.Moving());
-            //HitDetection();
+            bullets.ForEach(b => b.Moving());
+            HitDetection();
         }
 
-        /*private void HitDetection() 
+        private void HitDetection() 
         {
             foreach (var b in bullets)
             {
@@ -77,6 +77,6 @@ namespace ShoresOfGold.Models
                     this.player.GetDamage(this.Power);
                 }
             }
-        }*/
+        }
     }
 }

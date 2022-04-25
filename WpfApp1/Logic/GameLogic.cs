@@ -101,7 +101,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(Player, mapArea);
             
             EnemyControl();
-            BulletControl();
+            //BulletControl();
             Changed?.Invoke(this, null);
         }
     }
