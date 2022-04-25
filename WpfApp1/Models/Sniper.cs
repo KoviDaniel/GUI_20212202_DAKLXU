@@ -75,6 +75,7 @@ namespace ShoresOfGold.Models
                 if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
                 {
                     this.player.GetDamage(this.Power);
+                    this.bullets.Remove(b);
                 }
             }
         }
