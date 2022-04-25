@@ -31,15 +31,15 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Background2.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush ZombieBrush
         {
             get
             {
-                return Brushes.Black;
-                //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+                //return Brushes.Black;
+                return new ImageBrush(new BitmapImage(new Uri("Images/zombie.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BulletBrush
@@ -58,7 +58,7 @@ namespace ShoresOfGold.Renderer
             {
                 if (model.Player.Health > 0)
                 {
-                    drawingContext.DrawRectangle(PlayerBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                    drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
                         model.Player.Center.X, model.Player.Center.Y,
                         model.Player.Width, model.Player.Height
                         ));
@@ -69,7 +69,7 @@ namespace ShoresOfGold.Renderer
                     ));*/
                 foreach (var e in model.Enemies)
                 {
-                    drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
+                    drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
                     e.Center.X, e.Center.Y,
                     e.Width, e.Height
                     ));

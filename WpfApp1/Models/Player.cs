@@ -20,8 +20,8 @@ namespace ShoresOfGold.Models
 
             Center = new System.Drawing.Point((int)mapArea.Width / 2 - 50, (int)mapArea.Height / 2 - 50);
             Speed = new Vector(3, 3);
-            Width = 100;
-            Height = 100;
+            Width = 70;
+            Height = 86;
             //PlayerRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
         public Rect PlayerRect { get { return new Rect(this.Center.X, this.Center.Y, this.Width, this.Height); } }
