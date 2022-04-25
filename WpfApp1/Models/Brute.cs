@@ -16,8 +16,8 @@ namespace ShoresOfGold.Models
             Power = 50; //Damage
 
             Speed = new Vector(1.5, 1.5);
-            Width = 70;
-            Height = 70;
+            Width = 75;
+            Height = 75;
 
             DetectionRange = 350;
             AttackRange = 300;

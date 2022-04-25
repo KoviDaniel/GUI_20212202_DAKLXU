@@ -17,8 +17,8 @@ namespace ShoresOfGold.Models
             Stamina = 100; // ??
             Power = 60;
             Speed = new Vector(2, 2);
-            Width = 25;
-            Height = 25;
+            Width = 30;
+            Height = 30;
 
             DetectionRange = 500;
             AttackRange = 500;
