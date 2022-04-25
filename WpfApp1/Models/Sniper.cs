@@ -70,12 +70,24 @@ namespace ShoresOfGold.Models
 
         private void HitDetection() 
         {
-            foreach (var b in bullets)
+            /*foreach (var b in bullets)
             {
                 if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
                 {
                     this.player.GetDamage(this.Power);
                     this.bullets.Remove(b);
+                }
+            }*/
+            int idx = -1;
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                if (idx != -1) this.bullets.RemoveAt(idx);
+                idx = -1;
+                if (bullets[i].BulletRect.IntersectsWith(player.PlayerRect))
+                {
+                    this.player.GetDamage(this.Power);
+                    //this.bullets.RemoveAt(i);
+                    idx = i;
                 }
             }
         }
