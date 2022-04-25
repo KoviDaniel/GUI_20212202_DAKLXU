@@ -34,19 +34,19 @@ namespace ShoresOfGold.Models
         {
             if (tr.Next(1) == 0)
             {
-                target.X += tr.Next(0,4);
+                target.X += tr.Next(0,2);
             }
             else 
             {
-                target.X -= tr.Next(0, 4);
+                target.X -= tr.Next(0, 2);
             }
             if (tr.Next(1) == 0)
             {
-                target.Y += tr.Next(0, 4);
+                target.Y += tr.Next(0, 2);
             }
             else
             {
-                target.Y -= tr.Next(0, 4);
+                target.Y -= tr.Next(0, 2);
             }
         }
 
