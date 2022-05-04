@@ -25,10 +25,7 @@ namespace WpfApp1.Models
         }
 
         public void Move(Controls control)
-        {
-            //System.Drawing.Point newCenter = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y + (int)Speed.Y);
-            //if (newCenter.X >= 0 && newCenter.X <= mapArea.Width && newCenter.Y >= 0 && newCenter.Y <= mapArea.Height)
-
+        {          
             if (control == Controls.Up)
             {
                 Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
