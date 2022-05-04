@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoresOfGold.Models;
+using System;
 using WpfApp1.Models;
 
 namespace WpfApp1.Logic
@@ -8,5 +9,8 @@ namespace WpfApp1.Logic
         Player Player { get; set; }
 
         event EventHandler Changed;
+
+        Wall TopWall { get; set; }
+        Wall BottomWall { get; set; }
     }
 }

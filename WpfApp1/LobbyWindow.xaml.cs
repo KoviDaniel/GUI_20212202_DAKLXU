@@ -29,7 +29,7 @@ namespace MainMenu
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            gameLogic = new GameLogic();
+            gameLogic = new GameLogic(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
             // logic.GameOver += Logic_GameOver;
             display.SetupModel(gameLogic);
 
@@ -39,7 +39,7 @@ namespace MainMenu
             dt.Start();
 
             display.SetupSizes(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
-            gameLogic.SetupSizes(new Size((int)lobby_grid.ActualWidth, (int)lobby_grid.ActualHeight));
+            gameLogic.SetupSizes(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
         }
 
         private void Dt_Tick(object sender, EventArgs e)
@@ -48,10 +48,6 @@ namespace MainMenu
             gameLogic.TimeStep();
             this.InvalidateVisual();
         }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e) { }
-
-        private void Window_KeyUp(object sender, KeyEventArgs e) { }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
