@@ -63,7 +63,16 @@ namespace ShoresOfGold.Models
                 }
             }
         }
-
+        public void MeleeAttack(List<Enemy> enemies) 
+        {
+            foreach (var e in enemies)
+            {
+                if (DistanceCalculator(e.Center) <= 280) 
+                {
+                    e.GetDamage(this.MeleeDamage);
+                }
+            }
+        }
 
         private double DistanceCalculator(System.Drawing.Point center) 
         {
