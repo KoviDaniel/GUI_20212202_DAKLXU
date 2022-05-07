@@ -26,8 +26,8 @@ namespace WpfApp1.Models
 
             Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
             Speed = new Vector(3, 3);
-            Width = 100;
-            Height = 100;
+            Width = 70;
+            Height = 86;
 
             UpperBound = upperBound;
             LowerBound = lowerBound;
@@ -35,7 +35,7 @@ namespace WpfApp1.Models
             RightBound = mapArea.Width;
         }
 
-        public void Move(Controls control)
+        public void Control(Controls control)
         {          
             if (control == Controls.Up && Center.Y + Height > UpperBound)
             {
