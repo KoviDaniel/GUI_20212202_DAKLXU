@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace ShoresOfGold.Models
 {
-    class Boss : Entity
+    public class Boss : Entity
     {
         Player player;
         Random r = new Random(); //támadás típushoz

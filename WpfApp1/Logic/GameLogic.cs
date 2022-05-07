@@ -19,6 +19,7 @@ namespace ShoresOfGold.Logic
         private Size mapArea;
         public event EventHandler Changed; //public event EventHandler GameOver;
         public Player Player { get; set; }
+        public Boss Boss { get; set; }
         //public Zombie Zombie { get; set; }
         public List<Enemy> Enemies { get; set; }
         public List<Bullet> Bullets { get; set; }
@@ -29,6 +30,7 @@ namespace ShoresOfGold.Logic
         {
             this.mapArea = mapArea;
             Player = new Player(mapArea);
+            Boss = new Boss(mapArea, Player);
             //Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
