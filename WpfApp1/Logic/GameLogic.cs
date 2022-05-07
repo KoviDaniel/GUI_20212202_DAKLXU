@@ -54,7 +54,7 @@ namespace ShoresOfGold.Logic
             }
             for (int i = 0; i < r.Next(4,13); i++)
             {
-                this.Chests.Add(new Chest(mapArea));
+                this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
             }
         }
 
