@@ -18,6 +18,7 @@ namespace ShoresOfGold.Models
             Speed = new Vector(1.5, 1.5);
             Width = 75;
             Height = 75;
+            Center = new System.Drawing.Point(r.Next(Width/2, (int)mapArea.Width -Width/2), r.Next((int)player.UpperBound+Height/2, (int)player.LowerBound-Height/2));
 
             DetectionRange = 350;
             AttackRange = 300;
