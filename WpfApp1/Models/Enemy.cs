@@ -26,7 +26,7 @@ namespace ShoresOfGold.Models
             Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
         }
 
-        public Rect EnemyRect { get; set; }
+        public Rect EnemyRect { get { return new Rect(this.Center.X - this.Width / 2, this.Center.Y - this.Height / 2, this.Width, this.Height); } }
 
         public int AttackRange { get; set; }
         public int DetectionRange { get; set; }
