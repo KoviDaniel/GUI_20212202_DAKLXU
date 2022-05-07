@@ -36,13 +36,75 @@
     <Content Include="Images\zombie.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Remove="Images\back_decor.png" />
+    <None Remove="Images\back_decor_1.png" />
+    <None Remove="Images\back_decor_2.png" />
+    <None Remove="Images\back_decor_3.png" />
+    <None Remove="Images\back_decor_4.png" />
+    <None Remove="Images\back_land.png" />
+    <None Remove="Images\back_land_2.png" />
+    <None Remove="Images\battleground.png" />
+    <None Remove="Images\battleground_1.png" />
+    <None Remove="Images\battleground_2.png" />
+    <None Remove="Images\battleground_3.png" />
+    <None Remove="Images\battleground_4.png" />
+    <None Remove="Images\front_decor.png" />
+    <None Remove="Images\front_decor_1.png" />
+    <None Remove="Images\front_decor_2.png" />
+    <None Remove="Images\front_decor_3.png" />
+    <None Remove="Images\front_decor_4.png" />
+    <None Remove="Images\game_background_2.png" />
+    <None Remove="Images\ground_decor.png" />
+    <None Remove="Images\pirate.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\back_decor_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\back_decor_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\back_decor_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\back_decor_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\battleground_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\battleground_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\battleground_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\battleground_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\front_decor_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\front_decor_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\front_decor_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\front_decor_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\pirate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\Windlass.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

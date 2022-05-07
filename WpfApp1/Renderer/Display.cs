@@ -20,7 +20,6 @@ namespace ShoresOfGold.Renderer
             this.mapArea = mapArea;
             this.InvalidateVisual();
         }
-
         public void SetupModel(IGameModel model)
         {
             this.model = model;
@@ -68,6 +67,102 @@ namespace ShoresOfGold.Renderer
             {
                 return new ImageBrush(new BitmapImage(new Uri("Images/chestclosed.png", UriKind.RelativeOrAbsolute)));
             }
+        }
+
+        #region mapBrushes
+        public Brush TopWallBrush_1
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_1.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BottomWallBrush_1
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_1.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BackgroundBrush_1
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_1.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Brush TopWallBrush_2
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_2.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BottomWallBrush_2
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_2.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BackgroundBrush_2
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_2.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Brush TopWallBrush_3
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BottomWallBrush_3
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BackgroundBrush_3
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Brush TopWallBrush_4
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_4.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BottomWallBrush_4
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_4.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BackgroundBrush_4
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_4.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        #endregion
+
+        public void LoadNextMap()
+        {
+            model.MapNumber += 1;
+            model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -129,6 +224,38 @@ namespace ShoresOfGold.Renderer
                 {
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                 }
+                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4)
+                {
+                    LoadNextMap();
+                }
+
+                if (model.MapNumber == 1)
+                {
+                    drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));
+                    drawingContext.DrawGeometry(TopWallBrush_1, null, model.TopWall.Area);
+                    drawingContext.DrawGeometry(BottomWallBrush_1, null, model.BottomWall.Area);
+                }
+                else if (model.MapNumber == 2)
+                {
+                    drawingContext.DrawGeometry(TopWallBrush_2, null, model.TopWall.Area);
+                    drawingContext.DrawRectangle(BackgroundBrush_2, null, new Rect(mapArea));
+                    drawingContext.DrawGeometry(BottomWallBrush_2, null, model.BottomWall.Area);
+                }
+                else if (model.MapNumber == 3)
+                {
+                    drawingContext.DrawRectangle(BackgroundBrush_3, null, new Rect(mapArea));
+                    drawingContext.DrawGeometry(TopWallBrush_3, null, model.TopWall.Area);
+                    drawingContext.DrawGeometry(BottomWallBrush_3, null, model.BottomWall.Area);
+                }
+                else if (model.MapNumber == 4)
+                {
+                    drawingContext.DrawRectangle(BackgroundBrush_4, null, new Rect(mapArea));
+                    drawingContext.DrawGeometry(TopWallBrush_4, null, model.TopWall.Area);
+                    drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
+                }
+
+                drawingContext.DrawRectangle(PlayerBrush, null,
+                     new Rect(model.Player.Center.X, model.Player.Center.Y, model.Player.Width, model.Player.Height));
             }
         }
     }

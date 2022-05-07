@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ShoresOfGold.Models;
+using System;
 using System.Collections.Generic;
 using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Logic
 {
     public interface IGameModel
-    {
+    {       
         Player Player { get; set; }
         Boss Boss { get; set; }
         //Zombie Zombie { get; set; }
@@ -14,5 +15,10 @@ namespace ShoresOfGold.Logic
         List<Chest> Chests { get; set; }
 
         event EventHandler Changed;
+
+        Wall TopWall { get; set; }
+        Wall BottomWall { get; set; }
+
+        public int MapNumber { get; set; }
     }
 }

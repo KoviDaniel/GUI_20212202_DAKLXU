@@ -29,7 +29,7 @@ namespace MainMenu
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            gameLogic = new GameLogic();
+            gameLogic = new GameLogic(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
             // logic.GameOver += Logic_GameOver;
             display.SetupModel(gameLogic);
 
@@ -49,10 +49,6 @@ namespace MainMenu
             gameLogic.TimeStep();
             this.InvalidateVisual();
         }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e) { }
-
-        private void Window_KeyUp(object sender, KeyEventArgs e) { }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -92,8 +88,7 @@ namespace MainMenu
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
-            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
             }

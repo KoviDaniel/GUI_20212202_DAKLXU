@@ -13,4 +13,5 @@
         <renderer:Display x:Name="display"/>
         
     </Grid>
+
 </Window>

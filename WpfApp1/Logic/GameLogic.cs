@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ShoresOfGold.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Logic
@@ -15,10 +17,17 @@ namespace ShoresOfGold.Logic
 
     public class GameLogic : IGameModel
     {
+        private const int topWallThickness = 700 / 3; //??
+        private const int bottomWallThickness = 340 / 3; //??
         Random r = new Random();
         private Size mapArea;
+
         public event EventHandler Changed; //public event EventHandler GameOver;
+
         public Player Player { get; set; }
+        public Wall TopWall { get; set; }
+        public Wall BottomWall { get; set; }
+
         public Boss Boss { get; set; }
         //public Zombie Zombie { get; set; }
         public List<Enemy> Enemies { get; set; }
@@ -26,10 +35,14 @@ namespace ShoresOfGold.Logic
         
         public List<Chest> Chests { get; set; }
 
+        public int MapNumber { get; set; }
+
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
-            Player = new Player(mapArea);
+
+            //Player = new Player(mapArea.Width / 2, mapArea.Height / 2);
+            Player = new Player(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y);
             Boss = new Boss(mapArea, Player);
             //Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
@@ -62,7 +75,7 @@ namespace ShoresOfGold.Logic
             }
         }
 
-        public GameLogic()
+        public GameLogic(Size mapArea)
         {
 
         }
@@ -71,6 +84,8 @@ namespace ShoresOfGold.Logic
         {
             if (control == Controls.Melee) Player.MeleeAttack(Enemies);
             if (control == Controls.Range) Player.RangeAttack(Enemies, cursor);
+                new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+            MapNumber = 1;
         }
 
         public void PlayerControl(Controls control)
@@ -120,17 +135,15 @@ namespace ShoresOfGold.Logic
             }
         }
 
-        private void BulletControl(List<Bullet> eBullet) 
+        private void BulletControl(List<Bullet> eBullet)
         {
-            //this.Bullets.ForEach(b => b.Moving());
-            Bullets.Clear();
-
-        }
-
+                //this.Bullets.ForEach(b => b.Moving());
+                Bullets.Clear();
+            }
         public void TimeStep()
         {
-            Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.Width, Player.Height);
-            //Rect zombieRect = new Rect(Zombie.Center.X, Zombie.Center.Y, Zombie.Width, Zombie.Height);
+            //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
+           
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
             EnemyControl();
