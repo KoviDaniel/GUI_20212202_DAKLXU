@@ -7,7 +7,8 @@
         xmlns:renderer="clr-namespace:ShoresOfGold.Renderer"
         mc:Ignorable="d"
         Title="LobbyWindow" Height="450" Width="800"
-        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowState="Maximized" Closing="Window_Closing">
+        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowState="Maximized" Closing="Window_Closing"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid x:Name="lobby_grid">
         <renderer:Display x:Name="display"/>
         

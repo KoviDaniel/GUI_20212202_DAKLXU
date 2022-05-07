@@ -77,7 +77,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(this.Player, this.mapArea);
             /*Zombie.NewFollowPlayer();
             Zombie.Attack();*/
-            
+            Bullets.Clear();
             foreach (var e in Enemies)
             {
                 e.NewFollowPlayer();

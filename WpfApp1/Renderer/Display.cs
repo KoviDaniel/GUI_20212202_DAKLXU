@@ -89,10 +89,13 @@ namespace ShoresOfGold.Renderer
                 }
                 foreach (var e in model.Enemies)
                 {
-                    drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
-                    e.Center.X, e.Center.Y,
-                    e.Width, e.Height
-                    ));
+                    if (e.Health>0) 
+                    {
+                        drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
+                        e.Center.X, e.Center.Y,
+                        e.Width, e.Height
+                        ));
+                    }
                 }
                 if (model.Player.Health > 0)
                 {

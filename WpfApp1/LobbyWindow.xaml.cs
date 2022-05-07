@@ -87,6 +87,7 @@ namespace MainMenu
             {
                 gameLogic.PlayerControl(Controls.Open);
             }
+            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -100,6 +101,11 @@ namespace MainMenu
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gameLogic.PlayerControl(Controls.Melee);
         }
     }
 }
