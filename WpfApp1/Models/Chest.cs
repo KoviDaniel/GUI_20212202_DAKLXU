@@ -28,9 +28,10 @@ namespace ShoresOfGold.Models
                     p.Health += 50;
                     break;
                 case Buffs.MeleeDamageBuff:
-
+                    p.MeleeDamage += 10;
                     break;
                 case Buffs.RangeDamageBuff:
+                    p.RangeDamage += 5;
                     break;
                 case Buffs.SpeedBuff:
                     Vector v = new Vector();

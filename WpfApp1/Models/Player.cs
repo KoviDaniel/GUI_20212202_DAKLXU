@@ -11,17 +11,21 @@ namespace ShoresOfGold.Models
     public class Player : Entity
     {
         public int Gold { get; set; }
+        public int MeleeDamage { get; set; }
+        public int RangeDamage { get; set; }
 
         public Player(Size mapArea)
         {
             Health = 100;
-            Stamina = 150;
+            Stamina = 0;
             Gold = 0;
 
             Center = new System.Drawing.Point((int)mapArea.Width / 2 - 50, (int)mapArea.Height / 2 - 50);
             Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
+            MeleeDamage = 40;
+            RangeDamage = 30;
             //PlayerRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
         public Rect PlayerRect { get { return new Rect(this.Center.X, this.Center.Y, this.Width, this.Height); } }
