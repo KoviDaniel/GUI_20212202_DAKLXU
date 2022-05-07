@@ -33,6 +33,13 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/Background2.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush ArrowBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush BobTheBoatBrush
         {
             get
@@ -254,7 +261,14 @@ namespace ShoresOfGold.Renderer
                 foreach (var b in model.Bullets)
                 {
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
-                }       
+                }
+
+                if (model.Enemies.Count == 0) 
+                {
+                    drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
+                            mapArea.Width-75,mapArea.Height/2, 50, 50
+                        ));
+                }
             }
         }
     }
