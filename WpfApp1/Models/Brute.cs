@@ -24,7 +24,7 @@ namespace ShoresOfGold.Models
             StoppingRange = 10 + (player.Width + player.Height) / 2;
 
             AttackIntensity = 150;
-            EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
+            //EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
         public override void Attack()
         {

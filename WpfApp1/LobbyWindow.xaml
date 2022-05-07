@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="LobbyWindow" Height="450" Width="800"
         Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowState="Maximized" Closing="Window_Closing"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseRightButtonDown="Window_MouseRightButtonDown">
     <Grid x:Name="lobby_grid">
         <renderer:Display x:Name="display"/>
         

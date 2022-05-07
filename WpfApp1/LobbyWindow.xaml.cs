@@ -105,7 +105,15 @@ namespace MainMenu
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            gameLogic.PlayerControl(Controls.Melee);
+            //gameLogic.PlayerControl(Controls.Melee);
+            gameLogic.PlayerAttackControl(Controls.Melee, e.GetPosition(display));
+        }
+
+        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //e.GetPosition(display);
+            //gameLogic.PlayerControl(Controls.Range);
+            gameLogic.PlayerAttackControl(Controls.Range, e.GetPosition(display));
         }
     }
 }

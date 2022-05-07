@@ -13,9 +13,11 @@ namespace ShoresOfGold.Models
         public int Gold { get; set; }
         public int MeleeDamage { get; set; }
         public int RangeDamage { get; set; }
-
+        public List<Bullet> Bullets;
+        Size mapArea;
         public Player(Size mapArea)
         {
+            this.mapArea = mapArea;
             Health = 100;
             Stamina = 0;
             Gold = 0;
@@ -25,6 +27,7 @@ namespace ShoresOfGold.Models
             Speed = new Vector(3, 3);
             MeleeDamage = 40;
             RangeDamage = 30;
+            Bullets = new List<Bullet>();
             //PlayerRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
         public Rect PlayerRect { get { return new Rect(this.Center.X-this.Width/2, this.Center.Y-this.Height/2, this.Width, this.Height); } }
@@ -72,6 +75,57 @@ namespace ShoresOfGold.Models
                 }
             }
         }
+
+        public void RangeAttack(List<Enemy> enemies, Point target)
+        {
+            if (this.Health>0) 
+            {
+                Shoot(target);
+            }
+            BulletLife(enemies);
+        }
+
+        private void Shoot(Point target) 
+        {
+            System.Drawing.Point dTarget = new System.Drawing.Point();
+            dTarget.X = (int)target.X;
+            dTarget.Y = (int)target.Y;
+            Bullets.Add(new Bullet(this.Center, dTarget));
+        }
+
+        public void BulletLife(List<Enemy> enemies) 
+        {
+            List<Bullet> removing = new List<Bullet>();
+            foreach (var e in enemies)
+            {
+                foreach (var b in Bullets)
+                {
+                    if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
+                    || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
+                    {
+                        removing.Add(b);
+                    }
+                    else
+                    {
+                        b.Moving(); // moving
+                                    //HitDetection
+                        if (b.BulletRect.IntersectsWith(e.EnemyRect))
+                        {
+                            e.GetDamage(this.RangeDamage);
+                            //this.bullets.Remove(b);
+                            b.Alive = false;
+                            removing.Add(b);
+                        }
+                    }
+                }
+                foreach (var r in removing)
+                {
+                    Bullets.Remove(r);
+                }
+            }
+        }
+
+
 
         private double DistanceCalculator(System.Drawing.Point center) 
         {

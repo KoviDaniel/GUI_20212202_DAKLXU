@@ -29,7 +29,7 @@ namespace ShoresOfGold.Models
             AttackIntensity = 300;
             this.bullets = new List<Bullet>();
 
-            EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
+           // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
         /* private void Accuracy(ref System.Drawing.Point target) 

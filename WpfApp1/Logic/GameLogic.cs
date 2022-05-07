@@ -65,11 +65,16 @@ namespace ShoresOfGold.Logic
 
         }
 
+        public void PlayerAttackControl(Controls control, Point cursor) 
+        {
+            if (control == Controls.Melee) Player.MeleeAttack(Enemies);
+            if (control == Controls.Range) Player.RangeAttack(Enemies, cursor);
+        }
+
         public void PlayerControl(Controls control)
         {
             if(control != Controls.Open && control != Controls.Melee && control != Controls.Range) Player.Move(control);
-            if(control == Controls.Open) Player.Interact(control, Chests);
-            if (control == Controls.Melee) Player.MeleeAttack(Enemies);
+            if (control == Controls.Open) Player.Interact(control, Chests);
         }
 
         public void EnemyControl()
@@ -79,6 +84,8 @@ namespace ShoresOfGold.Logic
             Zombie.Attack();*/
 
             Bullets.Clear();
+            this.Player.BulletLife(Enemies);
+            Bullets.AddRange(this.Player.Bullets);
             // Enemy removeable = null;
             List<Enemy> removing = new List<Enemy>();
             foreach (var e in Enemies)
@@ -111,9 +118,11 @@ namespace ShoresOfGold.Logic
             }
         }
 
-        private void BulletControl() 
+        private void BulletControl(List<Bullet> eBullet) 
         {
-            this.Bullets.ForEach(b => b.Moving());
+            //this.Bullets.ForEach(b => b.Moving());
+            Bullets.Clear();
+
         }
 
         public void TimeStep()
