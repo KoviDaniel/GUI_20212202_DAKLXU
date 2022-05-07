@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Logic
 {
@@ -78,7 +77,10 @@ namespace ShoresOfGold.Logic
 
         public GameLogic(Size mapArea)
         {
-
+            TopWall = new Wall(new Point(0, 0), new Point(mapArea.Width, 0), topWallThickness);
+            BottomWall = new Wall(new Point(0, mapArea.Height - bottomWallThickness),
+                new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+            MapNumber = 1;
         }
 
         public void PlayerAttackControl(Controls control, Point cursor) 
@@ -87,10 +89,6 @@ namespace ShoresOfGold.Logic
                 Player.MeleeAttack(Enemies);
             if (control == Controls.Range) 
                 Player.RangeAttack(Enemies, cursor);
-
-                //new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
-
-            MapNumber = 1;
         }
 
         public void PlayerControl(Controls control)
@@ -146,7 +144,8 @@ namespace ShoresOfGold.Logic
         {
                 //this.Bullets.ForEach(b => b.Moving());
                 Bullets.Clear();
-            }
+        }
+
         public void TimeStep()
         {
             //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);

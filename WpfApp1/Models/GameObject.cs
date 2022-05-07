@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
-using WpfApp1.Models;
 
 namespace ShoresOfGold.Models
 {

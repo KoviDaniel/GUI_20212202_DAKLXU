@@ -22,11 +22,11 @@ namespace MainMenu
     public partial class LobbyWindow : Window
     {
         private GameLogic gameLogic;
+
         public LobbyWindow()
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             gameLogic = new GameLogic(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
@@ -58,7 +58,6 @@ namespace MainMenu
                 gameLogic.SetupSizes(new Size((int)lobby_grid.ActualWidth, (int)lobby_grid.ActualHeight));
             }
         }
-
         private void PlayerControl()
         {
             if (Keyboard.IsKeyDown(Key.W))
@@ -68,7 +67,6 @@ namespace MainMenu
             if (Keyboard.IsKeyDown(Key.S))
             {
                 gameLogic.PlayerControl(Controls.Down);
-
             }
             if (Keyboard.IsKeyDown(Key.A))
             {
