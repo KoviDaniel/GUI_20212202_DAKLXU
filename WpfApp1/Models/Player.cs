@@ -34,39 +34,36 @@ namespace ShoresOfGold.Models
         {
             //System.Drawing.Point newCenter = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y + (int)Speed.Y);
             //if (newCenter.X >= 0 && newCenter.X <= mapArea.Width && newCenter.Y >= 0 && newCenter.Y <= mapArea.Height)
-            if (control != Controls.Open)
+            
+            if (control == Controls.Up)
             {
-                if (control == Controls.Up)
-                {
-                    Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
-                }
-                else if (control == Controls.Down)
-                {
-                    Center = new System.Drawing.Point(Center.X, Center.Y + (int)Speed.Y);
-                }
-                else if (control == Controls.Left)
-                {
-                    Center = new System.Drawing.Point(Center.X - (int)Speed.X, Center.Y);
-                }
-                else if (control == Controls.Right)
-                {
-                    Center = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y);
-                }
+                Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
             }
+            else if (control == Controls.Down)
+            {
+                Center = new System.Drawing.Point(Center.X, Center.Y + (int)Speed.Y);
+            }
+            else if (control == Controls.Left)
+            {
+                Center = new System.Drawing.Point(Center.X - (int)Speed.X, Center.Y);
+            }
+            else if (control == Controls.Right)
+            {
+                Center = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y);
+            }
+            
         }
         public void Interact(Controls control ,List<Chest> chests) 
         {
-            if (control == Controls.Open) 
+            foreach (var c in chests)
             {
-                foreach (var c in chests)
+                if (DistanceCalculator(c.Center) <= 80) 
                 {
-                    if (DistanceCalculator(c.Center) <= 80) 
-                    {
-                        c.Open(this);
-                    }
+                    c.Open(this);
                 }
             }
         }
+
 
         private double DistanceCalculator(System.Drawing.Point center) 
         {

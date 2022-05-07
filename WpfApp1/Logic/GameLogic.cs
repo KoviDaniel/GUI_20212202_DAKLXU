@@ -67,8 +67,8 @@ namespace ShoresOfGold.Logic
 
         public void PlayerControl(Controls control)
         {
-            Player.Move(control);
-            Player.Interact(control, Chests);
+            if(control != Controls.Open) Player.Move(control);
+            if(control == Controls.Open) Player.Interact(control, Chests);
         }
 
         public void EnemyControl()
