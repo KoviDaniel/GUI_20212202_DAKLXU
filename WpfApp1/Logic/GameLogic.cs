@@ -77,23 +77,42 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(this.Player, this.mapArea);
             /*Zombie.NewFollowPlayer();
             Zombie.Attack();*/
+            
+            if (Enemies.Count == 0) 
+            {
+                MessageBox.Show("U WIN B1TCH!!!!44!!44!!!4!!");
+            }
+
             Bullets.Clear();
+            // Enemy removeable = null;
+            List<Enemy> removing = new List<Enemy>();
             foreach (var e in Enemies)
             {
-                e.NewFollowPlayer();
-                if (e is Zombie) 
+                if (e.Health <= 0)
                 {
-                    (e as Zombie).Attack();
+                    removing.Add(e);
                 }
-                if (e is Brute) 
+                else 
                 {
-                    (e as Brute).Attack();
+                    e.NewFollowPlayer();
+                    if (e is Zombie)
+                    {
+                        (e as Zombie).Attack();
+                    }
+                    if (e is Brute)
+                    {
+                        (e as Brute).Attack();
+                    }
+                    if (e is Sniper)
+                    {
+                        (e as Sniper).Attack();
+                        Bullets.AddRange((e as Sniper).bullets);
+                    }
                 }
-                if (e is Sniper)
-                {
-                    (e as Sniper).Attack();
-                    Bullets.AddRange((e as Sniper).bullets);
-                }
+            }
+            foreach (var item in removing)
+            {
+                Enemies.Remove(item);
             }
         }
 

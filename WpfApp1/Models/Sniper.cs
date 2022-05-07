@@ -52,7 +52,7 @@ namespace ShoresOfGold.Models
 
         public override void Attack()
         {
-            if (this.player != null && Health > 0) 
+            if (this.player != null /* && Health > 0*/) 
             {
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
