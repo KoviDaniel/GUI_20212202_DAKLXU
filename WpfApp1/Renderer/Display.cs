@@ -98,6 +98,10 @@ namespace ShoresOfGold.Renderer
                         
                     }
                 }
+                if (model.Boss.Health > 0 && model.Enemies.Count > 0) 
+                {
+                    //drawingContext.DrawRectangle()
+                }
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
