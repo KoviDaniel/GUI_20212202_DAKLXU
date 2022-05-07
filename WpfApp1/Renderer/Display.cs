@@ -56,6 +56,21 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
+                foreach (var chest in model.Chests)
+                {
+                    drawingContext.DrawRectangle(Brushes.Gold, new Pen(Brushes.Black, 2), new Rect
+                        (
+                            chest.Center.X, chest.Center.Y,
+                            15, 15
+                        ));
+                }
+                foreach (var e in model.Enemies)
+                {
+                    drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
+                    e.Center.X, e.Center.Y,
+                    e.Width, e.Height
+                    ));
+                }
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
@@ -67,18 +82,10 @@ namespace ShoresOfGold.Renderer
                     model.Zombie.Center.X, model.Zombie.Center.Y,
                     model.Zombie.Width, model.Zombie.Height
                     ));*/
-                foreach (var e in model.Enemies)
-                {
-                    drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
-                    e.Center.X, e.Center.Y,
-                    e.Width, e.Height
-                    ));
-                }
                 foreach (var b in model.Bullets)
                 {
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                 }
-                
             }
         }
     }

@@ -10,6 +10,7 @@ namespace ShoresOfGold.Logic
         //Zombie Zombie { get; set; }
         List<Enemy> Enemies { get; set; }
         List<Bullet> Bullets { get; set; }
+        List<Chest> Chests { get; set; }
 
         event EventHandler Changed;
     }
