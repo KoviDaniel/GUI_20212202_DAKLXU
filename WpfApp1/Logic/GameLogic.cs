@@ -52,7 +52,7 @@ namespace ShoresOfGold.Logic
             {
                 GenerateEnemies();
             }
-            for (int i = 0; i < r.Next(4,13); i++)
+            for (int i = 0; i < r.Next(1, 5); i++)
             {
                 this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
             }
