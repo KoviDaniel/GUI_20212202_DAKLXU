@@ -10,12 +10,20 @@
     <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\background.png" />
     <None Remove="Images\Background2.png" />
+    <None Remove="Images\chestclosed.png" />
+    <None Remove="Images\chestopen.png" />
     <None Remove="Images\pirate.png" />
     <None Remove="Images\zombie.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Images\Background2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chestclosed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chestopen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pirate.png">

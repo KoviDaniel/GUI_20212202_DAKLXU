@@ -50,6 +50,18 @@ namespace ShoresOfGold.Renderer
                 //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush OpenChestBrush { get 
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chestopen.png", UriKind.RelativeOrAbsolute)));
+            } 
+        }
+        public Brush ClosedChestBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chestclosed.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -60,18 +72,18 @@ namespace ShoresOfGold.Renderer
                 {
                     if (chest.Opened == false)
                     {
-                        drawingContext.DrawRectangle(Brushes.Gold, new Pen(Brushes.Black, 2), new Rect
+                        drawingContext.DrawRectangle(ClosedChestBrush, null, new Rect
                             (
                                 chest.Center.X, chest.Center.Y,
-                                15, 15
+                                40, 40
                             ));
                     }
                     else 
                     {
-                        drawingContext.DrawRectangle(Brushes.Gray, new Pen(Brushes.Black, 2), new Rect
+                        drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
                             (
                                 chest.Center.X, chest.Center.Y,
-                                15, 15
+                                40, 40
                             ));
                     }
                 }

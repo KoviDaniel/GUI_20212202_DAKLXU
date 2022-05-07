@@ -60,7 +60,7 @@ namespace ShoresOfGold.Models
             {
                 foreach (var c in chests)
                 {
-                    if (DistanceCalculator(c.Center) <= 40) 
+                    if (DistanceCalculator(c.Center) <= 80) 
                     {
                         c.Open(this);
                     }
