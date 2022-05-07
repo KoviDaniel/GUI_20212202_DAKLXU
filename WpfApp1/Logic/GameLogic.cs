@@ -23,6 +23,7 @@ namespace ShoresOfGold.Logic
         public List<Enemy> Enemies { get; set; }
         public List<Bullet> Bullets { get; set; }
         
+        public List<Chest> Chests { get; set; }
 
         public void SetupSizes(Size mapArea)
         {

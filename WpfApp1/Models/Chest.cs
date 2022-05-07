@@ -15,10 +15,12 @@ namespace ShoresOfGold.Models
     {
         Random r;
         Buffs buff;
-        public Chest()
+        public System.Drawing.Point Center { get; set; }
+        public Chest(Size mapArea)
         {
             r = new Random();
             buff = (Buffs)r.Next(0, 4);
+            Center = new System.Drawing.Point(r.Next(30, (int)mapArea.Width-40), r.Next(15, (int)mapArea.Height - 25));
         }
         public void Open(ref Player p) 
         {
