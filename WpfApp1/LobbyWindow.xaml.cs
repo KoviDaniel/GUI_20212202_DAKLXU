@@ -82,8 +82,7 @@ namespace MainMenu
             if (Keyboard.IsKeyDown(Key.E)) 
             {
                 gameLogic.PlayerControl(Controls.Open);
-            }
-            
+            }           
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

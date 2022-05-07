@@ -1,7 +1,6 @@
 ﻿using ShoresOfGold.Models;
 using System;
 using System.Collections.Generic;
-using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Logic
 {

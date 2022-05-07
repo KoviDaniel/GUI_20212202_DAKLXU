@@ -19,6 +19,7 @@ namespace ShoresOfGold.Logic
     {
         private const int topWallThickness = 700 / 3; //??
         private const int bottomWallThickness = 340 / 3; //??
+
         Random r = new Random();
         private Size mapArea;
 
@@ -82,16 +83,22 @@ namespace ShoresOfGold.Logic
 
         public void PlayerAttackControl(Controls control, Point cursor) 
         {
-            if (control == Controls.Melee) Player.MeleeAttack(Enemies);
-            if (control == Controls.Range) Player.RangeAttack(Enemies, cursor);
-                new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+            if (control == Controls.Melee) 
+                Player.MeleeAttack(Enemies);
+            if (control == Controls.Range) 
+                Player.RangeAttack(Enemies, cursor);
+
+                //new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+
             MapNumber = 1;
         }
 
         public void PlayerControl(Controls control)
         {
-            if(control != Controls.Open && control != Controls.Melee && control != Controls.Range) Player.Move(control);
-            if (control == Controls.Open) Player.Interact(control, Chests);
+            if(control != Controls.Open && control != Controls.Melee && control != Controls.Range) 
+                Player.Move(control);
+            if (control == Controls.Open) 
+                Player.Interact(control, Chests);
         }
 
         public void EnemyControl()

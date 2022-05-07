@@ -11,6 +11,7 @@ namespace ShoresOfGold.Models
 {
     public class Player : Entity
     {
+        private Size mapArea;
         public int Gold { get; set; }
 
         public double UpperBound { get; set; }
@@ -18,12 +19,11 @@ namespace ShoresOfGold.Models
         public double LeftBound { get; set; }
         public double RightBound { get; set; }
 
-        public Player(Size mapArea, double upperBound, double lowerBound)
         public int MeleeDamage { get; set; }
         public int RangeDamage { get; set; }
         public List<Bullet> Bullets;
-        Size mapArea;
-        public Player(Size mapArea)
+
+        public Player(Size mapArea, double upperBound, double lowerBound)
         {
             this.mapArea = mapArea;
             Health = 100;
@@ -49,9 +49,6 @@ namespace ShoresOfGold.Models
 
         public void Move(Controls control)
         {
-
-            
-        
             if (control == Controls.Up && Center.Y + Height > UpperBound)
             {
                 Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
@@ -90,7 +87,6 @@ namespace ShoresOfGold.Models
                 }
             }
         }
-
         public void RangeAttack(List<Enemy> enemies, Point target)
         {
             if (this.Health>0) 
@@ -99,7 +95,6 @@ namespace ShoresOfGold.Models
             }
             BulletLife(enemies);
         }
-
         private void Shoot(Point target) 
         {
             //System.Drawing.Point dTarget = new System.Drawing.Point();
@@ -107,7 +102,6 @@ namespace ShoresOfGold.Models
             //dTarget.Y = (int)target.Y;
             Bullets.Add(new Bullet(this.Center, target));
         }
-
         public void BulletLife(List<Enemy> enemies) 
         {
             List<Bullet> removing = new List<Bullet>();
@@ -139,8 +133,6 @@ namespace ShoresOfGold.Models
                 }
             }
         }
-
-
 
         private double DistanceCalculator(System.Drawing.Point center) 
         {
