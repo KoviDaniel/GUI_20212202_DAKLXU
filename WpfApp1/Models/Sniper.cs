@@ -63,7 +63,11 @@ namespace ShoresOfGold.Models
                     cooldown = 0;
                     System.Drawing.Point target = player.Center;
                     //Accuracy(ref target);
-                    Bullet b = new Bullet(this.Center, target);
+                    System.Windows.Point wTarget = new System.Windows.Point();
+                    wTarget.X = player.Center.X;
+                    wTarget.Y = player.Center.Y;
+                    //Bullet b = new Bullet(this.Center, target);
+                    Bullet b = new Bullet(this.Center, wTarget);
                     bullets.Add(b);
                 }
             }

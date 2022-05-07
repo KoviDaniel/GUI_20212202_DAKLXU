@@ -87,10 +87,10 @@ namespace ShoresOfGold.Models
 
         private void Shoot(Point target) 
         {
-            System.Drawing.Point dTarget = new System.Drawing.Point();
-            dTarget.X = (int)target.X;
-            dTarget.Y = (int)target.Y;
-            Bullets.Add(new Bullet(this.Center, dTarget));
+            //System.Drawing.Point dTarget = new System.Drawing.Point();
+            //dTarget.X = (int)target.X;
+            //dTarget.Y = (int)target.Y;
+            Bullets.Add(new Bullet(this.Center, target));
         }
 
         public void BulletLife(List<Enemy> enemies) 
