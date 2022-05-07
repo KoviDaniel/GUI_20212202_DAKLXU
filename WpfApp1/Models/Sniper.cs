@@ -11,8 +11,10 @@ namespace ShoresOfGold.Models
     {
         Random tr = new Random();
         public List<Bullet> bullets;
+        Size mapArea;
         public Sniper(Size mapArea, Player player) : base(mapArea, player)
         {
+            this.mapArea = mapArea;
             Health = 50;
             Stamina = 100; // ??
             Power = 60;
@@ -65,21 +67,23 @@ namespace ShoresOfGold.Models
                     bullets.Add(b);
                 }
             }
-            bullets.ForEach(b => b.Moving());
-            HitDetection();
+            /*bullets.ForEach(b => b.Moving());
+            HitDetection();*/
+            BulletLife();
         }
 
         private void HitDetection() 
         {
-            /*foreach (var b in bullets)
+            foreach (var b in bullets)
             {
                 if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
                 {
                     this.player.GetDamage(this.Power);
-                    this.bullets.Remove(b);
+                    //this.bullets.Remove(b);
+                    b.Alive = false;
                 }
-            }*/
-            int idx = -1;
+            }
+            /*int idx = -1;
             for (int i = 0; i < bullets.Count; i++)
             {
                 if (idx != -1) bullets.RemoveAt(idx);
@@ -89,7 +93,36 @@ namespace ShoresOfGold.Models
                     this.player.GetDamage(this.Power);
                     //this.bullets.RemoveAt(i);
                     idx = i;
+
                 }
+            }*/
+        }
+
+        private void BulletLife() 
+        {
+            List<Bullet> removing = new List<Bullet>();
+            foreach (var b in bullets)
+            {
+                if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
+                    || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
+                {
+                    removing.Add(b);
+                }
+                else 
+                {
+                    b.Moving(); // moving
+                    //HitDetection
+                    if (b.BulletRect.IntersectsWith(player.PlayerRect))
+                    {
+                        this.player.GetDamage(this.Power);
+                        //this.bullets.Remove(b);
+                        b.Alive = false;
+                    }
+                }
+            }
+            foreach (var r in removing)
+            {
+                bullets.Remove(r);
             }
         }
     }
