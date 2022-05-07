@@ -55,7 +55,7 @@ namespace ShoresOfGold.Models
 
         public void Heal() 
         {
-            //increases the HP of the player
+            
         }
 
         public void GetDamage(double damage) 
