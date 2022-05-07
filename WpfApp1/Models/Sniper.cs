@@ -117,6 +117,7 @@ namespace ShoresOfGold.Models
                         this.player.GetDamage(this.Power);
                         //this.bullets.Remove(b);
                         b.Alive = false;
+                        removing.Add(b);
                     }
                 }
             }
