@@ -77,11 +77,6 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(this.Player, this.mapArea);
             /*Zombie.NewFollowPlayer();
             Zombie.Attack();*/
-            
-            if (Enemies.Count == 0) 
-            {
-                MessageBox.Show("U WIN B1TCH!!!!44!!44!!!4!!");
-            }
 
             Bullets.Clear();
             // Enemy removeable = null;
