@@ -30,7 +30,7 @@ namespace ShoresOfGold.Models
             EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
-        private void Accuracy(ref System.Drawing.Point target) 
+       /* private void Accuracy(ref System.Drawing.Point target) 
         {
             if (tr.Next(1) == 0)
             {
@@ -48,7 +48,7 @@ namespace ShoresOfGold.Models
             {
                 target.Y -= tr.Next(0, 2);
             }
-        }
+        }*/
 
         public override void Attack()
         {
@@ -59,7 +59,7 @@ namespace ShoresOfGold.Models
                 {
                     cooldown = 0;
                     System.Drawing.Point target = player.Center;
-                    Accuracy(ref target);
+                    //Accuracy(ref target);
                     Bullet b = new Bullet(this.Center, target);
                     bullets.Add(b);
                 }
