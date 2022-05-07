@@ -31,7 +31,7 @@ namespace ShoresOfGold.Models
             Gold = 0;
             Width = 70;
             Height = 86;
-            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
+            Center = new System.Drawing.Point(10+Width/2, (int)mapArea.Height / 2);
             Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
