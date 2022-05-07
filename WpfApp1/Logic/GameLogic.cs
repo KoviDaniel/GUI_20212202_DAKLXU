@@ -84,7 +84,7 @@ namespace ShoresOfGold.Logic
             Zombie.Attack();*/
 
             Bullets.Clear();
-            this.Player.BulletLife(Enemies);
+            //this.Player.BulletLife(Enemies);
             Bullets.AddRange(this.Player.Bullets);
             // Enemy removeable = null;
             List<Enemy> removing = new List<Enemy>();
@@ -130,7 +130,7 @@ namespace ShoresOfGold.Logic
             Rect playerRect = new Rect(Player.Center.X, Player.Center.Y, Player.Width, Player.Height);
             //Rect zombieRect = new Rect(Zombie.Center.X, Zombie.Center.Y, Zombie.Width, Zombie.Height);
             // Zombie.FollowPlayer(Player, mapArea);
-            
+            this.Player.BulletLife(Enemies);
             EnemyControl();
             //BulletControl();
             Changed?.Invoke(this, null);
