@@ -92,16 +92,24 @@ namespace ShoresOfGold.Renderer
                     if (e.Health>0) 
                     {
                         drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
-                        e.Center.X, e.Center.Y,
+                        e.Center.X - e.Width/2, e.Center.Y-e.Height/2,
                         e.Width, e.Height
+                        ));
+                        drawingContext.DrawRectangle(Brushes.Green, null, new Rect(
+                        e.Center.X, e.Center.Y,
+                        10, 10
                         ));
                     }
                 }
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
-                        model.Player.Center.X, model.Player.Center.Y,
+                        model.Player.Center.X - model.Player.Width/2, model.Player.Center.Y - model.Player.Height/2,
                         model.Player.Width, model.Player.Height
+                        ));
+                    drawingContext.DrawRectangle(Brushes.Green, null, new Rect(
+                        model.Player.Center.X, model.Player.Center.Y,
+                        10, 10
                         ));
                 }
                 /*drawingContext.DrawRectangle(ZombieBrush, null, new Rect(

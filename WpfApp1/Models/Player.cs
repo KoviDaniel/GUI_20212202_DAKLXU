@@ -19,16 +19,15 @@ namespace ShoresOfGold.Models
             Health = 100;
             Stamina = 0;
             Gold = 0;
-
-            Center = new System.Drawing.Point((int)mapArea.Width / 2 - 50, (int)mapArea.Height / 2 - 50);
-            Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
+            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
+            Speed = new Vector(3, 3);
             MeleeDamage = 40;
             RangeDamage = 30;
             //PlayerRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
-        public Rect PlayerRect { get { return new Rect(this.Center.X, this.Center.Y, this.Width, this.Height); } }
+        public Rect PlayerRect { get { return new Rect(this.Center.X-this.Width/2, this.Center.Y-this.Height/2, this.Width, this.Height); } }
 
         public void Move(Controls control)
         {
