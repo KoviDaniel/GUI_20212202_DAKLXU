@@ -12,19 +12,22 @@ namespace WpfApp1.Logic
 {
     public enum Controls
     {
-        Up, Down, Left, Right
+        Up, Down, Left, Right, NextMap, PreviousMap
     }
 
     public class GameLogic : IGameModel
     {
+        private const int topWallThickness = 700 / 3; //??
+        private const int bottomWallThickness = 340 / 3; //??
         private Size mapArea;
-        public event EventHandler Changed; //public event EventHandler GameOver;
-        public Player Player { get; set; }
 
-        const int topWallThickness = 700 / 3;
-        const int bottomWallThickness = 340 / 3;
+        public event EventHandler Changed; //public event EventHandler GameOver;
+
+        public Player Player { get; set; }
         public Wall TopWall { get; set; }
         public Wall BottomWall { get; set; }
+
+        public int MapNumber { get; set; }
 
         public void SetupSizes(Size mapArea)
         {
@@ -37,11 +40,23 @@ namespace WpfApp1.Logic
             TopWall = new Wall(new Point(0, 0), new Point(mapArea.Width, 0), topWallThickness);
             BottomWall = new Wall(new Point(0, mapArea.Height - bottomWallThickness), 
                 new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+            MapNumber = 1;
         }
 
         public void PlayerControl(Controls control)
         {           
-            Player.Move(control);
+            if (control == Controls.NextMap && MapNumber < 4)
+            {
+                MapNumber++;
+            }
+            else if (control == Controls.PreviousMap && MapNumber > 1)
+            {
+                MapNumber--;
+            }
+            else
+            {
+                Player.Control(control);
+            }
         }
 
         public void TimeStep()
