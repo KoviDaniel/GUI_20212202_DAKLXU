@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Fonts\Windlass.ttf" />
+    <None Remove="Images\arrow.png" />
     <None Remove="Images\background.png" />
     <None Remove="Images\Background2.png" />
     <None Remove="Images\bob_the_boat.png" />
@@ -19,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Background2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
