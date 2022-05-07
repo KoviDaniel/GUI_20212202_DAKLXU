@@ -10,7 +10,7 @@ namespace ShoresOfGold.Logic
 {
     public enum Controls
     {
-        Up, Down, Left, Right, Open
+        Up, Down, Left, Right, Open, Melee, Range
     }
 
     public class GameLogic : IGameModel
