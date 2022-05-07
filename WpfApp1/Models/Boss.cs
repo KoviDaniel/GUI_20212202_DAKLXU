@@ -18,11 +18,11 @@ namespace ShoresOfGold.Models
         {
             this.player = player;
             this.mapArea = mapArea;
-            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2);
+            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2 - 400);
             this.Speed = new Vector(0, 0);
             this.Health = 1000;
-            this.Width = 250;
-            this.Height = 100;
+            this.Width = 450;
+            this.Height = 400;
         }
         public Rect BossRect { get; set; }
         private double Distance

@@ -34,6 +34,13 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/Background2.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush BobTheBoatBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush ZombieBrush
         {
             get
@@ -98,9 +105,13 @@ namespace ShoresOfGold.Renderer
                         
                     }
                 }
-                if (model.Boss.Health > 0 && model.Enemies.Count > 0) 
+                if (model.Boss.Health > 0 && model.Enemies.Count <= 0) 
                 {
-                    //drawingContext.DrawRectangle()
+                    drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
+                        (
+                            model.Boss.Center.X-model.Boss.Width/2, model.Boss.Center.Y-model.Boss.Height/2,
+                            model.Boss.Width, model.Boss.Height
+                        ));
                 }
                 if (model.Player.Health > 0)
                 {
