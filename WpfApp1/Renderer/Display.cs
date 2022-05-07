@@ -52,8 +52,8 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return Brushes.Red;
-                //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+                //return Brushes.Red;
+                return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestBrush { get 
