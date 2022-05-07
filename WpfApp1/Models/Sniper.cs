@@ -30,25 +30,26 @@ namespace ShoresOfGold.Models
             EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
-       /* private void Accuracy(ref System.Drawing.Point target) 
-        {
-            if (tr.Next(1) == 0)
-            {
-                target.X += tr.Next(0,2);
-            }
-            else 
-            {
-                target.X -= tr.Next(0, 2);
-            }
-            if (tr.Next(1) == 0)
-            {
-                target.Y += tr.Next(0, 2);
-            }
-            else
-            {
-                target.Y -= tr.Next(0, 2);
-            }
-        }*/
+        /* private void Accuracy(ref System.Drawing.Point target) 
+         {
+             if (tr.Next(1) == 0)
+             {
+                 target.X += tr.Next(0,2);
+             }
+             else 
+             {
+                 target.X -= tr.Next(0, 2);
+             }
+             if (tr.Next(1) == 0)
+             {
+                 target.Y += tr.Next(0, 2);
+             }
+             else
+             {
+                 target.Y -= tr.Next(0, 2);
+             }
+         }*/
+        
 
         public override void Attack()
         {
@@ -81,7 +82,7 @@ namespace ShoresOfGold.Models
             int idx = -1;
             for (int i = 0; i < bullets.Count; i++)
             {
-                if (idx != -1) this.bullets.RemoveAt(idx);
+                if (idx != -1) bullets.RemoveAt(idx);
                 idx = -1;
                 if (bullets[i].BulletRect.IntersectsWith(player.PlayerRect))
                 {
