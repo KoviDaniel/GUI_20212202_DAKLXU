@@ -35,9 +35,9 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
             {
-                GenerateEnemies();
+                //GenerateEnemies();
             }
-            for (int i = 0; i < r.Next(1,4); i++)
+            for (int i = 0; i < r.Next(4,13); i++)
             {
                 this.Chests.Add(new Chest(mapArea));
             }
@@ -68,7 +68,7 @@ namespace ShoresOfGold.Logic
         public void PlayerControl(Controls control)
         {
             Player.Move(control);
-
+            Player.Interact(control, Chests);
         }
 
         public void EnemyControl()

@@ -58,11 +58,22 @@ namespace ShoresOfGold.Renderer
             {
                 foreach (var chest in model.Chests)
                 {
-                    drawingContext.DrawRectangle(Brushes.Gold, new Pen(Brushes.Black, 2), new Rect
-                        (
-                            chest.Center.X, chest.Center.Y,
-                            15, 15
-                        ));
+                    if (chest.Opened == false)
+                    {
+                        drawingContext.DrawRectangle(Brushes.Gold, new Pen(Brushes.Black, 2), new Rect
+                            (
+                                chest.Center.X, chest.Center.Y,
+                                15, 15
+                            ));
+                    }
+                    else 
+                    {
+                        drawingContext.DrawRectangle(Brushes.Gray, new Pen(Brushes.Black, 2), new Rect
+                            (
+                                chest.Center.X, chest.Center.Y,
+                                15, 15
+                            ));
+                    }
                 }
                 foreach (var e in model.Enemies)
                 {
