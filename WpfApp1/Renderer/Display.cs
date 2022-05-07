@@ -163,6 +163,7 @@ namespace ShoresOfGold.Renderer
         {
             model.MapNumber += 1;
             model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
+            model.SetupSizes(mapArea);
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -170,7 +171,7 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4)
+                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4 && model.Enemies.Count <= 0)
                 {
                     LoadNextMap();
                 }
