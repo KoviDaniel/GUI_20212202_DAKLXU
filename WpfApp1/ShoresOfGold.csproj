@@ -11,6 +11,7 @@
     <None Remove="Images\background.png" />
     <None Remove="Images\Background2.png" />
     <None Remove="Images\bob_the_boat.png" />
+    <None Remove="Images\cannonball.png" />
     <None Remove="Images\chestclosed.png" />
     <None Remove="Images\chestopen.png" />
     <None Remove="Images\pirate.png" />
@@ -22,6 +23,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bob_the_boat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cannonball.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\chestclosed.png">
