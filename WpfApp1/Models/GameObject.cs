@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using WpfApp1.Models;
 
 namespace ShoresOfGold.Models
 {
@@ -12,8 +13,7 @@ namespace ShoresOfGold.Models
         public abstract Geometry Area { get; }
         public bool IsCollision(GameObject other)
         {
-            return Geometry.Combine(this.Area, other.Area,
-                GeometryCombineMode.Intersect, null).GetArea() > 0;
+            return Geometry.Combine(this.Area, other.Area, GeometryCombineMode.Intersect, null).GetArea() > 0;
         }
     }
 }

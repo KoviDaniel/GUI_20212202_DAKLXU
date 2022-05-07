@@ -29,7 +29,7 @@ namespace WpfApp1.Logic
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
-            Player = new Player(mapArea);
+            Player = new Player(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y);
         }
 
         public GameLogic(Size mapArea)

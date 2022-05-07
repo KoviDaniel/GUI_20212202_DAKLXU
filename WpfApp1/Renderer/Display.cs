@@ -59,24 +59,8 @@ namespace WpfApp1.Renderer
                 drawingContext.DrawGeometry(
                     BottomWallBrush, new Pen(Brushes.Black, 1), model.BottomWall.Area);
 
-                var oldPosition = new Point(model.Player.Center.X, model.Player.Center.Y);
-
-                var upperBound = model.TopWall.Area.Bounds.Height;
-                var lowerBound = model.BottomWall.Area.Bounds.Y;
-
-                if (model.Player.Center.Y + model.Player.Height > upperBound && 
-                    model.Player.Center.Y + model.Player.Height < lowerBound && 
-                    model.Player.Center.X > 0 &&
-                    model.Player.Center.X + model.Player.Width < mapArea.Width) 
-                {
-                    drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1),
-                        new Rect(model.Player.Center.X, model.Player.Center.Y, model.Player.Width, model.Player.Height));
-                }
-                else
-                {
-                    drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1),
-                        new Rect(oldPosition.X, oldPosition.Y, model.Player.Width, model.Player.Height));
-                }
+                drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1),
+                     new Rect(model.Player.Center.X, model.Player.Center.Y, model.Player.Width, model.Player.Height));
             }
         }
     }
