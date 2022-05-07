@@ -12,7 +12,6 @@ namespace WpfApp1.Renderer
 {
     public class Display : FrameworkElement
     {
-
         Size mapArea;
         IGameModel model;
 
@@ -21,7 +20,6 @@ namespace WpfApp1.Renderer
             this.mapArea = mapArea;
             this.InvalidateVisual();
         }
-
         public void SetupModel(IGameModel model)
         {
             this.model = model;
@@ -126,11 +124,22 @@ namespace WpfApp1.Renderer
         }
         #endregion
 
+        public void LoadNextMap()
+        {
+            model.MapNumber += 1;
+            model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
+        }
+
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
+                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4)
+                {
+                    LoadNextMap();
+                }
+
                 if (model.MapNumber == 1)
                 {
                     drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));

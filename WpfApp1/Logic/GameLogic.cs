@@ -12,7 +12,7 @@ namespace WpfApp1.Logic
 {
     public enum Controls
     {
-        Up, Down, Left, Right, NextMap, PreviousMap
+        Up, Down, Left, Right
     }
 
     public class GameLogic : IGameModel
@@ -45,18 +45,7 @@ namespace WpfApp1.Logic
 
         public void PlayerControl(Controls control)
         {           
-            if (control == Controls.NextMap && MapNumber < 4)
-            {
-                MapNumber++;
-            }
-            else if (control == Controls.PreviousMap && MapNumber > 1)
-            {
-                MapNumber--;
-            }
-            else
-            {
-                Player.Control(control);
-            }
+            Player.Control(control);
         }
 
         public void TimeStep()

@@ -78,20 +78,11 @@ namespace MainMenu
             {
                 gameLogic.PlayerControl(Controls.Right);
             }
-            if (Keyboard.IsKeyDown(Key.Right))
-            {
-                gameLogic.PlayerControl(Controls.NextMap);
-            }
-            if (Keyboard.IsKeyDown(Key.Left))
-            {
-                gameLogic.PlayerControl(Controls.PreviousMap);
-            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Confirm",
-            MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
             }
