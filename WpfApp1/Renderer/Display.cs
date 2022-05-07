@@ -263,7 +263,7 @@ namespace ShoresOfGold.Renderer
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                 }
 
-                if (model.Enemies.Count == 0) 
+                if (model.Enemies.Count == 0 && model.MapNumber < 4) 
                 {
                     drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
                             mapArea.Width-75,mapArea.Height/2, 50, 50
