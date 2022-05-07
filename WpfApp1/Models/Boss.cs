@@ -35,7 +35,7 @@ namespace ShoresOfGold.Models
 
         public void AttackHandler() 
         {
-            if (this.player != null) {
+            if (this.player != null && this.Health>0 && this.player.Health > 0) {
                 var option = r.Next(4);
                 if (cooldown >= attackIntensity)
                 {
@@ -50,9 +50,13 @@ namespace ShoresOfGold.Models
                             break;
                         case 2:
                             //todo new attacks
+                            HalfAreaAttack();
+                            cooldown = 0;
                             break;
                         case 3:
                             //todo new Attacks
+                            CloseAttack();
+                            cooldown = 0;
                             break;
                     }
                 }
