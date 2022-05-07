@@ -208,6 +208,7 @@ namespace ShoresOfGold.Renderer
                     drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
                 }
 
+                //CHEST DRAW
                 foreach (var chest in model.Chests)
                 {
                     if (chest.Opened == false)
@@ -227,6 +228,8 @@ namespace ShoresOfGold.Renderer
                             ));
                     }
                 }
+
+                //ENEMY DRAW
                 foreach (var e in model.Enemies)
                 {
                     if (e.Health>0) 
@@ -238,14 +241,18 @@ namespace ShoresOfGold.Renderer
                         
                     }
                 }
-                /*if (model.Boss.Health > 0 && model.Enemies.Count <= 0) 
+
+                //BOSS DRAW
+                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1) 
                 {
                     drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
                         (
                             model.Boss.Center.X-model.Boss.Width/2, model.Boss.Center.Y-model.Boss.Height/2,
                             model.Boss.Width, model.Boss.Height
                         ));
-                }*/
+                }
+                
+                //PLAYER DRAW
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
@@ -254,15 +261,14 @@ namespace ShoresOfGold.Renderer
                         ));
                     
                 }
-                /*drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
-                    model.Zombie.Center.X, model.Zombie.Center.Y,
-                    model.Zombie.Width, model.Zombie.Height
-                    ));*/
+                
+
+                //BULLET DRAW
                 foreach (var b in model.Bullets)
                 {
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                 }
-
+                //NEXT MAP ARROW DRAW
                 if (model.Enemies.Count == 0 && model.MapNumber < 4) 
                 {
                     drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
