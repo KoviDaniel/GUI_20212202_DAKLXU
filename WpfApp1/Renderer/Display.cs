@@ -105,14 +105,14 @@ namespace ShoresOfGold.Renderer
                         
                     }
                 }
-                if (model.Boss.Health > 0 && model.Enemies.Count <= 0) 
+                /*if (model.Boss.Health > 0 && model.Enemies.Count <= 0) 
                 {
                     drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
                         (
                             model.Boss.Center.X-model.Boss.Width/2, model.Boss.Center.Y-model.Boss.Height/2,
                             model.Boss.Width, model.Boss.Height
                         ));
-                }
+                }*/
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
