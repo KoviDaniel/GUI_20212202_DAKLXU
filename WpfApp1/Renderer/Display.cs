@@ -30,7 +30,7 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/Background2.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush ArrowBrush
@@ -75,6 +75,8 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/chestclosed.png", UriKind.RelativeOrAbsolute)));
             }
         }
+
+
 
         #region mapBrushes
         public Brush TopWallBrush_1
@@ -183,6 +185,7 @@ namespace ShoresOfGold.Renderer
                     LoadNextMap();
                 }
 
+                //MAP DRAW
                 if (model.MapNumber == 1)
                 {
                     drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));
