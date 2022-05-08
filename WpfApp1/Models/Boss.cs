@@ -11,7 +11,7 @@ namespace ShoresOfGold.Models
     {
         Player player;
         Random r = new Random(); //támadás típushoz
-        const int attackIntensity = 100;
+        const int attackIntensity = 1000;
         int cooldown = 0;
         Size mapArea;
         public Boss(Size mapArea, Player player)
@@ -21,8 +21,8 @@ namespace ShoresOfGold.Models
             Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2 - 400);
             this.Speed = new Vector(0, 0);
             this.Health = 1000;
-            this.Width = 450;
-            this.Height = 400;
+            this.Width = 650;
+            this.Height = 600;
         }
         public Rect BossRect { get; set; }
         private double Distance
@@ -36,7 +36,7 @@ namespace ShoresOfGold.Models
         public void AttackHandler() 
         {
             if (this.player != null && this.Health>0 && this.player.Health > 0) {
-                var option = r.Next(4);
+                var option = r.Next(0, 4);
                 if (cooldown >= attackIntensity)
                 {
                     switch (option) {
@@ -60,8 +60,8 @@ namespace ShoresOfGold.Models
                             break;
                     }
                 }
-                ++cooldown;
             }
+            ++cooldown;
         }
 
         #region Attacks

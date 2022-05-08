@@ -50,11 +50,11 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
             {
-                GenerateEnemies();
+                //GenerateEnemies();
             }
-            for (int i = 0; i < r.Next(4,13); i++)
+            for (int i = 0; i < r.Next(1, 5); i++)
             {
-                this.Chests.Add(new Chest(mapArea));
+                this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
             }
         }
 
@@ -146,6 +146,11 @@ namespace ShoresOfGold.Logic
                 Bullets.Clear();
         }
 
+        public void BossControl() 
+        {
+            this.Boss.AttackHandler();
+        }
+
         public void TimeStep()
         {
             //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
@@ -153,6 +158,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
             EnemyControl();
+            BossControl();
             //BulletControl();
             Changed?.Invoke(this, null);
         }

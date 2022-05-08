@@ -14,7 +14,7 @@ namespace ShoresOfGold.Models
         public Vector Direction { get; }
 
         public System.Drawing.Point Center { get; set; }
-        public Rect BulletRect { get { return new Rect(this.Center.X, this.Center.Y, 3, 3); } }
+        public Rect BulletRect { get { return new Rect(this.Center.X, this.Center.Y, 10, 10); } }
 
         public bool Alive { get; set; }
 

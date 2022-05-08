@@ -1,6 +1,7 @@
 ﻿using ShoresOfGold.Models;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace ShoresOfGold.Logic
 {
@@ -19,5 +20,6 @@ namespace ShoresOfGold.Logic
         Wall BottomWall { get; set; }
 
         public int MapNumber { get; set; }
+        void SetupSizes(Size mapArea);
     }
 }

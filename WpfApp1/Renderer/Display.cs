@@ -33,6 +33,13 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/Background2.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush ArrowBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush BobTheBoatBrush
         {
             get
@@ -52,8 +59,8 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return Brushes.Red;
-                //return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+                //return Brushes.Red;
+                return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestBrush { get 
@@ -163,6 +170,7 @@ namespace ShoresOfGold.Renderer
         {
             model.MapNumber += 1;
             model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
+            model.SetupSizes(mapArea);
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -170,7 +178,7 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4)
+                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4 && model.Enemies.Count <= 0)
                 {
                     LoadNextMap();
                 }
@@ -200,6 +208,7 @@ namespace ShoresOfGold.Renderer
                     drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
                 }
 
+                //CHEST DRAW
                 foreach (var chest in model.Chests)
                 {
                     if (chest.Opened == false)
@@ -219,6 +228,8 @@ namespace ShoresOfGold.Renderer
                             ));
                     }
                 }
+
+                //ENEMY DRAW
                 foreach (var e in model.Enemies)
                 {
                     if (e.Health>0) 
@@ -230,14 +241,18 @@ namespace ShoresOfGold.Renderer
                         
                     }
                 }
-                /*if (model.Boss.Health > 0 && model.Enemies.Count <= 0) 
+
+                //BOSS DRAW
+                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1) 
                 {
                     drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
                         (
                             model.Boss.Center.X-model.Boss.Width/2, model.Boss.Center.Y-model.Boss.Height/2,
                             model.Boss.Width, model.Boss.Height
                         ));
-                }*/
+                }
+                
+                //PLAYER DRAW
                 if (model.Player.Health > 0)
                 {
                     drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
@@ -246,14 +261,20 @@ namespace ShoresOfGold.Renderer
                         ));
                     
                 }
-                /*drawingContext.DrawRectangle(ZombieBrush, null, new Rect(
-                    model.Zombie.Center.X, model.Zombie.Center.Y,
-                    model.Zombie.Width, model.Zombie.Height
-                    ));*/
+                
+
+                //BULLET DRAW
                 foreach (var b in model.Bullets)
                 {
                     drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
-                }       
+                }
+                //NEXT MAP ARROW DRAW
+                if (model.Enemies.Count == 0 && model.MapNumber < 4) 
+                {
+                    drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
+                            mapArea.Width-75,mapArea.Height/2, 50, 50
+                        ));
+                }
             }
         }
     }
