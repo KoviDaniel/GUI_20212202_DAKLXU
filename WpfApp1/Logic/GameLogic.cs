@@ -16,8 +16,8 @@ namespace ShoresOfGold.Logic
 
     public class GameLogic : IGameModel
     {
-        private const int topWallThickness = 700 / 3; //??
-        private const int bottomWallThickness = 340 / 3; //??
+        private const int topWallThickness = 240; 
+        private const int bottomWallThickness = 120; 
 
         Random r = new Random();
         private Size mapArea;
