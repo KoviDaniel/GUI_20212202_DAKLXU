@@ -48,7 +48,7 @@ namespace ShoresOfGold.Logic
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
-            for (int i = 0; i < r.Next(1,1); i++)
+            for (int i = 0; i < r.Next(3,7); i++)
             {
                 GenerateEnemies();
             }
@@ -60,7 +60,7 @@ namespace ShoresOfGold.Logic
 
         public void GenerateEnemies() 
         {
-            int num = r.Next(2, 2);
+            int num = r.Next(0, 2);
             if (num == 0)
             {
                 this.Enemies.Add(new Zombie(mapArea, Player));
