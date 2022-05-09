@@ -43,7 +43,7 @@ namespace ShoresOfGold.Logic
 
             //Player = new Player(mapArea.Width / 2, mapArea.Height / 2);
             Player = new Player(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y);
-            //Boss = new Boss(mapArea, Player);
+            Boss = new Boss(mapArea, Player);
             Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
@@ -148,13 +148,17 @@ namespace ShoresOfGold.Logic
 
         public void BossControl() 
         {
+            if(this.Enemies.Count == 0 &&this.MapNumber ==4)
             this.Boss.AttackHandler();
         }
 
         public void TimeStep()
         {
             //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
-           
+            if (this.Enemies.Count == 0) { 
+                this.Bullets.Clear();
+                this.Player.Bullets.Clear();
+            }
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
             EnemyControl();
