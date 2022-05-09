@@ -57,26 +57,28 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                //if (!model.Zombie.IsMoving)
-                //{
-                //    if (model.Zombie.MoveRight)
-                //    {
-                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
-                //    }
-                //    if (model.Zombie.MoveLeft)
-                //    {
-                //        var picture = zombieAnimationManager.GetNextofThis(2);
-                //        var transform = new ScaleTransform(-1, 1, 0, 0);
-                //        var tb = new TransformedBitmap();
-                //        tb.BeginInit();
-                //        tb.Source = picture;
-                //        tb.Transform = transform;
-                //        tb.EndInit();
-                //        return new ImageBrush(tb);
-                //    }
-                //    return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
+                {
+                    //if (!model.Zombie.IsMoving)
+                    //{
+                    //    if (model.Zombie.MoveRight)
+                    //    {
+                    //        return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
+                    //    }
+                    //    if (model.Zombie.MoveLeft)
+                    //    {
+                    //        var picture = zombieAnimationManager.GetNextofThis(2);
+                    //        var transform = new ScaleTransform(-1, 1, 0, 0);
+                    //        var tb = new TransformedBitmap();
+                    //        tb.BeginInit();
+                    //        tb.Source = picture;
+                    //        tb.Transform = transform;
+                    //        tb.EndInit();
+                    //        return new ImageBrush(tb);
+                    //    }
+                    //    return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
 
-                //}
+                    //}
+                }
 
                 if (model.Zombie.PlayerIsOnRight)
                 {
