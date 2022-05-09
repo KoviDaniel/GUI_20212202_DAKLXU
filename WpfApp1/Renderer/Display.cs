@@ -262,7 +262,7 @@ namespace ShoresOfGold.Renderer
                         drawingContext.DrawRectangle(ClosedChestBrush, null, new Rect
                             (
                                 chest.Center.X, chest.Center.Y,
-                                40, 40
+                                chest.Width, chest.Height
                             ));
                     }
                     else 
@@ -270,9 +270,10 @@ namespace ShoresOfGold.Renderer
                         drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
                             (
                                 chest.Center.X, chest.Center.Y,
-                                40, 40
+                                chest.Width, chest.Height
                             ));
                     }
+                    drawingContext.DrawEllipse(null, new Pen(Brushes.GreenYellow, 2), new Point(chest.Center.X, chest.Center.Y), 80, 80);
                 }
 
                 //ENEMY DRAW

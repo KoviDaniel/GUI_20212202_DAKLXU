@@ -15,6 +15,8 @@ namespace ShoresOfGold.Models
     {
         Random r;
         Buffs buff;
+        public int Width { get; set; }
+        public int Height { get; set; }
         //Player p;
         public bool Opened { get; set; }
         public System.Drawing.Point Center { get; set; }
@@ -22,8 +24,10 @@ namespace ShoresOfGold.Models
         {
             r = new Random();
             buff = (Buffs)r.Next(0, 4);
+            Width = 40;
+            Height = 40;
             //Center = new System.Drawing.Point(r.Next(30, (int)mapArea.Width-40), r.Next(15, (int)mapArea.Height - 25));
-            Center = new System.Drawing.Point(r.Next(30 / 2, (int)mapArea.Width-40), r.Next((int)upperBound + 15, (int)lowerBound - 25));
+            Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width-Width/2), r.Next((int)upperBound + Height, (int)lowerBound - Height/2));
             Opened = false;
         }
         public void Open(Player p) 

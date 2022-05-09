@@ -60,7 +60,7 @@ namespace ShoresOfGold.Logic
 
         public void GenerateEnemies() 
         {
-            int num = r.Next(0, 0);
+            int num = r.Next(1, 1);
             if (num == 0)
             {
                 this.Enemies.Add(new Zombie(mapArea, Player));
