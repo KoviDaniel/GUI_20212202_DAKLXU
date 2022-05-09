@@ -273,7 +273,6 @@ namespace ShoresOfGold.Renderer
                                 chest.Width, chest.Height
                             ));
                     }
-                    drawingContext.DrawEllipse(null, new Pen(Brushes.GreenYellow, 2), new Point(chest.Center.X, chest.Center.Y), 80, 80);
                 }
 
                 //ENEMY DRAW
@@ -312,7 +311,6 @@ namespace ShoresOfGold.Renderer
                         model.Player.Center.X - model.Player.Width/2, model.Player.Center.Y - model.Player.Height/2,
                         model.Player.Width, model.Player.Height
                         ));
-                    
                 }
                 
 

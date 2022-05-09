@@ -25,10 +25,10 @@ namespace ShoresOfGold.Models
             Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
 
             DetectionRange = 500;
-            AttackRange = 500;
-            StoppingRange = 100 + (player.Width + player.Height) / 2;
+            AttackRange = 470;
+            StoppingRange = 200 + (player.Width + player.Height) / 2;
 
-            AttackIntensity = 300;
+            AttackIntensity = 150;
             this.bullets = new List<Bullet>();
 
            // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);

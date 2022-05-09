@@ -81,7 +81,7 @@ namespace ShoresOfGold.Models
         {
             foreach (var e in enemies)
             {
-                if (DistanceCalculator(e.Center) <= 280 && Health > 0) 
+                if (DistanceCalculator(e.Center) <= 130 && Health > 0) 
                 {
                     e.GetDamage(this.MeleeDamage);
                 }
