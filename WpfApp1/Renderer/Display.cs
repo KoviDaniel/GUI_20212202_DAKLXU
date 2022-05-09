@@ -280,11 +280,13 @@ namespace ShoresOfGold.Renderer
                 {
                     if (e.Health > 0)
                     {
-                        drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
+                        drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
                         e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
                         e.Width, e.Height
                         ));
-
+                        drawingContext.DrawEllipse(null, new Pen(Brushes.AliceBlue, 2), new Point(e.Center.X, e.Center.Y), e.DetectionRange, e.DetectionRange);
+                        drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(e.Center.X, e.Center.Y), e.AttackRange, e.AttackRange);
+                        drawingContext.DrawEllipse(null, new Pen(Brushes.Black, 2), new Point(e.Center.X, e.Center.Y), e.StoppingRange, e.StoppingRange);
                     }
                 }
 
@@ -295,7 +297,7 @@ namespace ShoresOfGold.Renderer
                 //BOSS DRAW
                 if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
                 {
-                    drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
+                    drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
                         (
                             model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
                             model.Boss.Width, model.Boss.Height
