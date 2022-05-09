@@ -378,7 +378,7 @@ namespace ShoresOfGold.Renderer
                                 model.Boss.Width, model.Boss.Height
                             ));
                     }
-                    drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
+                   // drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
                 }
 
                 //PLAYER DRAW
