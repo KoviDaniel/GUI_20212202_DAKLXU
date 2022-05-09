@@ -29,7 +29,7 @@ namespace ShoresOfGold.Logic
         public Wall BottomWall { get; set; }
 
         public Boss Boss { get; set; }
-        //public Zombie Zombie { get; set; }
+        public Zombie Zombie { get; set; }
         public List<Enemy> Enemies { get; set; }
         public List<Bullet> Bullets { get; set; }
         
@@ -43,14 +43,14 @@ namespace ShoresOfGold.Logic
 
             //Player = new Player(mapArea.Width / 2, mapArea.Height / 2);
             Player = new Player(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y);
-            Boss = new Boss(mapArea, Player);
-            //Zombie= new Zombie(mapArea, this.Player);
+            //Boss = new Boss(mapArea, Player);
+            Zombie= new Zombie(mapArea, this.Player);
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
             {
-                //GenerateEnemies();
+                GenerateEnemies();
             }
             for (int i = 0; i < r.Next(1, 5); i++)
             {
@@ -158,7 +158,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
             EnemyControl();
-            BossControl();
+            //BossControl();
             //BulletControl();
             Changed?.Invoke(this, null);
         }

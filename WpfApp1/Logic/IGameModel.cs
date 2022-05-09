@@ -9,7 +9,7 @@ namespace ShoresOfGold.Logic
     {       
         Player Player { get; set; }
         Boss Boss { get; set; }
-        //Zombie Zombie { get; set; }
+        Zombie Zombie { get; set; }
         List<Enemy> Enemies { get; set; }
         List<Bullet> Bullets { get; set; }
         List<Chest> Chests { get; set; }
