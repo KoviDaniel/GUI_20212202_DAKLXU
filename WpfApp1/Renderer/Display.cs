@@ -284,9 +284,6 @@ namespace ShoresOfGold.Renderer
                         e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
                         e.Width, e.Height
                         ));
-                        drawingContext.DrawEllipse(null, new Pen(Brushes.AliceBlue, 2), new Point(e.Center.X, e.Center.Y), e.DetectionRange, e.DetectionRange);
-                        drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(e.Center.X, e.Center.Y), e.AttackRange, e.AttackRange);
-                        drawingContext.DrawEllipse(null, new Pen(Brushes.Black, 2), new Point(e.Center.X, e.Center.Y), e.StoppingRange, e.StoppingRange);
                     }
                 }
 
