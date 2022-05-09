@@ -46,13 +46,45 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
             }
         }
+
+
         public Brush BobTheBoatBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
+                if (model.Boss.AttackType == -1)
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
+                }
+                else 
+                {
+                    if (model.Boss.AttackType == 0) 
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
+                    }
+                    return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                }
             }
         }
+        public Brush BobTheBoatHalfBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BobTheBoatCloseBrush
+        {
+            get
+            {
+                
+                return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                
+            }
+        }
+
+
+
         public Brush ZombieBrush
         {
             get
@@ -292,13 +324,32 @@ namespace ShoresOfGold.Renderer
                 //    model.Zombie.Width, model.Zombie.Height));
 
                 //BOSS DRAW
-                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1)
+                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
                 {
-                    drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
-                        (
-                            model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                            model.Boss.Width, model.Boss.Height
-                        ));
+                    if (model.Boss.AttackType == -1)
+                    {
+                        drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                            (
+                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                model.Boss.Width, model.Boss.Height
+                            ));
+                    }
+                    if (model.Boss.AttackType == 0) 
+                    {
+                        drawingContext.DrawRectangle(BobTheBoatHalfBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                            (
+                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                model.Boss.Width, model.Boss.Height
+                            ));
+                    }
+                    if (model.Boss.AttackType == 1)
+                    {
+                        drawingContext.DrawRectangle(BobTheBoatCloseBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                            (
+                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                model.Boss.Width, model.Boss.Height
+                            ));
+                    }
                     drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
                 }
 

@@ -14,6 +14,7 @@ namespace ShoresOfGold.Models
         const int attackIntensity = 1000;
         int cooldown = 0;
         Size mapArea;
+        public int AttackType { get; set; }
         public int CloseAttackSize { get; set; }
         public Boss(Size mapArea, Player player)
         {
@@ -24,6 +25,7 @@ namespace ShoresOfGold.Models
             this.Width = 650;
             this.Height = 600;
             this.CloseAttackSize = 475;
+            this.AttackType = -1;
             Center = new System.Drawing.Point((int)mapArea.Width/2, (int)mapArea.Height / 2-360);
         }
         public Rect BossRect { get; set; }
@@ -38,29 +40,22 @@ namespace ShoresOfGold.Models
         public void AttackHandler() 
         {
             if (this.player != null && this.Health>0 && this.player.Health > 0) {
-                var option = r.Next(0, 4);
+                if (cooldown == attackIntensity - 40) 
+                {
+                    this.AttackType = r.Next(0, 2);
+                }
                 if (cooldown >= attackIntensity)
                 {
-                    switch (option) {
-                        case 0:
-                            HalfAreaAttack();
-                            cooldown = 0;
-                            break;
-                        case 1:
-                            CloseAttack();
-                            cooldown = 0;
-                            break;
-                        case 2:
-                            //todo new attacks
-                            HalfAreaAttack();
-                            cooldown = 0;
-                            break;
-                        case 3:
-                            //todo new Attacks
-                            CloseAttack();
-                            cooldown = 0;
-                            break;
+                    if (this.AttackType == 0)
+                    {
+                        HalfAreaAttack();
                     }
+                    else if (this.AttackType == 1) 
+                    {
+                        CloseAttack();
+                    }
+                    cooldown = 0;
+                    this.AttackType = -1;
                 }
             }
             ++cooldown;
@@ -69,7 +64,7 @@ namespace ShoresOfGold.Models
         #region Attacks
         private void HalfAreaAttack() 
         {
-            var opt=r.Next(1);
+            int opt=r.Next(0, 1);
             if (opt == 0) {
                 if (this.player.Center.X < this.mapArea.Width / 2) 
                 {

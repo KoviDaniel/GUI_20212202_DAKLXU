@@ -148,8 +148,10 @@ namespace ShoresOfGold.Logic
 
         public void BossControl() 
         {
-            if(this.Enemies.Count == 0 &&this.MapNumber ==4)
-            this.Boss.AttackHandler();
+            if (this.Enemies.Count == 0 && this.MapNumber == 4)
+            {
+                this.Boss.AttackHandler();
+            }
         }
 
         public void TimeStep()
@@ -162,7 +164,7 @@ namespace ShoresOfGold.Logic
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
             EnemyControl();
-            //BossControl();
+            BossControl();
             //BulletControl();
             Changed?.Invoke(this, null);
         }
