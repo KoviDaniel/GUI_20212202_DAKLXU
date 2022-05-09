@@ -50,7 +50,7 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
             {
-                GenerateEnemies();
+                //GenerateEnemies();
             }
             for (int i = 0; i < r.Next(1, 5); i++)
             {

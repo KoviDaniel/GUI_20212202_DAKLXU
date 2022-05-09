@@ -292,13 +292,14 @@ namespace ShoresOfGold.Renderer
                 //    model.Zombie.Width, model.Zombie.Height));
 
                 //BOSS DRAW
-                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
+                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1)
                 {
                     drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
                         (
                             model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
                             model.Boss.Width, model.Boss.Height
                         ));
+                    drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
                 }
 
                 //PLAYER DRAW

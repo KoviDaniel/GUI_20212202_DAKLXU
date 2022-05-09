@@ -10,6 +10,8 @@
     <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\arrow.png" />
     <None Remove="Images\background.png" />
+    <None Remove="Images\bobtheboat_close.png" />
+    <None Remove="Images\bobtheboat_half.png" />
     <None Remove="Images\bob_the_boat.png" />
     <None Remove="Images\cannonball.png" />
     <None Remove="Images\chestclosed.png" />
@@ -44,6 +46,12 @@
 
   <ItemGroup>
     <Content Include="Images\arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bobtheboat_close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bobtheboat_half.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bob_the_boat.png">

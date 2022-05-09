@@ -14,15 +14,17 @@ namespace ShoresOfGold.Models
         const int attackIntensity = 1000;
         int cooldown = 0;
         Size mapArea;
+        public int CloseAttackSize { get; set; }
         public Boss(Size mapArea, Player player)
         {
             this.player = player;
             this.mapArea = mapArea;
-            Center = new System.Drawing.Point((int)mapArea.Width / 2, (int)mapArea.Height / 2 - 400);
             this.Speed = new Vector(0, 0);
             this.Health = 1000;
             this.Width = 650;
             this.Height = 600;
+            this.CloseAttackSize = 475;
+            Center = new System.Drawing.Point((int)mapArea.Width/2, (int)mapArea.Height / 2-360);
         }
         public Rect BossRect { get; set; }
         private double Distance
@@ -83,7 +85,7 @@ namespace ShoresOfGold.Models
         }
         private void CloseAttack() 
         {
-            if (Distance <= 100) this.player.GetDamage(70);
+            if (Distance <= this.CloseAttackSize) this.player.GetDamage(70);
         }
         #endregion
     }
