@@ -10,8 +10,42 @@ namespace ShoresOfGold.Models
 {
     public class Enemy : Entity
     {
-        public bool PlayerIsOnLeft { get; set; }
-        public bool PlayerIsOnRight { get; set; } 
+        public bool PlayerIsOnLeft 
+        { 
+            get 
+            {
+                if (this.Center.X > player.Center.X)
+                {
+                    PlayerIsOnRight = false;
+                    return true;
+                }
+                else 
+                    return false;
+            }
+            set 
+            {
+                value = PlayerIsOnLeft;              
+            }
+        }
+
+        public bool PlayerIsOnRight
+        {
+            get
+            {
+                if (this.Center.X < player.Center.X)
+                {
+                    PlayerIsOnLeft = false;
+                    return true;
+                }
+                else
+                    return false;
+            }
+            set 
+            {
+                value = PlayerIsOnRight;
+            }
+        }
+
         public bool IsAttacking { get; set; }
         public bool IsMoving { get; set; }
 
@@ -28,18 +62,6 @@ namespace ShoresOfGold.Models
         {
             this.player = player;
             // Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
-
-            if (this.Center.X > player.Center.X)
-            {
-                this.PlayerIsOnRight = false;
-                this.PlayerIsOnLeft = true;
-            }
-            else if (this.Center.X < player.Center.X)
-            {
-                this.PlayerIsOnLeft=false;
-                this.PlayerIsOnRight= true;
-            }
-
         }
 
         public Rect EnemyRect { get { return new Rect(this.Center.X - this.Width / 2, this.Center.Y - this.Height / 2, this.Width, this.Height); } }
@@ -73,6 +95,8 @@ namespace ShoresOfGold.Models
         {
             if (player != null)
             {
+                this.IsAttacking = false;
+                this.IsMoving = true;
                 double distance = this.Distance;
                 if (distance <= this.DetectionRange && distance >= this.StoppingRange)
                 {

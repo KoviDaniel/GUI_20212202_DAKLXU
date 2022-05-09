@@ -41,13 +41,15 @@ namespace ShoresOfGold.Models
             StoppingRange = 15+(player.Width+player.Height)/2;
 
             AttackIntensity = 50;
-           // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
+            // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
         public override void Attack() 
         {
             if (this.player != null && this.player.Health > 0 && Health >0)
             {
+                this.IsMoving = false;
+                this.IsAttacking = true;
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity)
                 {

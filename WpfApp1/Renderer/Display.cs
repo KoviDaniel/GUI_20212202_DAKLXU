@@ -89,36 +89,64 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                {
-                    //if (!model.Zombie.IsMoving)
-                    //{
-                    //    if (model.Zombie.MoveRight)
-                    //    {
-                    //        return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
-                    //    }
-                    //    if (model.Zombie.MoveLeft)
-                    //    {
-                    //        var picture = zombieAnimationManager.GetNextofThis(2);
-                    //        var transform = new ScaleTransform(-1, 1, 0, 0);
-                    //        var tb = new TransformedBitmap();
-                    //        tb.BeginInit();
-                    //        tb.Source = picture;
-                    //        tb.Transform = transform;
-                    //        tb.EndInit();
-                    //        return new ImageBrush(tb);
-                    //    }
-                    //    return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
-
-                    //}
-                }
-
+                //if (model.Zombie.PlayerIsOnRight)
+                //{
+                //    if (model.Zombie.IsMoving && !model.Zombie.IsAttacking)
+                //    {
+                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(1));
+                //    }
+                //    else if (!model.Zombie.IsMoving && model.Zombie.IsAttacking)
+                //    {
+                //         return new ImageBrush(zombieAnimationManager.GetNextofThis(3));            
+                //    }
+                //    else
+                //    {
+                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(0));
+                //    }
+                //}
+                //else if (model.Zombie.PlayerIsOnLeft)
+                //{
+                //    if (model.Zombie.IsMoving && !model.Zombie.IsAttacking)
+                //    {
+                //        var picture = zombieAnimationManager.GetNextofThis(1);
+                //        var transform = new ScaleTransform(-1, 1, 0, 0);
+                //        var tb = new TransformedBitmap();
+                //        tb.BeginInit();
+                //        tb.Source = picture;
+                //        tb.Transform = transform;
+                //        tb.EndInit();
+                //        return new ImageBrush(tb);
+                //    }
+                //    else if (!model.Zombie.IsMoving && model.Zombie.IsAttacking)
+                //    {
+                //        var picture = zombieAnimationManager.GetNextofThis(3);
+                //        var transform = new ScaleTransform(-1, 1, 0, 0);
+                //        var tb = new TransformedBitmap();
+                //        tb.BeginInit();
+                //        tb.Source = picture;
+                //        tb.Transform = transform;
+                //        tb.EndInit();
+                //        return new ImageBrush(tb);
+                //    }
+                //    else
+                //    {
+                //        var picture = zombieAnimationManager.GetNextofThis(0);
+                //        var transform = new ScaleTransform(-1, 1, 0, 0);
+                //        var tb = new TransformedBitmap();
+                //        tb.BeginInit();
+                //        tb.Source = picture;
+                //        tb.Transform = transform;
+                //        tb.EndInit();
+                //        return new ImageBrush(tb);
+                //    }                
+                //}
                 if (model.Zombie.PlayerIsOnRight)
                 {
-                    return new ImageBrush(zombieAnimationManager.GetNextofThis(1)); //Ha épp mozog akkor fix mozog
+                    return new ImageBrush(zombieAnimationManager.GetNextofThis(0));                   
                 }
-                if (model.Zombie.PlayerIsOnLeft)
+                else if (model.Zombie.PlayerIsOnLeft)
                 {
-                    var picture = zombieAnimationManager.GetNextofThis(1);
+                    var picture = zombieAnimationManager.GetNextofThis(0);
                     var transform = new ScaleTransform(-1, 1, 0, 0);
                     var tb = new TransformedBitmap();
                     tb.BeginInit();
@@ -127,7 +155,7 @@ namespace ShoresOfGold.Renderer
                     tb.EndInit();
                     return new ImageBrush(tb);
                 }
-                return new ImageBrush(zombieAnimationManager.GetNextofThis(0)); //végesetben is megkell jeleníteni valamit
+                return new ImageBrush(zombieAnimationManager.GetNextofThis(0));             
             }
         }
         public Brush BulletBrush

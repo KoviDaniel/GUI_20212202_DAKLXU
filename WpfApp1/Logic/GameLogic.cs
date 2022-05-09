@@ -50,7 +50,7 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
             {
-                //GenerateEnemies();
+                GenerateEnemies();
             }
             for (int i = 0; i < r.Next(1, 5); i++)
             {
@@ -60,7 +60,8 @@ namespace ShoresOfGold.Logic
 
         public void GenerateEnemies() 
         {
-            int num = r.Next(0, 2);
+            //int num = r.Next(0, 2);
+            int num = 0;
             if (num == 0)
             {
                 this.Enemies.Add(new Zombie(mapArea, Player));
@@ -138,6 +139,7 @@ namespace ShoresOfGold.Logic
             {
                 Enemies.Remove(item);
             }
+           
         }
 
         private void BulletControl(List<Bullet> eBullet)
