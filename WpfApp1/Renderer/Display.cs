@@ -14,6 +14,7 @@ namespace ShoresOfGold.Renderer
     {
         Size mapArea;
         IGameModel model;
+        AnimationManager zombieAnimationManager;
 
         public void SetupSizes(Size mapArea)
         {
@@ -24,6 +25,11 @@ namespace ShoresOfGold.Renderer
         {
             this.model = model;
             this.model.Changed += (sender, eventargs) => this.InvalidateVisual();
+            zombieAnimationManager= new AnimationManager();
+            zombieAnimationManager.Append("Images/zombie/right_idle/"); //0
+            zombieAnimationManager.Append("Images/zombie/right_move/"); //1
+            zombieAnimationManager.Append("Images/zombie/right_attack/"); //2
+            zombieAnimationManager.Append("Images/zombie/right_die/"); //3
         }
 
         public Brush PlayerBrush
@@ -51,8 +57,43 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                //return Brushes.Black;
-                return new ImageBrush(new BitmapImage(new Uri("Images/zombie.png", UriKind.RelativeOrAbsolute)));
+                //if (!model.Zombie.IsMoving)
+                //{
+                //    if (model.Zombie.MoveRight)
+                //    {
+                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
+                //    }
+                //    if (model.Zombie.MoveLeft)
+                //    {
+                //        var picture = zombieAnimationManager.GetNextofThis(2);
+                //        var transform = new ScaleTransform(-1, 1, 0, 0);
+                //        var tb = new TransformedBitmap();
+                //        tb.BeginInit();
+                //        tb.Source = picture;
+                //        tb.Transform = transform;
+                //        tb.EndInit();
+                //        return new ImageBrush(tb);
+                //    }
+                //    return new ImageBrush(zombieAnimationManager.GetNextofThis(2));//Ha nem áll a földön akkor ugrik
+
+                //}
+
+                if (model.Zombie.PlayerIsOnRight)
+                {
+                    return new ImageBrush(zombieAnimationManager.GetNextofThis(1)); //Ha épp mozog akkor fix mozog
+                }
+                if (model.Zombie.PlayerIsOnLeft)
+                {
+                    var picture = zombieAnimationManager.GetNextofThis(1);
+                    var transform = new ScaleTransform(-1, 1, 0, 0);
+                    var tb = new TransformedBitmap();
+                    tb.BeginInit();
+                    tb.Source = picture;
+                    tb.Transform = transform;
+                    tb.EndInit();
+                    return new ImageBrush(tb);
+                }
+                return new ImageBrush(zombieAnimationManager.GetNextofThis(0)); //végesetben is megkell jeleníteni valamit
             }
         }
         public Brush BulletBrush
@@ -235,26 +276,30 @@ namespace ShoresOfGold.Renderer
                 //ENEMY DRAW
                 foreach (var e in model.Enemies)
                 {
-                    if (e.Health>0) 
+                    if (e.Health > 0)
                     {
                         drawingContext.DrawRectangle(ZombieBrush, /*null*/new Pen(Brushes.Black, 1), new Rect(
-                        e.Center.X - e.Width/2, e.Center.Y-e.Height/2,
+                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
                         e.Width, e.Height
                         ));
-                        
+
                     }
                 }
 
+                //drawingContext.DrawRectangle(ZombieBrush, null, new Rect(model.Zombie.Center.X - model.Zombie.Width / 2, 
+                //    model.Zombie.Center.Y - model.Zombie.Height / 2,
+                //    model.Zombie.Width, model.Zombie.Height));
+
                 //BOSS DRAW
-                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1) 
-                {
-                    drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
-                        (
-                            model.Boss.Center.X-model.Boss.Width/2, model.Boss.Center.Y-model.Boss.Height/2,
-                            model.Boss.Width, model.Boss.Height
-                        ));
-                }
-                
+                //if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 1)
+                //{
+                //    drawingContext.DrawRectangle(BobTheBoatBrush, new Pen(Brushes.Black, 1), new Rect
+                //        (
+                //            model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                //            model.Boss.Width, model.Boss.Height
+                //        ));
+                //}
+
                 //PLAYER DRAW
                 if (model.Player.Health > 0)
                 {
