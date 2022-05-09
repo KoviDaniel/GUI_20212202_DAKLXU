@@ -10,7 +10,11 @@ namespace ShoresOfGold.Models
 {
     public class Enemy : Entity
     {
-        
+        public bool PlayerIsOnLeft { get; set; }
+        public bool PlayerIsOnRight { get; set; } 
+        public bool IsAttacking { get; set; }
+        public bool IsMoving { get; set; }
+
         public double Power { get; set; }
         
         public Enemy()
@@ -23,7 +27,19 @@ namespace ShoresOfGold.Models
         public Enemy(Size mapArea,Player player)
         {
             this.player = player;
-           // Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
+            // Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
+
+            if (this.Center.X > player.Center.X)
+            {
+                this.PlayerIsOnRight = false;
+                this.PlayerIsOnLeft = true;
+            }
+            else if (this.Center.X < player.Center.X)
+            {
+                this.PlayerIsOnLeft=false;
+                this.PlayerIsOnRight= true;
+            }
+
         }
 
         public Rect EnemyRect { get { return new Rect(this.Center.X - this.Width / 2, this.Center.Y - this.Height / 2, this.Width, this.Height); } }

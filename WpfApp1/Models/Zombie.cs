@@ -21,7 +21,7 @@ namespace ShoresOfGold.Models
             //Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width+1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
             Width = 60;
             Height = 60;
-           // Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
+            //Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
         }
         public Zombie(Size mapArea, Player player) : base(mapArea,player)
         {
@@ -51,6 +51,7 @@ namespace ShoresOfGold.Models
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity)
                 {
+                    this.IsAttacking = true;
                     this.player.GetDamage(this.Power);
                     cooldown = 0;
                 }
