@@ -261,7 +261,7 @@ namespace ShoresOfGold.Renderer
                     {
                         drawingContext.DrawRectangle(ClosedChestBrush, null, new Rect
                             (
-                                chest.Center.X, chest.Center.Y,
+                                chest.Center.X-chest.Width/2, chest.Center.Y-chest.Height/2,
                                 chest.Width, chest.Height
                             ));
                     }
@@ -269,7 +269,7 @@ namespace ShoresOfGold.Renderer
                     {
                         drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
                             (
-                                chest.Center.X, chest.Center.Y,
+                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
                                 chest.Width, chest.Height
                             ));
                     }

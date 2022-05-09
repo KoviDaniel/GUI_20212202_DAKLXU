@@ -20,9 +20,9 @@ namespace ShoresOfGold.Models
             Height = 75;
             Center = new System.Drawing.Point(r.Next(Width/2, (int)mapArea.Width -Width/2), r.Next((int)player.UpperBound+Height/2, (int)player.LowerBound-Height/2));
 
-            DetectionRange = 350;
-            AttackRange = 300;
-            StoppingRange = 10 + (player.Width + player.Height) / 2;
+            DetectionRange = 300;
+            AttackRange = 250;
+            StoppingRange = 19 + (player.Width + player.Height) / 2;
 
             AttackIntensity = 150;
             //EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
