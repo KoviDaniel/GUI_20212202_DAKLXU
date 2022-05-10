@@ -82,7 +82,7 @@ namespace ShoresOfGold.Models
         }
         public void MeleeAttack(List<Enemy> enemies) 
         {
-            if (this.Health > 0)
+            if (this.Health > 0 && this.Stamina > 0)
             {
                 this.Stamina -= 20;
                 foreach (var e in enemies)
@@ -96,7 +96,7 @@ namespace ShoresOfGold.Models
         }
         public void RangeAttack(List<Enemy> enemies, Point target)
         {
-            if (this.Health>0) 
+            if (this.Health>0 && this.Stamina>0) 
             {
                 this.Stamina -= 30;
                 Shoot(target);
