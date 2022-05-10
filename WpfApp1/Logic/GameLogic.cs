@@ -40,8 +40,6 @@ namespace ShoresOfGold.Logic
         public void SetupSizes(Size mapArea)
         {
             this.mapArea = mapArea;
-
-            //Player = new Player(mapArea.Width / 2, mapArea.Height / 2);
             Player = new Player(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y);
             Boss = new Boss(mapArea, Player);
             Zombie= new Zombie(mapArea, this.Player);
@@ -117,14 +115,8 @@ namespace ShoresOfGold.Logic
 
         public void EnemyControl()
         {
-            // Zombie.FollowPlayer(this.Player, this.mapArea);
-            /*Zombie.NewFollowPlayer();
-            Zombie.Attack();*/
-
             Bullets.Clear();
-            //this.Player.BulletLife(Enemies);
             Bullets.AddRange(this.Player.Bullets);
-            // Enemy removeable = null;
             List<Enemy> removing = new List<Enemy>();
             foreach (var e in Enemies)
             {
@@ -157,12 +149,6 @@ namespace ShoresOfGold.Logic
            
         }
 
-        private void BulletControl(List<Bullet> eBullet)
-        {
-                //this.Bullets.ForEach(b => b.Moving());
-                Bullets.Clear();
-        }
-
         public void BossControl() 
         {
             if (this.Enemies.Count == 0 && this.MapNumber == 4)
@@ -173,17 +159,14 @@ namespace ShoresOfGold.Logic
 
         public void TimeStep()
         {
-            //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
             if (this.Enemies.Count == 0 && Boss.Health<=0) { 
                 this.Bullets.Clear();
                 this.Player.Bullets.Clear();
             }
-            // Zombie.FollowPlayer(Player, mapArea);
-            this.Player.NewBulletLife(Enemies, Boss);
+            this.Player.BulletLife(Enemies, Boss);
             this.Player.Restoration();
             EnemyControl();
             BossControl();
-            //BulletControl();
             Changed?.Invoke(this, null);
         }
     }

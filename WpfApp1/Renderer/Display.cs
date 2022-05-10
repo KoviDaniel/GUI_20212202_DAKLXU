@@ -46,6 +46,15 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush BulletBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        #region EndBrushes
         public Brush WinnerBrush 
         {
             get 
@@ -60,6 +69,7 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/end/lost.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        #endregion
 
         #region BobBrushes
         public Brush BobTheBoatBrush
@@ -170,14 +180,6 @@ namespace ShoresOfGold.Renderer
                     return new ImageBrush(tb);
                 }
                 return new ImageBrush(zombieAnimationManager.GetNextofThis(0));             
-            }
-        }
-        public Brush BulletBrush
-        {
-            get
-            {
-                //return Brushes.Red;
-                return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
         }
         
@@ -307,9 +309,6 @@ namespace ShoresOfGold.Renderer
         }
         #endregion
 
-        private int health;
-        private int stamina;
-
         public void LoadNextMap()
         {
             model.MapNumber += 1;
@@ -328,9 +327,6 @@ namespace ShoresOfGold.Renderer
                     {
                         LoadNextMap();
                     }
-
-                    this.health = model.Player.MAX_HEALTH;
-                    this.stamina = model.Player.MAX_STAMINA;
 
                     //MAP DRAW
                     if (model.MapNumber == 1)
@@ -418,9 +414,6 @@ namespace ShoresOfGold.Renderer
                         }
                     }
 
-                    //drawingContext.DrawRectangle(ZombieBrush, null, new Rect(model.Zombie.Center.X - model.Zombie.Width / 2, 
-                    //    model.Zombie.Center.Y - model.Zombie.Height / 2,
-                    //    model.Zombie.Width, model.Zombie.Height));
 
                     //BOSS DRAW
                     if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)

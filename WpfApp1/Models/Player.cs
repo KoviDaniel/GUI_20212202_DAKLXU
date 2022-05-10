@@ -114,39 +114,8 @@ namespace ShoresOfGold.Models
             //dTarget.Y = (int)target.Y;
             Bullets.Add(new Bullet(this.Center, target));
         }
-        public void BulletLife(List<Enemy> enemies) 
-        {
-            List<Bullet> removing = new List<Bullet>();
-            foreach (var e in enemies)
-            {
-                foreach (var b in Bullets)
-                {
-                    if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
-                    || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
-                    {
-                        removing.Add(b);
-                    }
-                    else
-                    {
-                        b.Moving(); // moving
-                                    //HitDetection
-                        if (b.BulletRect.IntersectsWith(e.EnemyRect))
-                        {
-                            e.GetDamage(this.RangeDamage);
-                            //this.bullets.Remove(b);
-                            b.Alive = false;
-                            removing.Add(b);
-                        }
-                    }
-                }
-                foreach (var r in removing)
-                {
-                    Bullets.Remove(r);
-                }
-            }
-        }
 
-        public void NewBulletLife(List<Enemy> enemies, Boss boss) 
+        public void BulletLife(List<Enemy> enemies, Boss boss) 
         {
             List<Bullet> removing = new List<Bullet>();
             foreach (var b in Bullets)
