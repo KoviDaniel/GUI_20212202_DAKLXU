@@ -92,7 +92,7 @@ namespace ShoresOfGold.Models
                         e.GetDamage(this.MeleeDamage);
                     }
                 }
-                if (DistanceCalculator(boss.Center) <= 350) 
+                if (DistanceCalculator(boss.Center) <= 500) 
                 {
                     boss.GetDamage(this.MeleeDamage);
                 }

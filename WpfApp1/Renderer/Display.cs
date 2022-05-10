@@ -442,7 +442,7 @@ namespace ShoresOfGold.Renderer
                                     model.Boss.Width, model.Boss.Height
                                 ));
                         }
-                        // drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
+                        //drawingContext.DrawRectangle(Brushes.AliceBlue, null, new Rect(model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2, 10, 10));
                     }
 
                     //PLAYER DRAW
@@ -452,6 +452,8 @@ namespace ShoresOfGold.Renderer
                             model.Player.Center.X - model.Player.Width / 2, model.Player.Center.Y - model.Player.Height / 2,
                             model.Player.Width, model.Player.Height
                             ));
+                       // drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2),
+                          //  new Point(model.Player.Center.X - model.Player.Width / 2, model.Player.Center.Y - model.Player.Height / 2), 350, 350);
                     }
 
 
