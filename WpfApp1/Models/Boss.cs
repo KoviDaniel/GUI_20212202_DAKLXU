@@ -41,7 +41,10 @@ namespace ShoresOfGold.Models
                 return new Rect(this.Center.X - this.Width / 2, this.Center.Y - this.Height / 2, this.Width,this.Height);
             } 
         }
-
+        public void GetDamage(int damage) 
+        {
+            this.Health -= damage;
+        }
         public void AttackHandler() 
         {
             if (this.player != null && this.Health>0 && this.player.Health > 0) {

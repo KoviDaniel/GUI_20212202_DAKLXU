@@ -37,7 +37,7 @@ namespace ShoresOfGold.Models
                 switch (buff)
                 {
                     case Buffs.HealthBuff:
-                        p.Health += 50;
+                        p.MAX_HEALTH += 50;
                         break;
                     case Buffs.MeleeDamageBuff:
                         p.MeleeDamage += 10;

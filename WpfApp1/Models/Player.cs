@@ -22,12 +22,15 @@ namespace ShoresOfGold.Models
         public int MeleeDamage { get; set; }
         public int RangeDamage { get; set; }
         public List<Bullet> Bullets;
-
+        public int MAX_HEALTH { get; set; }
+        public int MAX_STAMINA { get; set; }
         public Player(Size mapArea, double upperBound, double lowerBound)
         {
             this.mapArea = mapArea;
+            MAX_HEALTH = 100;
             Health = 100;
-            Stamina = 0;
+            MAX_STAMINA = 100;
+            Stamina = 100;
             Gold = 0;
             Width = 70;
             Height = 86;
@@ -79,11 +82,15 @@ namespace ShoresOfGold.Models
         }
         public void MeleeAttack(List<Enemy> enemies) 
         {
-            foreach (var e in enemies)
+            if (this.Health > 0)
             {
-                if (DistanceCalculator(e.Center) <= 130 && Health > 0) 
+                this.Stamina -= 20;
+                foreach (var e in enemies)
                 {
-                    e.GetDamage(this.MeleeDamage);
+                    if (DistanceCalculator(e.Center) <= 130 && Health > 0)
+                    {
+                        e.GetDamage(this.MeleeDamage);
+                    }
                 }
             }
         }
@@ -91,6 +98,7 @@ namespace ShoresOfGold.Models
         {
             if (this.Health>0) 
             {
+                this.Stamina -= 30;
                 Shoot(target);
             }
            // BulletLife(enemies);
@@ -136,13 +144,13 @@ namespace ShoresOfGold.Models
 
         private double DistanceCalculator(System.Drawing.Point center) 
         {
-            //return Math.Sqrt(Math.Pow((player.Center.X-this.Center.X), 2)+Math.Pow((player.Center.Y - this.Center.Y), 2));
             return Math.Sqrt(Math.Pow((center.X-this.Center.X),2)+Math.Pow((center.Y-this.Center.Y),2));
         }
 
-        public void Heal() 
+        public void Restoration() 
         {
-            
+            if (this.Health > 0 && this.Health+5 <= MAX_HEALTH) this.Health += 5;
+            if (this.Stamina + 10 <= this.MAX_STAMINA) this.Stamina += 10;
         }
 
         public void GetDamage(double damage) 
