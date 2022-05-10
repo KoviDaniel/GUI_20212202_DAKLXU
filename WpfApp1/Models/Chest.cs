@@ -9,7 +9,7 @@ namespace ShoresOfGold.Models
 {
     enum Buffs 
     {
-        HealthBuff, MeleeDamageBuff, RangeDamageBuff, SpeedBuff
+        HealthBuff, MeleeDamageBuff, RangeDamageBuff, SpeedBuff, StaminaBuff
     }
     public class Chest
     {
@@ -23,7 +23,7 @@ namespace ShoresOfGold.Models
         public Chest(Size mapArea, double upperBound, double lowerBound)
         {
             r = new Random();
-            buff = (Buffs)r.Next(0, 4);
+            buff = (Buffs)r.Next(0, 5);
             Width = 40;
             Height = 40;
             //Center = new System.Drawing.Point(r.Next(30, (int)mapArea.Width-40), r.Next(15, (int)mapArea.Height - 25));
@@ -50,6 +50,9 @@ namespace ShoresOfGold.Models
                         v.X = p.Speed.X + 0.15;
                         v.Y = p.Speed.Y + 0.15;
                         p.Speed = v;
+                        break;
+                    case Buffs.StaminaBuff:
+                        p.MAX_STAMINA += 20;
                         break;
                     default:
                         break;
