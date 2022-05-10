@@ -9,8 +9,6 @@ namespace ShoresOfGold.Models
 {
     public class Zombie : Enemy
     {
-        //static Random r = new Random();
-
         public Zombie(Size mapArea)
         {
             Health = 50;
@@ -18,10 +16,8 @@ namespace ShoresOfGold.Models
             Power = 10;
 
             Speed = new Vector(1, 1);
-            //Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width+1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
             Width = 60;
             Height = 60;
-            //Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
         }
         public Zombie(Size mapArea, Player player) : base(mapArea,player)
         {
@@ -30,7 +26,6 @@ namespace ShoresOfGold.Models
             Power = 10;
 
             Speed = new Vector(2.9, 2.9);
-            //Center = new System.Drawing.Point(r.Next(0, (int)mapArea.Width + 1) - 25, r.Next(0, (int)mapArea.Height + 1) - 25);
             Width = 50;
             Height = 50;
 
@@ -41,7 +36,6 @@ namespace ShoresOfGold.Models
             StoppingRange = 15+(player.Width+player.Height)/2;
 
             AttackIntensity = 50;
-            // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
 
         public override void Attack() 

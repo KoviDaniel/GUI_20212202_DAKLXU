@@ -18,7 +18,7 @@ namespace ShoresOfGold.Models
 
         public bool Alive { get; set; }
 
-        private Vector DirectionVector(System.Drawing.Point start, /*System.Drawing.Point target*/ System.Windows.Point target) 
+        private Vector DirectionVector(System.Drawing.Point start, System.Windows.Point target) 
         {
             Vector v = new Vector();
             v.X = target.X - start.X;
@@ -29,12 +29,11 @@ namespace ShoresOfGold.Models
             return v;
         }
 
-        public Bullet(System.Drawing.Point start, /*System.Drawing.Point target*/ System.Windows.Point target)
+        public Bullet(System.Drawing.Point start, System.Windows.Point target)
         {
             this.Center = start;
             Speed = new Vector(3, 3);
             Direction = DirectionVector(start, target);
-            //BulletRect = new Rect(this.Center.X, this.Center.Y, 3, 3);
             Alive = true;
         }
 
@@ -42,6 +41,5 @@ namespace ShoresOfGold.Models
         {
             this.Center = new System.Drawing.Point(Center.X + (int)(Direction.X * this.Speed.X), Center.Y + (int)(Direction.Y * this.Speed.Y));
         }
-        //public void HitDetection() { }
     }
 }

@@ -105,13 +105,9 @@ namespace ShoresOfGold.Models
                 this.Stamina -= 30;
                 Shoot(target);
             }
-           // BulletLife(enemies);
         }
         private void Shoot(Point target) 
         {
-            //System.Drawing.Point dTarget = new System.Drawing.Point();
-            //dTarget.X = (int)target.X;
-            //dTarget.Y = (int)target.Y;
             Bullets.Add(new Bullet(this.Center, target));
         }
 
