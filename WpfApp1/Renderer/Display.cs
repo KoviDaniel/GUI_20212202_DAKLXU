@@ -166,10 +166,33 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
         }
-        public Brush OpenChestBrush { get 
+        
+        #region ChestBrushes
+        public Brush OpenChestHealthBrush { get 
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_health_3.png", UriKind.RelativeOrAbsolute)));
+            } 
+        }
+        public Brush OpenChestMeleeBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_melee_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush OpenChestSpeedBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_speed_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush OpenChestBrush
+        {
+            get
             {
                 return new ImageBrush(new BitmapImage(new Uri("Images/chestopen.png", UriKind.RelativeOrAbsolute)));
-            } 
+            }
         }
         public Brush ClosedChestBrush
         {
@@ -178,8 +201,7 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/chestclosed.png", UriKind.RelativeOrAbsolute)));
             }
         }
-
-
+        #endregion
 
         #region mapBrushes
         public Brush TopWallBrush_1
@@ -336,11 +358,38 @@ namespace ShoresOfGold.Renderer
                     }
                     else 
                     {
-                        drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
+                        if (chest.buff == Models.Buffs.HealthBuff)
+                        {
+                            drawingContext.DrawRectangle(OpenChestHealthBrush, null, new Rect
                             (
                                 chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
                                 chest.Width, chest.Height
                             ));
+                        }
+                        else if (chest.buff == Models.Buffs.MeleeDamageBuff)
+                        {
+                            drawingContext.DrawRectangle(OpenChestMeleeBrush, null, new Rect
+                            (
+                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                chest.Width, chest.Height
+                            ));
+                        }
+                        else if (chest.buff == Models.Buffs.SpeedBuff) 
+                        {
+                            drawingContext.DrawRectangle(OpenChestSpeedBrush, null, new Rect
+                            (
+                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                chest.Width, chest.Height
+                            ));
+                        }
+                        else
+                        {
+                            drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
+                                (
+                                    chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                    chest.Width, chest.Height
+                                ));
+                        }
                     }
                 }
 

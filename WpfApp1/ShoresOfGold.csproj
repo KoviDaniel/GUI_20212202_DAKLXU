@@ -16,6 +16,10 @@
     <None Remove="Images\cannonball.png" />
     <None Remove="Images\chestclosed.png" />
     <None Remove="Images\chestopen.png" />
+    <None Remove="Images\chests\chestopen_health_1.png" />
+    <None Remove="Images\chests\chestopen_health_3.png" />
+    <None Remove="Images\chests\chestopen_melee_3.png" />
+    <None Remove="Images\chests\chestopen_speed_3.png" />
     <None Remove="Images\pirate.png" />
     <None Remove="Images\zombie.png" />
     <None Remove="Images\zombie\right_attack\zombie_rattack_1.png" />
@@ -64,6 +68,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\chestopen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chests\chestopen_health_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chests\chestopen_health_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chests\chestopen_melee_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chests\chestopen_speed_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pirate.png">

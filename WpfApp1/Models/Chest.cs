@@ -7,14 +7,14 @@ using System.Windows;
 
 namespace ShoresOfGold.Models
 {
-    enum Buffs 
+    public enum Buffs 
     {
         HealthBuff, MeleeDamageBuff, RangeDamageBuff, SpeedBuff, StaminaBuff
     }
     public class Chest
     {
         Random r;
-        Buffs buff;
+        public Buffs buff;
         public int Width { get; set; }
         public int Height { get; set; }
         //Player p;
