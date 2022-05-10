@@ -271,11 +271,16 @@ namespace ShoresOfGold.Renderer
         }
         #endregion
 
+        private int health;
+        private int stamina;
+
         public void LoadNextMap()
         {
             model.MapNumber += 1;
             model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
             model.SetupSizes(mapArea);
+            model.Player.MAX_HEALTH = health;
+            model.Player.MAX_STAMINA = stamina;
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -283,10 +288,14 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
+
                 if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4 && model.Enemies.Count <= 0)
                 {
                     LoadNextMap();
                 }
+
+                this.health = model.Player.MAX_HEALTH;
+                this.stamina = model.Player.MAX_STAMINA;
 
                 //MAP DRAW
                 if (model.MapNumber == 1)
@@ -403,6 +412,14 @@ namespace ShoresOfGold.Renderer
                             mapArea.Width-75,mapArea.Height/2, 50, 50
                         ));
                 }
+                FormattedText hp = new FormattedText("HP: "+model.Player.Health+"/"+model.Player.MAX_HEALTH, System.Globalization.CultureInfo.CurrentCulture,
+                   FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
+                   FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red,10);
+                FormattedText stamina = new FormattedText("SM: " + model.Player.Stamina+"/"+model.Player.MAX_STAMINA, System.Globalization.CultureInfo.CurrentCulture,
+                   FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
+                   FontWeights.Normal, FontStretches.Normal), 24, Brushes.Green, 10);
+                drawingContext.DrawText(hp, new Point(100, 50));
+                drawingContext.DrawText(stamina, new Point(100, 100));
             }
         }
     }

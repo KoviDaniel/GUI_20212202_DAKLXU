@@ -165,6 +165,7 @@ namespace ShoresOfGold.Logic
             }
             // Zombie.FollowPlayer(Player, mapArea);
             this.Player.BulletLife(Enemies);
+            this.Player.Restoration();
             EnemyControl();
             BossControl();
             //BulletControl();

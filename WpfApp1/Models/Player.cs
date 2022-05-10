@@ -82,7 +82,7 @@ namespace ShoresOfGold.Models
         }
         public void MeleeAttack(List<Enemy> enemies) 
         {
-            if (this.Health > 0 && this.Stamina > 0)
+            if (this.Health > 0 && this.Stamina-20 >= 0)
             {
                 this.Stamina -= 20;
                 foreach (var e in enemies)
@@ -96,7 +96,7 @@ namespace ShoresOfGold.Models
         }
         public void RangeAttack(List<Enemy> enemies, Point target)
         {
-            if (this.Health>0 && this.Stamina>0) 
+            if (this.Health>0 && this.Stamina-30>=0) 
             {
                 this.Stamina -= 30;
                 Shoot(target);
@@ -147,10 +147,17 @@ namespace ShoresOfGold.Models
             return Math.Sqrt(Math.Pow((center.X-this.Center.X),2)+Math.Pow((center.Y-this.Center.Y),2));
         }
 
+
+        private int restoreRate = 0;
         public void Restoration() 
         {
-            if (this.Health > 0 && this.Health+5 <= MAX_HEALTH) this.Health += 5;
-            if (this.Stamina + 10 <= this.MAX_STAMINA) this.Stamina += 10;
+            if (restoreRate >= 50)
+            {
+                if (this.Health > 0 && this.Health + 5 <= MAX_HEALTH) this.Health += 5;
+                if (this.Stamina +20 <= this.MAX_STAMINA) this.Stamina += 20;
+                restoreRate = 0;
+            }
+            restoreRate++;
         }
 
         public void GetDamage(double damage) 
