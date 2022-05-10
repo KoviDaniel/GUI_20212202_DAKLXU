@@ -24,6 +24,9 @@ namespace ShoresOfGold.Models
         public List<Bullet> Bullets;
         public int MAX_HEALTH { get; set; }
         public int MAX_STAMINA { get; set; }
+
+        public bool HeadLeft { get; set; }
+
         public Player(Size mapArea, double upperBound, double lowerBound)
         {
             this.mapArea = mapArea;
@@ -38,7 +41,7 @@ namespace ShoresOfGold.Models
             Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
-
+            HeadLeft = false;
             UpperBound = upperBound;
             LowerBound = lowerBound;
             LeftBound = 0;
@@ -62,10 +65,12 @@ namespace ShoresOfGold.Models
             }
             else if (control == Controls.Left && Center.X > LeftBound)
             {
+                HeadLeft = true;
                 Center = new System.Drawing.Point(Center.X - (int)Speed.X, Center.Y);
             }
             else if (control == Controls.Right && Center.X + Width < RightBound)
             {
+                HeadLeft = true;
                 Center = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y);
             }
             
