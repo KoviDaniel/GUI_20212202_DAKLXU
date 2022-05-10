@@ -146,6 +146,42 @@ namespace ShoresOfGold.Models
             }
         }
 
+        public void NewBulletLife(List<Enemy> enemies, Boss boss) 
+        {
+            List<Bullet> removing = new List<Bullet>();
+            foreach (var b in Bullets)
+            {
+                if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
+                   || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
+                {
+                    removing.Add(b);
+                }
+                else 
+                {
+                    b.Moving();
+                    foreach (var e in enemies)
+                    {
+                        if (b.BulletRect.IntersectsWith(e.EnemyRect))
+                        {
+                            e.GetDamage(this.RangeDamage);
+                            b.Alive = false;
+                            removing.Add(b);
+                        }
+                    }
+                    if (b.BulletRect.IntersectsWith(boss.BossRect))
+                    {
+                        boss.GetDamage(this.RangeDamage);
+                        b.Alive = false;
+                        removing.Add(b);
+                    }
+                }
+            }
+            foreach (var r in removing)
+            {
+                Bullets.Remove(r);
+            }
+        }
+
         private double DistanceCalculator(System.Drawing.Point center) 
         {
             return Math.Sqrt(Math.Pow((center.X-this.Center.X),2)+Math.Pow((center.Y-this.Center.Y),2));

@@ -87,7 +87,7 @@ namespace ShoresOfGold.Logic
         public void PlayerAttackControl(Controls control, Point cursor) 
         {
             if (control == Controls.Melee) 
-                Player.MeleeAttack(Enemies);
+                Player.MeleeAttack(Enemies, Boss);
             if (control == Controls.Range) 
                 Player.RangeAttack(Enemies, cursor);
         }
@@ -159,12 +159,12 @@ namespace ShoresOfGold.Logic
         public void TimeStep()
         {
             //Rect playerRect = new Rect(Player.X, Player.Y, Player.PlayerWidth, Player.PlayerHeight);
-            if (this.Enemies.Count == 0) { 
+            if (this.Enemies.Count == 0 && Boss.Health<=0) { 
                 this.Bullets.Clear();
                 this.Player.Bullets.Clear();
             }
             // Zombie.FollowPlayer(Player, mapArea);
-            this.Player.BulletLife(Enemies);
+            this.Player.NewBulletLife(Enemies, Boss);
             this.Player.Restoration();
             EnemyControl();
             BossControl();
