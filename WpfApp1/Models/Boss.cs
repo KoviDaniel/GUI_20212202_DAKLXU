@@ -28,13 +28,18 @@ namespace ShoresOfGold.Models
             this.AttackType = -1;
             Center = new System.Drawing.Point((int)mapArea.Width/2, (int)mapArea.Height / 2-360);
         }
-        public Rect BossRect { get; set; }
         private double Distance
         {
             get
             {
                 return Math.Sqrt(Math.Pow((player.Center.X - this.Center.X), 2) + Math.Pow((player.Center.Y - this.Center.Y), 2));
             }
+        }
+        public Rect BossRect { 
+            get 
+            {
+                return new Rect(this.Center.X - this.Width / 2, this.Center.Y - this.Height / 2, this.Width,this.Height);
+            } 
         }
 
         public void AttackHandler() 
