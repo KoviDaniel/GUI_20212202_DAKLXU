@@ -46,8 +46,22 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush WinnerBrush 
+        {
+            get 
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/end/win.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush LoseBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/end/lost.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
 
-
+        #region BobBrushes
         public Brush BobTheBoatBrush
         {
             get
@@ -82,7 +96,7 @@ namespace ShoresOfGold.Renderer
                 
             }
         }
-
+        #endregion
 
 
         public Brush ZombieBrush
@@ -310,165 +324,175 @@ namespace ShoresOfGold.Renderer
             base.OnRender(drawingContext);
             if (mapArea.Width > 0 && mapArea.Height > 0 && model != null)
             {
-
-                if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4 && model.Enemies.Count <= 0)
+                if (model.Player.Health > 0 && model.Boss.Health > 0)
                 {
-                    LoadNextMap();
-                }
-
-                this.health = model.Player.MAX_HEALTH;
-                this.stamina = model.Player.MAX_STAMINA;
-
-                //MAP DRAW
-                if (model.MapNumber == 1)
-                {
-                    drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));
-                    drawingContext.DrawGeometry(TopWallBrush_1, null, model.TopWall.Area);
-                    drawingContext.DrawGeometry(BottomWallBrush_1, null, model.BottomWall.Area);
-                }
-                else if (model.MapNumber == 2)
-                {
-                    drawingContext.DrawGeometry(TopWallBrush_2, null, model.TopWall.Area);
-                    drawingContext.DrawRectangle(BackgroundBrush_2, null, new Rect(mapArea));
-                    drawingContext.DrawGeometry(BottomWallBrush_2, null, model.BottomWall.Area);
-                }
-                else if (model.MapNumber == 3)
-                {
-                    drawingContext.DrawRectangle(BackgroundBrush_3, null, new Rect(mapArea));
-                    drawingContext.DrawGeometry(TopWallBrush_3, null, model.TopWall.Area);
-                    drawingContext.DrawGeometry(BottomWallBrush_3, null, model.BottomWall.Area);
-                }
-                else if (model.MapNumber == 4)
-                {
-                    drawingContext.DrawRectangle(BackgroundBrush_4, null, new Rect(mapArea));
-                    drawingContext.DrawGeometry(TopWallBrush_4, null, model.TopWall.Area);
-                    drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
-                }
-
-                //CHEST DRAW
-                foreach (var chest in model.Chests)
-                {
-                    if (chest.Opened == false)
+                    if (model.Player.Center.X + model.Player.Width == mapArea.Width + 1 && model.MapNumber < 4 && model.Enemies.Count <= 0)
                     {
-                        drawingContext.DrawRectangle(ClosedChestBrush, null, new Rect
-                            (
-                                chest.Center.X-chest.Width/2, chest.Center.Y-chest.Height/2,
-                                chest.Width, chest.Height
-                            ));
+                        LoadNextMap();
                     }
-                    else 
+
+                    this.health = model.Player.MAX_HEALTH;
+                    this.stamina = model.Player.MAX_STAMINA;
+
+                    //MAP DRAW
+                    if (model.MapNumber == 1)
                     {
-                        if (chest.buff == Models.Buffs.HealthBuff)
+                        drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));
+                        drawingContext.DrawGeometry(TopWallBrush_1, null, model.TopWall.Area);
+                        drawingContext.DrawGeometry(BottomWallBrush_1, null, model.BottomWall.Area);
+                    }
+                    else if (model.MapNumber == 2)
+                    {
+                        drawingContext.DrawGeometry(TopWallBrush_2, null, model.TopWall.Area);
+                        drawingContext.DrawRectangle(BackgroundBrush_2, null, new Rect(mapArea));
+                        drawingContext.DrawGeometry(BottomWallBrush_2, null, model.BottomWall.Area);
+                    }
+                    else if (model.MapNumber == 3)
+                    {
+                        drawingContext.DrawRectangle(BackgroundBrush_3, null, new Rect(mapArea));
+                        drawingContext.DrawGeometry(TopWallBrush_3, null, model.TopWall.Area);
+                        drawingContext.DrawGeometry(BottomWallBrush_3, null, model.BottomWall.Area);
+                    }
+                    else if (model.MapNumber == 4)
+                    {
+                        drawingContext.DrawRectangle(BackgroundBrush_4, null, new Rect(mapArea));
+                        drawingContext.DrawGeometry(TopWallBrush_4, null, model.TopWall.Area);
+                        drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
+                    }
+
+                    //CHEST DRAW
+                    foreach (var chest in model.Chests)
+                    {
+                        if (chest.Opened == false)
                         {
-                            drawingContext.DrawRectangle(OpenChestHealthBrush, null, new Rect
-                            (
-                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
-                                chest.Width, chest.Height
-                            ));
-                        }
-                        else if (chest.buff == Models.Buffs.MeleeDamageBuff)
-                        {
-                            drawingContext.DrawRectangle(OpenChestMeleeBrush, null, new Rect
-                            (
-                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
-                                chest.Width, chest.Height
-                            ));
-                        }
-                        else if (chest.buff == Models.Buffs.SpeedBuff) 
-                        {
-                            drawingContext.DrawRectangle(OpenChestSpeedBrush, null, new Rect
-                            (
-                                chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
-                                chest.Width, chest.Height
-                            ));
-                        }
-                        else
-                        {
-                            drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
+                            drawingContext.DrawRectangle(ClosedChestBrush, null, new Rect
                                 (
                                     chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
                                     chest.Width, chest.Height
                                 ));
                         }
+                        else
+                        {
+                            if (chest.buff == Models.Buffs.HealthBuff)
+                            {
+                                drawingContext.DrawRectangle(OpenChestHealthBrush, null, new Rect
+                                (
+                                    chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                    chest.Width, chest.Height
+                                ));
+                            }
+                            else if (chest.buff == Models.Buffs.MeleeDamageBuff)
+                            {
+                                drawingContext.DrawRectangle(OpenChestMeleeBrush, null, new Rect
+                                (
+                                    chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                    chest.Width, chest.Height
+                                ));
+                            }
+                            else if (chest.buff == Models.Buffs.SpeedBuff)
+                            {
+                                drawingContext.DrawRectangle(OpenChestSpeedBrush, null, new Rect
+                                (
+                                    chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                    chest.Width, chest.Height
+                                ));
+                            }
+                            else
+                            {
+                                drawingContext.DrawRectangle(OpenChestBrush, null, new Rect
+                                    (
+                                        chest.Center.X - chest.Width / 2, chest.Center.Y - chest.Height / 2,
+                                        chest.Width, chest.Height
+                                    ));
+                            }
+                        }
                     }
-                }
 
-                //ENEMY DRAW
-                foreach (var e in model.Enemies)
-                {
-                    if (e.Health > 0)
+                    //ENEMY DRAW
+                    foreach (var e in model.Enemies)
                     {
-                        drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                        e.Width, e.Height
-                        ));
+                        if (e.Health > 0)
+                        {
+                            drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                            e.Width, e.Height
+                            ));
+                        }
                     }
-                }
 
-                //drawingContext.DrawRectangle(ZombieBrush, null, new Rect(model.Zombie.Center.X - model.Zombie.Width / 2, 
-                //    model.Zombie.Center.Y - model.Zombie.Height / 2,
-                //    model.Zombie.Width, model.Zombie.Height));
+                    //drawingContext.DrawRectangle(ZombieBrush, null, new Rect(model.Zombie.Center.X - model.Zombie.Width / 2, 
+                    //    model.Zombie.Center.Y - model.Zombie.Height / 2,
+                    //    model.Zombie.Width, model.Zombie.Height));
 
-                //BOSS DRAW
-                if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
-                {
-                    if (model.Boss.AttackType == -1)
+                    //BOSS DRAW
+                    if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
                     {
-                        drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
-                            (
-                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                                model.Boss.Width, model.Boss.Height
+                        if (model.Boss.AttackType == -1)
+                        {
+                            drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                                (
+                                    model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                    model.Boss.Width, model.Boss.Height
+                                ));
+                        }
+                        if (model.Boss.AttackType == 0)
+                        {
+                            drawingContext.DrawRectangle(BobTheBoatHalfBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                                (
+                                    model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                    model.Boss.Width, model.Boss.Height
+                                ));
+                        }
+                        if (model.Boss.AttackType == 1)
+                        {
+                            drawingContext.DrawRectangle(BobTheBoatCloseBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                                (
+                                    model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
+                                    model.Boss.Width, model.Boss.Height
+                                ));
+                        }
+                        // drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
+                    }
+
+                    //PLAYER DRAW
+                    if (model.Player.Health > 0)
+                    {
+                        drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
+                            model.Player.Center.X - model.Player.Width / 2, model.Player.Center.Y - model.Player.Height / 2,
+                            model.Player.Width, model.Player.Height
                             ));
                     }
-                    if (model.Boss.AttackType == 0) 
+
+
+                    //BULLET DRAW
+                    foreach (var b in model.Bullets)
                     {
-                        drawingContext.DrawRectangle(BobTheBoatHalfBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
-                            (
-                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                                model.Boss.Width, model.Boss.Height
+                        drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
+                    }
+                    //NEXT MAP ARROW DRAW
+                    if (model.Enemies.Count == 0 && model.MapNumber < 4)
+                    {
+                        drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
+                                mapArea.Width - 75, mapArea.Height / 2, 50, 50
                             ));
                     }
-                    if (model.Boss.AttackType == 1)
-                    {
-                        drawingContext.DrawRectangle(BobTheBoatCloseBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
-                            (
-                                model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                                model.Boss.Width, model.Boss.Height
-                            ));
-                    }
-                   // drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), new Point(model.Boss.Center.X, model.Boss.Center.Y), model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
+                    FormattedText hp = new FormattedText("HP: " + model.Player.Health + "/" + model.Player.MAX_HEALTH, System.Globalization.CultureInfo.CurrentCulture,
+                       FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
+                       FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red, 10);
+                    FormattedText stamina = new FormattedText("SM: " + model.Player.Stamina + "/" + model.Player.MAX_STAMINA, System.Globalization.CultureInfo.CurrentCulture,
+                       FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
+                       FontWeights.Normal, FontStretches.Normal), 24, Brushes.Green, 10);
+                    drawingContext.DrawText(hp, new Point(100, 50));
+                    drawingContext.DrawText(stamina, new Point(100, 100));
                 }
-
-                //PLAYER DRAW
-                if (model.Player.Health > 0)
+                else if (model.Player.Health > 0 && model.Boss.Health <= 0)
                 {
-                    drawingContext.DrawRectangle(PlayerBrush, new Pen(Brushes.Black, 1), new Rect(
-                        model.Player.Center.X - model.Player.Width/2, model.Player.Center.Y - model.Player.Height/2,
-                        model.Player.Width, model.Player.Height
-                        ));
+                    drawingContext.DrawRectangle(WinnerBrush, null, new Rect(0, 0, mapArea.Width, mapArea.Height));
                 }
-                
-
-                //BULLET DRAW
-                foreach (var b in model.Bullets)
+                else 
                 {
-                    drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
+                    drawingContext.DrawRectangle(LoseBrush, null, new Rect(0, 0, mapArea.Width, mapArea.Height));
                 }
-                //NEXT MAP ARROW DRAW
-                if (model.Enemies.Count == 0 && model.MapNumber < 4) 
-                {
-                    drawingContext.DrawRectangle(ArrowBrush, null, new Rect(
-                            mapArea.Width-75,mapArea.Height/2, 50, 50
-                        ));
-                }
-                FormattedText hp = new FormattedText("HP: "+model.Player.Health+"/"+model.Player.MAX_HEALTH, System.Globalization.CultureInfo.CurrentCulture,
-                   FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
-                   FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red,10);
-                FormattedText stamina = new FormattedText("SM: " + model.Player.Stamina+"/"+model.Player.MAX_STAMINA, System.Globalization.CultureInfo.CurrentCulture,
-                   FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
-                   FontWeights.Normal, FontStretches.Normal), 24, Brushes.Green, 10);
-                drawingContext.DrawText(hp, new Point(100, 50));
-                drawingContext.DrawText(stamina, new Point(100, 100));
             }
         }
     }
