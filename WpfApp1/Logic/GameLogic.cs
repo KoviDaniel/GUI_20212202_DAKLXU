@@ -58,6 +58,21 @@ namespace ShoresOfGold.Logic
             }
         }
 
+        public void LoadNexMap() 
+        {
+            this.Enemies = new List<Enemy>();
+            this.Bullets = new List<Bullet>();
+            this.Chests = new List<Chest>();
+            for (int i = 0; i < r.Next(3, 7); i++)
+            {
+                GenerateEnemies();
+            }
+            for (int i = 0; i < r.Next(1, 5); i++)
+            {
+                this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
+            }
+        }
+
         public void GenerateEnemies() 
         {
             int num = r.Next(0, 3);

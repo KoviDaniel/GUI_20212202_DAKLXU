@@ -314,9 +314,7 @@ namespace ShoresOfGold.Renderer
         {
             model.MapNumber += 1;
             model.Player.Center = new System.Drawing.Point(0, (int)mapArea.Height / 2);
-            model.SetupSizes(mapArea);
-            model.Player.MAX_HEALTH = health;
-            model.Player.MAX_STAMINA = stamina;
+            model.LoadNexMap();
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -481,7 +479,7 @@ namespace ShoresOfGold.Renderer
                        FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red, 10);
                     FormattedText stamina = new FormattedText("SM: " + model.Player.Stamina + "/" + model.Player.MAX_STAMINA, System.Globalization.CultureInfo.CurrentCulture,
                        FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
-                       FontWeights.Normal, FontStretches.Normal), 24, Brushes.Green, 10);
+                       FontWeights.Normal, FontStretches.Normal), 24, Brushes.Yellow, 10);
                     drawingContext.DrawText(hp, new Point(100, 50));
                     drawingContext.DrawText(stamina, new Point(100, 100));
                 }
