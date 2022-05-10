@@ -162,8 +162,16 @@ namespace ShoresOfGold.Models
         {
             if (restoreRate >= 50)
             {
-                if (this.Health > 0 && this.Health + 5 <= MAX_HEALTH) this.Health += 5;
-                if (this.Stamina +20 <= this.MAX_STAMINA) this.Stamina += 20;
+                if (this.Health > 0 && this.Health < MAX_HEALTH) 
+                { 
+                    this.Health += 5;
+                    if (this.Health > MAX_HEALTH) this.Health = MAX_HEALTH;
+                }
+                if (this.Stamina < this.MAX_STAMINA) 
+                { 
+                    this.Stamina += 20;
+                    if (this.Stamina > MAX_STAMINA) this.Stamina = MAX_STAMINA;
+                }
                 restoreRate = 0;
             }
             restoreRate++;
