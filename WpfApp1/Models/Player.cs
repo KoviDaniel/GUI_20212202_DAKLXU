@@ -80,7 +80,7 @@ namespace ShoresOfGold.Models
                 }
             }
         }
-        public void MeleeAttack(List<Enemy> enemies) 
+        public void MeleeAttack(List<Enemy> enemies, Boss boss) 
         {
             if (this.Health > 0 && this.Stamina-20 >= 0)
             {
@@ -91,6 +91,10 @@ namespace ShoresOfGold.Models
                     {
                         e.GetDamage(this.MeleeDamage);
                     }
+                }
+                if (DistanceCalculator(boss.Center) <= 350) 
+                {
+                    boss.GetDamage(this.MeleeDamage);
                 }
             }
         }
