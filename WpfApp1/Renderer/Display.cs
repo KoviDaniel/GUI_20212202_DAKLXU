@@ -420,7 +420,7 @@ namespace ShoresOfGold.Renderer
                     {
                         if (model.Boss.AttackType == -1)
                         {
-                            drawingContext.DrawRectangle(BobTheBoatBrush, /*new Pen(Brushes.Black, 1)*/null, new Rect
+                            drawingContext.DrawRectangle(BobTheBoatBrush,null, new Rect
                                 (
                                     model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
                                     model.Boss.Width, model.Boss.Height
@@ -451,7 +451,6 @@ namespace ShoresOfGold.Renderer
                             model.Player.Center.X - model.Player.Width / 2, model.Player.Center.Y - model.Player.Height / 2,
                             model.Player.Width, model.Player.Height
                             ));
-                       
                     }
 
 
