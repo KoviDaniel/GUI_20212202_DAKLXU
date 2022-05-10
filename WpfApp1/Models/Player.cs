@@ -93,7 +93,7 @@ namespace ShoresOfGold.Models
             {
                 Shoot(target);
             }
-            BulletLife(enemies);
+           // BulletLife(enemies);
         }
         private void Shoot(Point target) 
         {
