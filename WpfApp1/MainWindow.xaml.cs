@@ -23,13 +23,17 @@ namespace ShoresOfGold
     /// </summary>
     public partial class MainWindow : Window
     {
+        private System.Media.SoundPlayer mediaPlayer = new System.Media.SoundPlayer();
         public MainWindow()
         {
             InitializeComponent();
+            mediaPlayer.SoundLocation = "Sounds/menu.wav";
+            mediaPlayer.PlayLooping();
         }
 
         private void Button_Click_Continue(object sender, RoutedEventArgs e)
         {
+            mediaPlayer.Stop();
             var cApp = ((App)Application.Current);
             cApp.MainWindow = new LobbyWindow();
             cApp.MainWindow.Show();

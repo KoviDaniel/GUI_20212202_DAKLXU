@@ -57,6 +57,8 @@
     <None Remove="Images\zombie\right_move\zombie_rmove_6.png" />
     <None Remove="Images\zombie\right_move\zombie_rmove_7.png" />
     <None Remove="Images\zombie\right_move\zombie_rmove_8.png" />
+    <None Remove="Sounds\ingame.wav" />
+    <None Remove="Sounds\menu.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -267,6 +269,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\zombie\right_move\zombie_rmove_8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\ingame.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\menu.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
