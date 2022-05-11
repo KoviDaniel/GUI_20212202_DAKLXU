@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using ShoresOfGold.Models;
@@ -72,8 +73,6 @@ namespace ShoresOfGold.Models
         {
             if (player != null)
             {
-                this.IsAttacking = false;
-                this.IsMoving = true;
                 double distance = this.Distance;
                 if (distance <= this.DetectionRange && distance >= this.StoppingRange)
                 {
@@ -96,8 +95,8 @@ namespace ShoresOfGold.Models
 
         public void GetDamage(double damage) 
         { 
-            //IsDamaged = true;
-            this.Health -= damage; 
+            IsDamaged = true;
+            this.Health -= damage;
         }
         #endregion
     }

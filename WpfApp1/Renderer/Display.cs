@@ -279,51 +279,53 @@ namespace ShoresOfGold.Renderer
         #endregion
 
         #region ChestBrushes
-        public Brush OpenChestHealthBrush { get 
+        public Brush OpenChestHealthBrush 
+        {
+            get 
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_health_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen_health_3.png", UriKind.RelativeOrAbsolute)));
             } 
         }
         public Brush OpenChestMeleeBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_melee_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen_melee_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestSpeedBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_speed_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen_speed_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestRangeBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_range_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen_range_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestStaminaBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_stamina_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen_stamina_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush OpenChestBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chestopen.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestopen.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush ClosedChestBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/chestclosed.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Chests/chestclosed.png", UriKind.RelativeOrAbsolute)));
             }
         }
         #endregion
@@ -333,21 +335,21 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_1.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/back_decor_1.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BottomWallBrush_1
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_1.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/front_decor_1.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BackgroundBrush_1
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_1.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/battleground_1.png", UriKind.RelativeOrAbsolute)));
             }
         }
 
@@ -355,21 +357,21 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_2.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/back_decor_2.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BottomWallBrush_2
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_2.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/front_decor_2.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BackgroundBrush_2
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_2.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/battleground_2.png", UriKind.RelativeOrAbsolute)));
             }
         }
 
@@ -377,21 +379,21 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/back_decor_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BottomWallBrush_3
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/front_decor_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BackgroundBrush_3
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_3.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/battleground_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
 
@@ -399,21 +401,21 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/back_decor_4.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/back_decor_4.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BottomWallBrush_4
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/front_decor_4.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/front_decor_4.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BackgroundBrush_4
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/battleground_4.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Maps/battleground_4.png", UriKind.RelativeOrAbsolute)));
             }
         }      
         #endregion

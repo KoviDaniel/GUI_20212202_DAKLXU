@@ -36,6 +36,7 @@
     <None Remove="Images\Boss\bobtheboat_half.png" />
     <None Remove="Images\Boss\bob_the_boat.png" />
     <None Remove="Images\Brute\brute_attack.png" />
+    <None Remove="Images\Brute\brute_damaged.png" />
     <None Remove="Images\Brute\brute_idle.png" />
     <None Remove="Images\Brute\brute_lidle_1.png" />
     <None Remove="Images\cannonball.png" />
@@ -67,10 +68,11 @@
     <None Remove="Images\Maps\front_decor_2.png" />
     <None Remove="Images\Maps\front_decor_3.png" />
     <None Remove="Images\Maps\front_decor_4.png" />
-    <None Remove="Images\Other\arrow.png" />
-    <None Remove="Images\Other\background.png" />
-    <None Remove="Images\Other\cannonball.png" />
+    <None Remove="Images\Others\arrow.png" />
+    <None Remove="Images\Others\background.png" />
+    <None Remove="Images\Others\cannonball.png" />
     <None Remove="Images\pirate.png" />
+    <None Remove="Images\Player\pirate_damaged.png" />
     <None Remove="Images\Player\pirate_idle.png" />
     <None Remove="Images\Player\pirate_lidle.png" />
     <None Remove="Images\Player\pirate_with_gun.png" />
@@ -78,9 +80,11 @@
     <None Remove="Images\Player\rpirate_with_gun.png" />
     <None Remove="Images\Player\rpirate_with_sword.png" />
     <None Remove="Images\Sniper\sniper_attack.png" />
+    <None Remove="Images\Sniper\sniper_damaged.png" />
     <None Remove="Images\Sniper\sniper_idle.png" />
     <None Remove="Images\zombie.png" />
     <None Remove="Images\Zombie\zombie_attack.png" />
+    <None Remove="Images\Zombie\zombie_damaged.png" />
     <None Remove="Images\Zombie\zombie_idle.png" />
     <None Remove="Sounds\ingame.wav" />
     <None Remove="Sounds\menu.wav" />
@@ -97,6 +101,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Brute\brute_attack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Brute\brute_damaged.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Brute\brute_idle.png">
@@ -180,13 +187,16 @@
     <Content Include="Images\Maps\front_decor_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Other\arrow.png">
+    <Content Include="Images\Others\arrow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Other\background.png">
+    <Content Include="Images\Others\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Other\cannonball.png">
+    <Content Include="Images\Others\cannonball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Player\pirate_damaged.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Player\pirate_with_gun.png">
@@ -224,10 +234,16 @@
     <Content Include="Images\Sniper\sniper_attack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Sniper\sniper_damaged.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Sniper\sniper_idle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Zombie\zombie_attack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Zombie\zombie_damaged.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Zombie\zombie_idle.png">

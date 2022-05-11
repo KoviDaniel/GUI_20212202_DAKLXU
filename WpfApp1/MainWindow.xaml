@@ -14,7 +14,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/background.png"/>
+            <ImageBrush ImageSource="/Images/Others/background.png"/>
         </Grid.Background>
         <Label Content="Shores of Gold" HorizontalAlignment="Center" VerticalAlignment="Center" 
                Style="{StaticResource lblDesign}" FontSize="130" Grid.Row="0" Foreground="Gold"/>

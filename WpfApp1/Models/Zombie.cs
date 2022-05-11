@@ -42,7 +42,6 @@ namespace ShoresOfGold.Models
         {
             if (this.player != null && this.player.Health > 0 && Health >0)
             {
-                this.IsMoving = false;
                 this.IsAttacking = true;
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity)
