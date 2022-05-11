@@ -42,7 +42,7 @@ namespace ShoresOfGold.Models
             Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
-            HeadLeft = false;
+            HeadLeft = true;
             UpperBound = upperBound;
             LowerBound = lowerBound;
             LeftBound = 0;
