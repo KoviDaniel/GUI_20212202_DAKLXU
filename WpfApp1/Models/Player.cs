@@ -143,7 +143,7 @@ namespace ShoresOfGold.Models
                             removing.Add(b);
                         }
                     }
-                    if (b.BulletRect.IntersectsWith(boss.BossRect))
+                    if (b.BulletRect.IntersectsWith(boss.BossRect) && boss.Appear)
                     {
                         boss.GetDamage(this.RangeDamage);
                         b.Alive = false;
