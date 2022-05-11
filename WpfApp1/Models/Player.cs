@@ -24,6 +24,9 @@ namespace ShoresOfGold.Models
         public List<Bullet> Bullets;
         public int MAX_HEALTH { get; set; }
         public int MAX_STAMINA { get; set; }
+
+        public bool IsShooting { get; set; }
+        public bool IsAttacking { get; set; }
         public Player(Size mapArea, double upperBound, double lowerBound)
         {
             this.mapArea = mapArea;
@@ -84,6 +87,8 @@ namespace ShoresOfGold.Models
         {
             if (this.Health > 0 && this.Stamina-20 >= 0)
             {
+                IsShooting = false;
+                IsAttacking = true;
                 this.Stamina -= 20;
                 foreach (var e in enemies)
                 {
@@ -98,6 +103,8 @@ namespace ShoresOfGold.Models
         {
             if (this.Health>0 && this.Stamina-30>=0) 
             {
+                IsAttacking=false;
+                IsShooting = true;
                 this.Stamina -= 30;
                 Shoot(target);
             }
