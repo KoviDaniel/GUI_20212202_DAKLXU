@@ -203,6 +203,20 @@ namespace ShoresOfGold.Renderer
                 return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_speed_3.png", UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush OpenChestRangeBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_range_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush OpenChestStaminaBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/chests/chestopen_stamina_3.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush OpenChestBrush
         {
             get
