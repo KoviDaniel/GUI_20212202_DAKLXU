@@ -21,8 +21,13 @@ namespace ShoresOfGold.Logic
 
         Random r = new Random();
         private Size mapArea;
-
+        public bool GodMode { get; set; }
         public event EventHandler Changed; //public event EventHandler GameOver;
+        public void GodModeChange() 
+        {
+            this.GodMode = !GodMode;
+        }
+
 
         public Player Player { get; set; }
         public Wall TopWall { get; set; }

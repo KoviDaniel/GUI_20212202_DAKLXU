@@ -13,6 +13,7 @@ namespace ShoresOfGold.Logic
         List<Enemy> Enemies { get; set; }
         List<Bullet> Bullets { get; set; }
         List<Chest> Chests { get; set; }
+        bool GodMode { get; set; }
 
         event EventHandler Changed;
 

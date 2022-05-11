@@ -519,6 +519,12 @@ namespace ShoresOfGold.Renderer
                                     ));
                             }
                         }
+                        if (model.GodMode)
+                        {
+                            drawingContext.DrawEllipse(null, new Pen(Brushes.Yellow, 2),
+                                    new Point(chest.Center.X, chest.Center.Y),
+                                   80, 80);
+                        }
                     }
                     #endregion
 
@@ -659,6 +665,18 @@ namespace ShoresOfGold.Renderer
                                     }
                                 }
                             }
+                            if (model.GodMode)
+                            {
+                                drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2),
+                                        new Point(e.Center.X, e.Center.Y),
+                                        e.AttackRange, e.AttackRange);
+                                drawingContext.DrawEllipse(null, new Pen(Brushes.Blue, 2),
+                                        new Point(e.Center.X, e.Center.Y),
+                                        e.DetectionRange, e.DetectionRange);
+                                drawingContext.DrawEllipse(null, new Pen(Brushes.Black, 2),
+                                        new Point(e.Center.X, e.Center.Y),
+                                        e.StoppingRange, e.StoppingRange);
+                            }
                         }
                     }
                     #endregion
@@ -671,6 +689,12 @@ namespace ShoresOfGold.Renderer
                                     model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
                                     model.Boss.Width, model.Boss.Height
                                 ));
+                        if (model.GodMode) 
+                        {
+                            drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2), 
+                                new Point(model.Boss.Center.X, model.Boss.Center.Y),
+                                model.Boss.CloseAttackSize, model.Boss.CloseAttackSize);
+                        }
                     }
                     #endregion
 
@@ -681,6 +705,15 @@ namespace ShoresOfGold.Renderer
                             model.Player.Center.X - model.Player.Width / 2, model.Player.Center.Y - model.Player.Height / 2,
                             model.Player.Width, model.Player.Height
                             ));
+                        if (model.GodMode)
+                        {
+                            drawingContext.DrawEllipse(null, new Pen(Brushes.Red, 2),
+                                new Point(model.Player.Center.X, model.Player.Center.Y),
+                               130,130);
+                            drawingContext.DrawEllipse(null, new Pen(Brushes.Blue, 2),
+                                new Point(model.Player.Center.X, model.Player.Center.Y),
+                                500, 500);
+                        }
                     }
                     #endregion
 
