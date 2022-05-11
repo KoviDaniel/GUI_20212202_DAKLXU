@@ -249,4 +249,8 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Sounds\" />
+  </ItemGroup>
+
 </Project>
