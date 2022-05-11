@@ -15,5 +15,8 @@ namespace ShoresOfGold.Models
         public Vector Speed { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+
+        public bool IsAttacking { get; set; }
+        public bool IsDamaged { get; set; }
     }
 }

@@ -16,7 +16,6 @@ namespace ShoresOfGold.Models
             {
                 if (this.Center.X > player.Center.X)
                 {
-                    PlayerIsOnRight = false;
                     return true;
                 }
                 else 
@@ -26,28 +25,7 @@ namespace ShoresOfGold.Models
             {
                 value = PlayerIsOnLeft;              
             }
-        }
-
-        public bool PlayerIsOnRight
-        {
-            get
-            {
-                if (this.Center.X < player.Center.X)
-                {
-                    PlayerIsOnLeft = false;
-                    return true;
-                }
-                else
-                    return false;
-            }
-            set 
-            {
-                value = PlayerIsOnRight;
-            }
-        }
-
-        public bool IsAttacking { get; set; }
-        public bool IsMoving { get; set; }
+        } 
 
         public double Power { get; set; }
         
@@ -116,7 +94,11 @@ namespace ShoresOfGold.Models
         {
         }
 
-        public void GetDamage(double damage) { this.Health -= damage; }
+        public void GetDamage(double damage) 
+        { 
+            //IsDamaged = true;
+            this.Health -= damage; 
+        }
         #endregion
     }
 }

@@ -26,9 +26,8 @@ namespace ShoresOfGold.Models
         public int MAX_STAMINA { get; set; }
 
         public bool HeadLeft { get; set; }
-
         public bool IsShooting { get; set; }
-        public bool IsAttacking { get; set; }
+
         public Player(Size mapArea, double upperBound, double lowerBound)
         {
             this.mapArea = mapArea;
@@ -186,6 +185,7 @@ namespace ShoresOfGold.Models
 
         public void GetDamage(double damage) 
         {
+            //IsDamaged = true;
             this.Health -= damage;
             if (this.Health <= 0) { /*the player dies*/}
         }
