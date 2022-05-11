@@ -8,17 +8,7 @@ using System.Windows;
 namespace ShoresOfGold.Models
 {
     public class Zombie : Enemy
-    {
-        public Zombie(Size mapArea)
-        {
-            Health = 50;
-            Stamina = 100; // ??
-            Power = 10;
-
-            Speed = new Vector(1, 1);
-            Width = 60;
-            Height = 60;
-        }
+    {       
         public Zombie(Size mapArea, Player player) : base(mapArea,player)
         {
             Health = 100;
@@ -26,8 +16,8 @@ namespace ShoresOfGold.Models
             Power = 10;
 
             Speed = new Vector(2.9, 2.9);
-            Width = 50;
-            Height = 50;
+            Width = 55;
+            Height = 55;
 
             Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
 

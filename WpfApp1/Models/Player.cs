@@ -56,11 +56,11 @@ namespace ShoresOfGold.Models
 
         public void Move(Controls control)
         {
-            if (control == Controls.Up && Center.Y + Height > UpperBound)
+            if (control == Controls.Up && Center.Y + Height / 2 > UpperBound)
             {
                 Center = new System.Drawing.Point(Center.X, Center.Y - (int)Speed.Y);
             }
-            else if (control == Controls.Down && Center.Y + Height < LowerBound)
+            else if (control == Controls.Down && Center.Y + Height / 2 < LowerBound)
             {
                 Center = new System.Drawing.Point(Center.X, Center.Y + (int)Speed.Y);
             }
