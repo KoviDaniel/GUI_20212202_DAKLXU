@@ -113,15 +113,15 @@ namespace ShoresOfGold.Renderer
             {
                 if (model.Boss.AttackType == -1)
                 {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
+                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
                 }
                 else 
                 {
                     if (model.Boss.AttackType == 0) 
                     {
-                        return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
+                        return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
                     }
-                    return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush BobTheBoatCloseBrush
@@ -137,7 +137,7 @@ namespace ShoresOfGold.Renderer
             get
             {
                 
-                return new ImageBrush(new BitmapImage(new Uri("Images/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
                 
             }
         }
