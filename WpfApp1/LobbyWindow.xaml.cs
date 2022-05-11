@@ -22,13 +22,19 @@ namespace MainMenu
     public partial class LobbyWindow : Window
     {
         private GameLogic gameLogic;
+        private System.Media.SoundPlayer mediaPlayer; 
 
         public LobbyWindow()
         {
             InitializeComponent();
+            mediaPlayer = new System.Media.SoundPlayer();
+            mediaPlayer.SoundLocation = "Sounds/ingame.wav";
+            mediaPlayer.PlayLooping();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+           // mediaPlayer.SoundLocation = "Sounds/ingame.wav";
+           // mediaPlayer.PlayLooping();
             gameLogic = new GameLogic(new Size(lobby_grid.ActualWidth, lobby_grid.ActualHeight));
             // logic.GameOver += Logic_GameOver;
             display.SetupModel(gameLogic);
