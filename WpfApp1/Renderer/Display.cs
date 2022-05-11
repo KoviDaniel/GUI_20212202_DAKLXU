@@ -15,7 +15,6 @@ namespace ShoresOfGold.Renderer
     {
         Size mapArea;
         IGameModel model;
-        AnimationManager zombieAnimationManager;
 
         public void SetupSizes(Size mapArea)
         {
@@ -26,11 +25,6 @@ namespace ShoresOfGold.Renderer
         {
             this.model = model;
             this.model.Changed += (sender, eventargs) => this.InvalidateVisual();
-            zombieAnimationManager= new AnimationManager();
-            zombieAnimationManager.Append("Images/zombie/right_idle/"); //0
-            zombieAnimationManager.Append("Images/zombie/right_move/"); //1
-            zombieAnimationManager.Append("Images/zombie/right_attack/"); //2
-            zombieAnimationManager.Append("Images/zombie/right_die/"); //3
         }
 
         public Brush PlayerBrush
@@ -41,65 +35,49 @@ namespace ShoresOfGold.Renderer
                 {
                     if (model.Player.IsShooting)
                     {
-                        return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute)));
+                        return new ImageBrush(new BitmapImage(new Uri("Images/Player/pirate_with_gun.png", UriKind.RelativeOrAbsolute)));
 
                     }
                     else if (model.Player.IsAttacking)
                     {
-                        return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute)));
-
+                        return new ImageBrush(new BitmapImage(new Uri("Images/Player/pirate_with_sword.png", UriKind.RelativeOrAbsolute)));
+                    }
+                    else if (model.Player.IsDamaged)
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/Player/pirate_damaged.png", UriKind.RelativeOrAbsolute)));
                     }
                     else
                     {
-                        return new ImageBrush(new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute)));
+                        return new ImageBrush(new BitmapImage(new Uri("Images/player/pirate_idle.png", UriKind.RelativeOrAbsolute)));
                     }
                 }
                 else
                 {
                     if (model.Player.IsShooting)
                     {
-                        var picture = new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute));
-                        var transform = new ScaleTransform(-1, 1, 0, 0);
-                        var tb = new TransformedBitmap();
-                        tb.BeginInit();
-                        tb.Source = picture;
-                        tb.Transform = transform;
-                        tb.EndInit();
-                        return new ImageBrush(tb);
-
+                        return TransformImage("Images/Player/pirate_with_gun.png");
                     }
                     else if (model.Player.IsAttacking)
                     {
-                        var picture = new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute));
-                        var transform = new ScaleTransform(-1, 1, 0, 0);
-                        var tb = new TransformedBitmap();
-                        tb.BeginInit();
-                        tb.Source = picture;
-                        tb.Transform = transform;
-                        tb.EndInit();
-                        return new ImageBrush(tb);
-
+                        return TransformImage("Images/Player/pirate_with_sword.png");
+                    }
+                    else if (model.Player.IsDamaged)
+                    {
+                        return TransformImage("Images/Player/pirate_damaged.png"); 
                     }
                     else
                     {
-                        var picture = new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute));
-                        var transform = new ScaleTransform(-1, 1, 0, 0);
-                        var tb = new TransformedBitmap();
-                        tb.BeginInit();
-                        tb.Source = picture;
-                        tb.Transform = transform;
-                        tb.EndInit();
-                        return new ImageBrush(tb);
+                        return TransformImage("Images/Player/pirate_idle.png");
                     }
                 }               
             }
-        } //DONE
+        } // DONE
 
         public Brush ArrowBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Others/arrow.png", UriKind.RelativeOrAbsolute)));
             }
         } //DONE
 
@@ -107,7 +85,7 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/Others/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
         } //DONE
 
@@ -116,14 +94,14 @@ namespace ShoresOfGold.Renderer
         {
             get 
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/end/win.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/End/win.png", UriKind.RelativeOrAbsolute)));
             }
         }
         public Brush LoseBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/end/lost.png", UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri("Images/End/lost.png", UriKind.RelativeOrAbsolute)));
             }
         }
         #endregion
@@ -165,43 +143,140 @@ namespace ShoresOfGold.Renderer
         }
         #endregion
 
-        public Brush ZombieBrush
+        #region ZombieBrushes
+        public Brush ZombieLeftIdleBrush
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/zombie/left_idle/zombie_lidle_1.png", UriKind.RelativeOrAbsolute)));                         
+                return new ImageBrush(new BitmapImage(new Uri("Images/Zombie/zombie_idle.png", UriKind.RelativeOrAbsolute)));                         
             }
         }
+        public Brush ZombieLeftAttackBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Zombie/zombie_attack.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush ZombieLeftDamagedBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Zombie/zombie_damaged.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush ZombieRightIdleBrush
+        {
+            get
+            {
+                return TransformImage("Images/Zombie/zombie_idle.png");
+            }
+        }
+        public Brush ZombieRightAttackBrush
+        {
+            get
+            {
+                return TransformImage("Images/Zombie/zombie_attack.png");
+            }
+        }
+        public Brush ZombieRightDamagedBrush
+        {
+            get
+            {
+                return TransformImage("Images/Zombie/zombie_damaged.png");
+            }
+        }
+        #endregion
 
-        public Brush BruteBrush 
+        #region BruteBrushes
+        public Brush BruteLeftIdleBrush 
         { 
             get 
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/brute/brute_lidle_1.png", UriKind.RelativeOrAbsolute)));  
+                return new ImageBrush(new BitmapImage(new Uri("Images/Brute/brute_idle.png", UriKind.RelativeOrAbsolute)));  
             }
         }
+        public Brush BruteLeftAttackBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Brute/brute_attack.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BruteLeftDamagedBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Brute/brute_damaged.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush BruteRightIdleBrush
+        {
+            get
+            {
+                return TransformImage("Images/Brute/brute_idle.png");
+            }
+        }
+        public Brush BruteRightAttackBrush
+        {
+            get
+            {
+                return TransformImage("Images/Brute/brute_attack.png");
+            }
+        }
+        public Brush BruteRightDamagedBrush
+        {
+            get
+            {
+                return TransformImage("Images/Brute/brute_damaged.png");
+            }
+        }
+        #endregion
 
-        public Brush SniperBrush 
+        #region SniperBrushes
+        public Brush SniperLeftIdleBrush 
         { 
             get 
             {
-                if (model.Zombie.PlayerIsOnRight)
-                {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute)));
-                }
-                else
-                {
-                    var picture = new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute));
-                    var transform = new ScaleTransform(-1, 1, 0, 0);
-                    var tb = new TransformedBitmap();
-                    tb.BeginInit();
-                    tb.Source = picture;
-                    tb.Transform = transform;
-                    tb.EndInit();
-                    return new ImageBrush(tb);
-                }
+                return new ImageBrush(new BitmapImage(new Uri("Images/Sniper/sniper_idle.png", UriKind.RelativeOrAbsolute)));
             } 
         }
+        public Brush SniperLeftAttackBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Sniper/sniper_attack.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush SniperLeftDamagedBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/Sniper/sniper_damaged.png", UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush SniperRightIdleBrush
+        {
+            get
+            {
+                return TransformImage("Images/Sniper/sniper_idle.png");
+            }
+        }
+        public Brush SniperRightAttackBrush
+        {
+            get
+            {
+                return TransformImage("Images/Sniper/sniper_attack.png");
+            }
+        }
+        public Brush SniperRightDamagedBrush
+        {
+            get
+            {
+                return TransformImage("Images/Sniper/sniper_damaged.png");
+            }
+        }
+        #endregion
 
         #region ChestBrushes
         public Brush OpenChestHealthBrush { get 
@@ -463,52 +538,134 @@ namespace ShoresOfGold.Renderer
                             {
                                 if (e is Brute)
                                 {
-                                    drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                       e.Width, e.Height
-                                   ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(BruteLeftAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(BruteLeftDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(BruteLeftIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
                                 else if (e is Zombie)
                                 {
-                                    drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                        e.Width, e.Height
-                                    ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(ZombieLeftAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(ZombieLeftDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(ZombieLeftIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
                                 else if (e is Sniper)
                                 {
-                                    drawingContext.DrawRectangle(SniperBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                       e.Width, e.Height
-                                   ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(SniperLeftAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(SniperLeftDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(SniperLeftIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
                             }
                             else
                             {
                                 if (e is Brute)
                                 {
-                                    drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                       e.Width, e.Height
-                                   ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(BruteRightAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(BruteRightDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(BruteRightIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
                                 else if (e is Zombie)
                                 {
-                                    drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                        e.Width, e.Height
-                                    ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(ZombieRightAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(ZombieRightDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(ZombieRightIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
                                 else if (e is Sniper)
                                 {
-                                    drawingContext.DrawRectangle(SniperBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                       e.Width, e.Height
-                                   ));
+                                    if (e.IsAttacking)
+                                    {
+                                        // ATTACKING BRUSH
+                                        drawingContext.DrawRectangle(SniperRightAttackBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else if (e.IsDamaged)
+                                    {
+                                        // DAMAGED BRUSH
+                                        drawingContext.DrawRectangle(SniperRightDamagedBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
+                                    else
+                                    {
+                                        // IDLE BRUSH
+                                        drawingContext.DrawRectangle(SniperRightIdleBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
+                                    }
                                 }
-                            }
-                            
-                        
+                            }                       
                         }
                     }
                     #endregion
@@ -596,6 +753,18 @@ namespace ShoresOfGold.Renderer
                 }
                 #endregion
             }
+        }
+
+        private ImageBrush TransformImage(string path)
+        {
+            var picture = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            var transform = new ScaleTransform(-1, 1, 0, 0);
+            var tb = new TransformedBitmap();
+            tb.BeginInit();
+            tb.Source = picture;
+            tb.Transform = transform;
+            tb.EndInit();
+            return new ImageBrush(tb);
         }
     }
 }
