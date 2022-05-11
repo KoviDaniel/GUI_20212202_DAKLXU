@@ -20,6 +20,6 @@ namespace ShoresOfGold.Logic
         Wall BottomWall { get; set; }
 
         public int MapNumber { get; set; }
-        void SetupSizes(Size mapArea);
+        void LoadNexMap();
     }
 }

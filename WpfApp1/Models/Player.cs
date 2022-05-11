@@ -25,6 +25,9 @@ namespace ShoresOfGold.Models
         public int MAX_HEALTH { get; set; }
         public int MAX_STAMINA { get; set; }
 
+        public bool HeadLeft { get; set; }
+
+
         public bool IsShooting { get; set; }
         public bool IsAttacking { get; set; }
         public Player(Size mapArea, double upperBound, double lowerBound)
@@ -41,7 +44,7 @@ namespace ShoresOfGold.Models
             Speed = new Vector(3, 3);
             Width = 70;
             Height = 86;
-
+            HeadLeft = false;
             UpperBound = upperBound;
             LowerBound = lowerBound;
             LeftBound = 0;
@@ -65,10 +68,12 @@ namespace ShoresOfGold.Models
             }
             else if (control == Controls.Left && Center.X > LeftBound)
             {
+                HeadLeft = true;
                 Center = new System.Drawing.Point(Center.X - (int)Speed.X, Center.Y);
             }
             else if (control == Controls.Right && Center.X + Width < RightBound)
             {
+                HeadLeft = true;
                 Center = new System.Drawing.Point(Center.X + (int)Speed.X, Center.Y);
             }
             
@@ -83,7 +88,7 @@ namespace ShoresOfGold.Models
                 }
             }
         }
-        public void MeleeAttack(List<Enemy> enemies) 
+        public void MeleeAttack(List<Enemy> enemies, Boss boss) 
         {
             if (this.Health > 0 && this.Stamina-20 >= 0)
             {
@@ -97,6 +102,10 @@ namespace ShoresOfGold.Models
                         e.GetDamage(this.MeleeDamage);
                     }
                 }
+                if (DistanceCalculator(boss.Center) <= 500) 
+                {
+                    boss.GetDamage(this.MeleeDamage);
+                }
             }
         }
         public void RangeAttack(List<Enemy> enemies, Point target)
@@ -108,44 +117,45 @@ namespace ShoresOfGold.Models
                 this.Stamina -= 30;
                 Shoot(target);
             }
-           // BulletLife(enemies);
         }
         private void Shoot(Point target) 
         {
-            //System.Drawing.Point dTarget = new System.Drawing.Point();
-            //dTarget.X = (int)target.X;
-            //dTarget.Y = (int)target.Y;
             Bullets.Add(new Bullet(this.Center, target));
         }
-        public void BulletLife(List<Enemy> enemies) 
+
+        public void BulletLife(List<Enemy> enemies, Boss boss) 
         {
             List<Bullet> removing = new List<Bullet>();
-            foreach (var e in enemies)
+            foreach (var b in Bullets)
             {
-                foreach (var b in Bullets)
+                if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
+                   || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
                 {
-                    if (b.Alive = false || b.Center.X <= 0 || b.Center.X >= mapArea.Width
-                    || b.Center.Y <= 0 || b.Center.Y >= mapArea.Height)
+                    removing.Add(b);
+                }
+                else 
+                {
+                    b.Moving();
+                    foreach (var e in enemies)
                     {
-                        removing.Add(b);
-                    }
-                    else
-                    {
-                        b.Moving(); // moving
-                                    //HitDetection
                         if (b.BulletRect.IntersectsWith(e.EnemyRect))
                         {
                             e.GetDamage(this.RangeDamage);
-                            //this.bullets.Remove(b);
                             b.Alive = false;
                             removing.Add(b);
                         }
                     }
+                    if (b.BulletRect.IntersectsWith(boss.BossRect))
+                    {
+                        boss.GetDamage(this.RangeDamage);
+                        b.Alive = false;
+                        removing.Add(b);
+                    }
                 }
-                foreach (var r in removing)
-                {
-                    Bullets.Remove(r);
-                }
+            }
+            foreach (var r in removing)
+            {
+                Bullets.Remove(r);
             }
         }
 
@@ -160,8 +170,16 @@ namespace ShoresOfGold.Models
         {
             if (restoreRate >= 50)
             {
-                if (this.Health > 0 && this.Health + 5 <= MAX_HEALTH) this.Health += 5;
-                if (this.Stamina +20 <= this.MAX_STAMINA) this.Stamina += 20;
+                if (this.Health > 0 && this.Health < MAX_HEALTH) 
+                { 
+                    this.Health += 5;
+                    if (this.Health > MAX_HEALTH) this.Health = MAX_HEALTH;
+                }
+                if (this.Stamina < this.MAX_STAMINA) 
+                { 
+                    this.Stamina += 20;
+                    if (this.Stamina > MAX_STAMINA) this.Stamina = MAX_STAMINA;
+                }
                 restoreRate = 0;
             }
             restoreRate++;

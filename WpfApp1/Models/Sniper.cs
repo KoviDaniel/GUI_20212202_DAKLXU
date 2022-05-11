@@ -30,30 +30,7 @@ namespace ShoresOfGold.Models
 
             AttackIntensity = 150;
             this.bullets = new List<Bullet>();
-
-           // EnemyRect = new Rect(this.Center.X, this.Center.Y, this.Width, this.Height);
         }
-
-        /* private void Accuracy(ref System.Drawing.Point target) 
-         {
-             if (tr.Next(1) == 0)
-             {
-                 target.X += tr.Next(0,2);
-             }
-             else 
-             {
-                 target.X -= tr.Next(0, 2);
-             }
-             if (tr.Next(1) == 0)
-             {
-                 target.Y += tr.Next(0, 2);
-             }
-             else
-             {
-                 target.Y -= tr.Next(0, 2);
-             }
-         }*/
-        
 
         public override void Attack()
         {
@@ -64,44 +41,14 @@ namespace ShoresOfGold.Models
                 {
                     cooldown = 0;
                     System.Drawing.Point target = player.Center;
-                    //Accuracy(ref target);
                     System.Windows.Point wTarget = new System.Windows.Point();
                     wTarget.X = player.Center.X;
                     wTarget.Y = player.Center.Y;
-                    //Bullet b = new Bullet(this.Center, target);
                     Bullet b = new Bullet(this.Center, wTarget);
                     bullets.Add(b);
                 }
             }
-            /*bullets.ForEach(b => b.Moving());
-            HitDetection();*/
             BulletLife();
-        }
-
-        private void HitDetection() 
-        {
-            foreach (var b in bullets)
-            {
-                if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
-                {
-                    this.player.GetDamage(this.Power);
-                    //this.bullets.Remove(b);
-                    b.Alive = false;
-                }
-            }
-            /*int idx = -1;
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                if (idx != -1) bullets.RemoveAt(idx);
-                idx = -1;
-                if (bullets[i].BulletRect.IntersectsWith(player.PlayerRect))
-                {
-                    this.player.GetDamage(this.Power);
-                    //this.bullets.RemoveAt(i);
-                    idx = i;
-
-                }
-            }*/
         }
 
         private void BulletLife() 
@@ -117,11 +64,9 @@ namespace ShoresOfGold.Models
                 else 
                 {
                     b.Moving(); // moving
-                    //HitDetection
                     if (b.BulletRect.IntersectsWith(player.PlayerRect))
                     {
                         this.player.GetDamage(this.Power);
-                        //this.bullets.Remove(b);
                         b.Alive = false;
                         removing.Add(b);
                     }
