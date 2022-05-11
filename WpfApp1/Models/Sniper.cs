@@ -19,42 +19,58 @@ namespace ShoresOfGold.Models
             Stamina = 100; // ??
             Power = 60;
             Speed = new Vector(2, 2);
-            Width = 45;
-            Height = 45;
+            Width = 30;
+            Height = 30;
 
             Center = new System.Drawing.Point(r.Next(Width / 2, (int)mapArea.Width - Width / 2), r.Next((int)player.UpperBound + Height / 2, (int)player.LowerBound - Height / 2));
 
             DetectionRange = 500;
-            AttackRange = 470;
-            StoppingRange = 200 + (player.Width + player.Height) / 2;
+            AttackRange = 500;
+            StoppingRange = 100 + (player.Width + player.Height) / 2;
 
-            AttackIntensity = 150;
+            AttackIntensity = 300;
             this.bullets = new List<Bullet>();
+
+          
         }
+
+        
+        
 
         public override void Attack()
         {
             if (this.player != null && this.player.Health > 0 && Health > 0) 
             {
                 cooldown++;
-                //if (cooldown == AttackIntensity - 20) this.IsAttacking = true;
-                if (Distance <= AttackRange) { this.IsAttacking = true; }
-                else this.IsAttacking = false;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
                 {
-                    this.IsDamaged = false;
-                    this.IsAttacking = true;
                     cooldown = 0;
                     System.Drawing.Point target = player.Center;
+
                     System.Windows.Point wTarget = new System.Windows.Point();
                     wTarget.X = player.Center.X;
                     wTarget.Y = player.Center.Y;
+
                     Bullet b = new Bullet(this.Center, wTarget);
                     bullets.Add(b);
-                    this.IsAttacking = false;
                 }
             }
+
             BulletLife();
+        }
+
+        private void HitDetection() 
+        {
+            foreach (var b in bullets)
+            {
+                if (b.BulletRect.IntersectsWith(player.PlayerRect)) 
+                {
+                    this.player.GetDamage(this.Power);
+
+                    b.Alive = false;
+                }
+            }
+           
         }
 
         private void BulletLife() 
@@ -70,9 +86,11 @@ namespace ShoresOfGold.Models
                 else 
                 {
                     b.Moving(); // moving
+
                     if (b.BulletRect.IntersectsWith(player.PlayerRect))
                     {
                         this.player.GetDamage(this.Power);
+
                         b.Alive = false;
                         removing.Add(b);
                     }
