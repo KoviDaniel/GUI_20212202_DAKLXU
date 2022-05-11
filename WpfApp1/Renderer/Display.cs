@@ -667,7 +667,7 @@ namespace ShoresOfGold.Renderer
                                             e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2, e.Width, e.Height));
                                     }
                                 }
-                            }                       
+                            }
                         }
                     }
                     #endregion
