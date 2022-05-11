@@ -496,14 +496,22 @@ namespace ShoresOfGold.Renderer
                                 mapArea.Width - 75, mapArea.Height / 2, 50, 50
                             ));
                     }
+
+
                     FormattedText hp = new FormattedText("HP: " + model.Player.Health + "/" + model.Player.MAX_HEALTH, System.Globalization.CultureInfo.CurrentCulture,
                        FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
                        FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red, 10);
                     FormattedText stamina = new FormattedText("SM: " + model.Player.Stamina + "/" + model.Player.MAX_STAMINA, System.Globalization.CultureInfo.CurrentCulture,
                        FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
                        FontWeights.Normal, FontStretches.Normal), 24, Brushes.Yellow, 10);
+
+                    FormattedText bhp = new FormattedText("Boss HP: " + model.Boss.Health + "/" + model.Boss.MAX_HEALTH, System.Globalization.CultureInfo.CurrentCulture,
+                       FlowDirection.LeftToRight, new Typeface(new FontFamily("Arial"), FontStyles.Normal,
+                       FontWeights.Normal, FontStretches.Normal), 24, Brushes.Red, 10);
+
                     drawingContext.DrawText(hp, new Point(100, 50));
                     drawingContext.DrawText(stamina, new Point(100, 100));
+                    if (model.Boss.Appear) drawingContext.DrawText(bhp, new Point(mapArea.Width - 250, 50));
                 }
                 else if (model.Player.Health > 0 && model.Boss.Health <= 0)
                 {
