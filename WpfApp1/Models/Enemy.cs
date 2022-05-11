@@ -94,8 +94,9 @@ namespace ShoresOfGold.Models
         }
 
         public void GetDamage(double damage) 
-        { 
-            IsDamaged = true;
+        {
+            this.IsAttacking = false;
+            this.IsDamaged = true;
             this.Health -= damage;
         }
         #endregion

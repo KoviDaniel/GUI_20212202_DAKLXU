@@ -41,11 +41,11 @@ namespace ShoresOfGold.Models
         public override void Attack() 
         {
             if (this.player != null && this.player.Health > 0 && Health >0)
-            {
-                this.IsAttacking = true;
+            {               
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity)
                 {
+                    this.IsDamaged = false;
                     this.IsAttacking = true;
                     this.player.GetDamage(this.Power);
                     cooldown = 0;

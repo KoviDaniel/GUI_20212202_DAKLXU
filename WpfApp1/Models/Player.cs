@@ -185,7 +185,7 @@ namespace ShoresOfGold.Models
 
         public void GetDamage(double damage) 
         {
-            //IsDamaged = true;
+            this.IsDamaged = true;
             this.Health -= damage;
             if (this.Health <= 0) { /*the player dies*/}
         }

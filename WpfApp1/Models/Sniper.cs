@@ -39,6 +39,8 @@ namespace ShoresOfGold.Models
                 cooldown++;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
                 {
+                    this.IsDamaged = false;
+                    this.IsAttacking = true;
                     cooldown = 0;
                     System.Drawing.Point target = player.Center;
                     System.Windows.Point wTarget = new System.Windows.Point();
