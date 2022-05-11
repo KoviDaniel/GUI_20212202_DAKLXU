@@ -37,36 +37,79 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                if (model.Player.IsShooting)
+                if (model.Player.HeadLeft)
                 {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute)));
+                    if (model.Player.IsShooting)
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute)));
 
-                }
-                else if (model.Player.IsAttacking)
-                {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute)));
+                    }
+                    else if (model.Player.IsAttacking)
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute)));
 
+                    }
+                    else
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute)));
+                    }
                 }
                 else
                 {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute)));
-                }             
+                    if (model.Player.IsShooting)
+                    {
+                        var picture = new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute));
+                        var transform = new ScaleTransform(-1, 1, 0, 0);
+                        var tb = new TransformedBitmap();
+                        tb.BeginInit();
+                        tb.Source = picture;
+                        tb.Transform = transform;
+                        tb.EndInit();
+                        return new ImageBrush(tb);
+
+                    }
+                    else if (model.Player.IsAttacking)
+                    {
+                        var picture = new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute));
+                        var transform = new ScaleTransform(-1, 1, 0, 0);
+                        var tb = new TransformedBitmap();
+                        tb.BeginInit();
+                        tb.Source = picture;
+                        tb.Transform = transform;
+                        tb.EndInit();
+                        return new ImageBrush(tb);
+
+                    }
+                    else
+                    {
+                        var picture = new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute));
+                        var transform = new ScaleTransform(-1, 1, 0, 0);
+                        var tb = new TransformedBitmap();
+                        tb.BeginInit();
+                        tb.Source = picture;
+                        tb.Transform = transform;
+                        tb.EndInit();
+                        return new ImageBrush(tb);
+                    }
+                }               
             }
-        }
+        } //DONE
+
         public Brush ArrowBrush
         {
             get
             {
                 return new ImageBrush(new BitmapImage(new Uri("Images/arrow.png", UriKind.RelativeOrAbsolute)));
             }
-        }
+        } //DONE
+
         public Brush BulletBrush
         {
             get
             {
                 return new ImageBrush(new BitmapImage(new Uri("Images/cannonball.png", UriKind.RelativeOrAbsolute)));
             }
-        }
+        } //DONE
 
         #region EndBrushes
         public Brush WinnerBrush 
@@ -122,16 +165,31 @@ namespace ShoresOfGold.Renderer
         }
         #endregion
 
-
         public Brush ZombieBrush
         {
             get
             {
-                if (model.Zombie.PlayerIsOnRight) 
+                return new ImageBrush(new BitmapImage(new Uri("Images/zombie/left_idle/zombie_lidle_1.png", UriKind.RelativeOrAbsolute)));                         
+            }
+        }
+
+        public Brush BruteBrush 
+        { 
+            get 
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/brute/brute_lidle_1.png", UriKind.RelativeOrAbsolute)));  
+            }
+        }
+
+        public Brush SniperBrush 
+        { 
+            get 
+            {
+                if (model.Zombie.PlayerIsOnRight)
                 {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute)));                   
+                    return new ImageBrush(new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute)));
                 }
-                else /*if (model.Zombie.PlayerIsOnLeft)*/
+                else
                 {
                     var picture = new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute));
                     var transform = new ScaleTransform(-1, 1, 0, 0);
@@ -141,18 +199,10 @@ namespace ShoresOfGold.Renderer
                     tb.Transform = transform;
                     tb.EndInit();
                     return new ImageBrush(tb);
-                }          
-            }
+                }
+            } 
         }
 
-        public Brush BruteBrush 
-        { 
-            get 
-            {
-                return new ImageBrush(new BitmapImage(new Uri("Images/brute/brute_lidle_1.png", UriKind.RelativeOrAbsolute)));
-            }
-        }
-        
         #region ChestBrushes
         public Brush OpenChestHealthBrush { get 
             {
@@ -203,7 +253,7 @@ namespace ShoresOfGold.Renderer
         }
         #endregion
 
-        #region mapBrushes
+        #region MapBrushes
         public Brush TopWallBrush_1
         {
             get
@@ -290,7 +340,7 @@ namespace ShoresOfGold.Renderer
             {
                 return new ImageBrush(new BitmapImage(new Uri("Images/battleground_4.png", UriKind.RelativeOrAbsolute)));
             }
-        }
+        }      
         #endregion
 
         public void LoadNextMap()
@@ -312,7 +362,7 @@ namespace ShoresOfGold.Renderer
                         LoadNextMap();
                     }
 
-                    //MAP DRAW
+                    # region MAP DRAW
                     if (model.MapNumber == 1)
                     {
                         drawingContext.DrawRectangle(BackgroundBrush_1, null, new Rect(mapArea));
@@ -337,8 +387,9 @@ namespace ShoresOfGold.Renderer
                         drawingContext.DrawGeometry(TopWallBrush_4, null, model.TopWall.Area);
                         drawingContext.DrawGeometry(BottomWallBrush_4, null, model.BottomWall.Area);
                     }
+                    #endregion
 
-                    //CHEST DRAW
+                    #region CHEST DRAW
                     foreach (var chest in model.Chests)
                     {
                         if (chest.Opened == false)
@@ -401,39 +452,68 @@ namespace ShoresOfGold.Renderer
                             }
                         }
                     }
+                    #endregion
 
-                //ENEMY DRAW
-                foreach (var e in model.Enemies)
-                {
-                    if (e.Health > 0)
+                    #region ENEMY DRAW
+                    foreach (var e in model.Enemies)
                     {
-                        if (e is Brute)
+                        if (e.Health > 0)
                         {
-                            drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                               e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                               e.Width, e.Height
-                           ));
-                        }
-                        else if (e is Zombie)
-                        {
-                            drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                                e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                                e.Width, e.Height
-                            ));
-                        }
-                        else
-                        {
-                            drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                               e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                               e.Width, e.Height
-                           ));
-                        }
+                            if (e.PlayerIsOnLeft)
+                            {
+                                if (e is Brute)
+                                {
+                                    drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                       e.Width, e.Height
+                                   ));
+                                }
+                                else if (e is Zombie)
+                                {
+                                    drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                        e.Width, e.Height
+                                    ));
+                                }
+                                else if (e is Sniper)
+                                {
+                                    drawingContext.DrawRectangle(SniperBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                       e.Width, e.Height
+                                   ));
+                                }
+                            }
+                            else
+                            {
+                                if (e is Brute)
+                                {
+                                    drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                       e.Width, e.Height
+                                   ));
+                                }
+                                else if (e is Zombie)
+                                {
+                                    drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                        e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                        e.Width, e.Height
+                                    ));
+                                }
+                                else if (e is Sniper)
+                                {
+                                    drawingContext.DrawRectangle(SniperBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                                       e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                       e.Width, e.Height
+                                   ));
+                                }
+                            }
+                            
                         
+                        }
                     }
-                }
+                    #endregion
 
-
-                    //BOSS DRAW
+                    #region BOSS DRAW
                     if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
                     {
                         if (model.Boss.AttackType == -1)
@@ -461,8 +541,9 @@ namespace ShoresOfGold.Renderer
                                 ));
                         }
                     }
+                    #endregion
 
-                    //PLAYER DRAW
+                    #region PLAYER DRAW
                     if (model.Player.Health > 0)
                     {
                         drawingContext.DrawRectangle(PlayerBrush, null, new Rect(
@@ -470,13 +551,14 @@ namespace ShoresOfGold.Renderer
                             model.Player.Width, model.Player.Height
                             ));
                     }
-
+                    #endregion
 
                     //BULLET DRAW
                     foreach (var b in model.Bullets)
                     {
                         drawingContext.DrawRectangle(BulletBrush, null, b.BulletRect);
                     }
+
                     //NEXT MAP ARROW DRAW
                     if (model.Enemies.Count == 0 && model.MapNumber < 4)
                     {
@@ -499,8 +581,11 @@ namespace ShoresOfGold.Renderer
 
                     drawingContext.DrawText(hp, new Point(100, 50));
                     drawingContext.DrawText(stamina, new Point(100, 100));
-                    if (model.Boss.Appear) drawingContext.DrawText(bhp, new Point(mapArea.Width - 250, 50));
+                    if (model.Boss.Appear) 
+                        drawingContext.DrawText(bhp, new Point(mapArea.Width - 250, 50));
                 }
+
+                #region GAME END
                 else if (model.Player.Health > 0 && model.Boss.Health <= 0)
                 {
                     drawingContext.DrawRectangle(WinnerBrush, null, new Rect(0, 0, mapArea.Width, mapArea.Height));
@@ -509,6 +594,7 @@ namespace ShoresOfGold.Renderer
                 {
                     drawingContext.DrawRectangle(LoseBrush, null, new Rect(0, 0, mapArea.Width, mapArea.Height));
                 }
+                #endregion
             }
         }
     }
