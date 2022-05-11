@@ -13,6 +13,7 @@
     <None Remove="Images\bobtheboat_close.png" />
     <None Remove="Images\bobtheboat_half.png" />
     <None Remove="Images\bob_the_boat.png" />
+    <None Remove="Images\brute\brute_lidle_1.png" />
     <None Remove="Images\cannonball.png" />
     <None Remove="Images\chestclosed.png" />
     <None Remove="Images\chestopen.png" />
@@ -25,6 +26,12 @@
     <None Remove="Images\end\lost.png" />
     <None Remove="Images\end\win.png" />
     <None Remove="Images\pirate.png" />
+    <None Remove="Images\player\lpirate_with_gun.png" />
+    <None Remove="Images\player\lpirate_with_sword.png" />
+    <None Remove="Images\player\pirate_lidle.png" />
+    <None Remove="Images\player\pirate_ridle.png" />
+    <None Remove="Images\player\rpirate_with_gun.png" />
+    <None Remove="Images\player\rpirate_with_sword.png" />
     <None Remove="Images\zombie.png" />
     <None Remove="Images\zombie\right_attack\zombie_rattack_1.png" />
     <None Remove="Images\zombie\right_attack\zombie_rattack_2.png" />
@@ -67,6 +74,9 @@
     <Content Include="Images\bob_the_boat.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\brute\brute_lidle_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\cannonball.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -101,6 +111,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pirate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\lpirate_with_gun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\lpirate_with_sword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\pirate_lidle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\pirate_ridle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\rpirate_with_gun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\player\rpirate_with_sword.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\zombie.png">

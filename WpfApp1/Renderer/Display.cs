@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ShoresOfGold.Logic;
+using ShoresOfGold.Models;
 
 namespace ShoresOfGold.Renderer
 {
@@ -36,7 +37,20 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri("Images/pirate.png", UriKind.RelativeOrAbsolute)));
+                if (model.Player.IsShooting)
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_gun.png", UriKind.RelativeOrAbsolute)));
+
+                }
+                else if (model.Player.IsAttacking)
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/player/lpirate_with_sword.png", UriKind.RelativeOrAbsolute)));
+
+                }
+                else
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/player/pirate_lidle.png", UriKind.RelativeOrAbsolute)));
+                }             
             }
         }
         public Brush ArrowBrush
@@ -113,64 +127,13 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                //if (model.Zombie.PlayerIsOnRight)
-                //{
-                //    if (model.Zombie.IsMoving && !model.Zombie.IsAttacking)
-                //    {
-                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(1));
-                //    }
-                //    else if (!model.Zombie.IsMoving && model.Zombie.IsAttacking)
-                //    {
-                //         return new ImageBrush(zombieAnimationManager.GetNextofThis(3));            
-                //    }
-                //    else
-                //    {
-                //        return new ImageBrush(zombieAnimationManager.GetNextofThis(0));
-                //    }
-                //}
-                //else if (model.Zombie.PlayerIsOnLeft)
-                //{
-                //    if (model.Zombie.IsMoving && !model.Zombie.IsAttacking)
-                //    {
-                //        var picture = zombieAnimationManager.GetNextofThis(1);
-                //        var transform = new ScaleTransform(-1, 1, 0, 0);
-                //        var tb = new TransformedBitmap();
-                //        tb.BeginInit();
-                //        tb.Source = picture;
-                //        tb.Transform = transform;
-                //        tb.EndInit();
-                //        return new ImageBrush(tb);
-                //    }
-                //    else if (!model.Zombie.IsMoving && model.Zombie.IsAttacking)
-                //    {
-                //        var picture = zombieAnimationManager.GetNextofThis(3);
-                //        var transform = new ScaleTransform(-1, 1, 0, 0);
-                //        var tb = new TransformedBitmap();
-                //        tb.BeginInit();
-                //        tb.Source = picture;
-                //        tb.Transform = transform;
-                //        tb.EndInit();
-                //        return new ImageBrush(tb);
-                //    }
-                //    else
-                //    {
-                //        var picture = zombieAnimationManager.GetNextofThis(0);
-                //        var transform = new ScaleTransform(-1, 1, 0, 0);
-                //        var tb = new TransformedBitmap();
-                //        tb.BeginInit();
-                //        tb.Source = picture;
-                //        tb.Transform = transform;
-                //        tb.EndInit();
-                //        return new ImageBrush(tb);
-                //    }                
-                //}
-                if (model.Zombie.PlayerIsOnRight)
+                if (model.Zombie.PlayerIsOnRight) 
                 {
-                    return new ImageBrush(zombieAnimationManager.GetNextofThis(0));                   
+                    return new ImageBrush(new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute)));                   
                 }
-                else if (model.Zombie.PlayerIsOnLeft)
+                else /*if (model.Zombie.PlayerIsOnLeft)*/
                 {
-                    var picture = zombieAnimationManager.GetNextofThis(0);
+                    var picture = new BitmapImage(new Uri("Images/zombie/right_idle/zombie_ridle_1.png", UriKind.RelativeOrAbsolute));
                     var transform = new ScaleTransform(-1, 1, 0, 0);
                     var tb = new TransformedBitmap();
                     tb.BeginInit();
@@ -178,8 +141,15 @@ namespace ShoresOfGold.Renderer
                     tb.Transform = transform;
                     tb.EndInit();
                     return new ImageBrush(tb);
-                }
-                return new ImageBrush(zombieAnimationManager.GetNextofThis(0));             
+                }          
+            }
+        }
+
+        public Brush BruteBrush 
+        { 
+            get 
+            {
+                return new ImageBrush(new BitmapImage(new Uri("Images/brute/brute_lidle_1.png", UriKind.RelativeOrAbsolute)));
             }
         }
         
@@ -432,17 +402,35 @@ namespace ShoresOfGold.Renderer
                         }
                     }
 
-                    //ENEMY DRAW
-                    foreach (var e in model.Enemies)
+                //ENEMY DRAW
+                foreach (var e in model.Enemies)
+                {
+                    if (e.Health > 0)
                     {
-                        if (e.Health > 0)
+                        if (e is Brute)
+                        {
+                            drawingContext.DrawRectangle(BruteBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                               e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                               e.Width, e.Height
+                           ));
+                        }
+                        else if (e is Zombie)
                         {
                             drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
-                            e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
-                            e.Width, e.Height
+                                e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                                e.Width, e.Height
                             ));
                         }
+                        else
+                        {
+                            drawingContext.DrawRectangle(ZombieBrush, null/*new Pen(Brushes.Black, 1)*/, new Rect(
+                               e.Center.X - e.Width / 2, e.Center.Y - e.Height / 2,
+                               e.Width, e.Height
+                           ));
+                        }
+                        
                     }
+                }
 
 
                     //BOSS DRAW
