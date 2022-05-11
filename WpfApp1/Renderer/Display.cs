@@ -111,34 +111,25 @@ namespace ShoresOfGold.Renderer
         {
             get
             {
-                if (model.Boss.AttackType == -1)
+                if (model.Boss.IsAttacking)
                 {
-                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
-                }
-                else 
-                {
-                    if (model.Boss.AttackType == 0) 
+                    if (model.Boss.AttackType == 0)
                     {
                         return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
                     }
-                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                    else
+                    {
+                        return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
+                    }
                 }
-            }
-        }
-        public Brush BobTheBoatHalfBrush
-        {
-            get
-            {
-                return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_half.png", UriKind.RelativeOrAbsolute)));
-            }
-        }
-        public Brush BobTheBoatCloseBrush
-        {
-            get
-            {
-                
-                return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_close.png", UriKind.RelativeOrAbsolute)));
-                
+                else if (model.Boss.IsDamaged)
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bobtheboat_damaged.png", UriKind.RelativeOrAbsolute)));
+                }
+                else 
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("Images/Boss/bob_the_boat.png", UriKind.RelativeOrAbsolute)));
+                }
             }
         }
         #endregion
@@ -675,30 +666,11 @@ namespace ShoresOfGold.Renderer
                     #region BOSS DRAW
                     if (model.Boss.Health > 0 && model.Enemies.Count <= 0 && model.MapNumber == 4)
                     {
-                        if (model.Boss.AttackType == -1)
-                        {
-                            drawingContext.DrawRectangle(BobTheBoatBrush,null, new Rect
+                        drawingContext.DrawRectangle(BobTheBoatBrush, null, new Rect
                                 (
                                     model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
                                     model.Boss.Width, model.Boss.Height
                                 ));
-                        }
-                        if (model.Boss.AttackType == 0)
-                        {
-                            drawingContext.DrawRectangle(BobTheBoatHalfBrush,null, new Rect
-                                (
-                                    model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                                    model.Boss.Width, model.Boss.Height
-                                ));
-                        }
-                        if (model.Boss.AttackType == 1)
-                        {
-                            drawingContext.DrawRectangle(BobTheBoatCloseBrush,null, new Rect
-                                (
-                                    model.Boss.Center.X - model.Boss.Width / 2, model.Boss.Center.Y - model.Boss.Height / 2,
-                                    model.Boss.Width, model.Boss.Height
-                                ));
-                        }
                     }
                     #endregion
 

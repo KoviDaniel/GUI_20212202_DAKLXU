@@ -48,7 +48,7 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,6); i++)
             { 
-                GenerateEnemies();
+               // GenerateEnemies();
             }
             for (int i = 0; i < r.Next(3, 6); i++)
             {
@@ -64,7 +64,7 @@ namespace ShoresOfGold.Logic
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3, 6); i++)
             {
-                GenerateEnemies();
+                //GenerateEnemies();
             }
             for (int i = 0; i < r.Next(3, 6); i++)
             {
