@@ -47,7 +47,7 @@ namespace ShoresOfGold.Logic
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
             for (int i = 0; i < r.Next(3,7); i++)
-            {
+            { 
                 GenerateEnemies();
             }
             for (int i = 0; i < r.Next(1, 5); i++)
@@ -58,6 +58,7 @@ namespace ShoresOfGold.Logic
 
         public void LoadNexMap() 
         {
+            this.Player.Bullets.Clear();
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
