@@ -27,7 +27,6 @@ namespace ShoresOfGold.Models
 
         public bool HeadLeft { get; set; }
 
-
         public bool IsShooting { get; set; }
         public bool IsAttacking { get; set; }
         public Player(Size mapArea, double upperBound, double lowerBound)
@@ -68,7 +67,7 @@ namespace ShoresOfGold.Models
             }
             else if (control == Controls.Left && Center.X > LeftBound)
             {
-                HeadLeft = true;
+                HeadLeft = false;
                 Center = new System.Drawing.Point(Center.X - (int)Speed.X, Center.Y);
             }
             else if (control == Controls.Right && Center.X + Width < RightBound)

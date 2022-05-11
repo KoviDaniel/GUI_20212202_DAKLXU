@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace ShoresOfGold.Models
 {
-    public class Wall : GameObject
+    public class Wall
     {
         protected Point start;
         protected Point end;
@@ -23,7 +23,7 @@ namespace ShoresOfGold.Models
                 this.end.Y += thickness;
         }
 
-        public override Geometry Area
+        public Geometry Area
         {
             get { return new RectangleGeometry(new Rect(start, end)); }
         }
