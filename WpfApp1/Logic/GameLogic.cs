@@ -93,8 +93,7 @@ namespace ShoresOfGold.Logic
         public GameLogic(Size mapArea)
         {
             TopWall = new Wall(new Point(0, 0), new Point(mapArea.Width, 0), topWallThickness);
-            BottomWall = new Wall(new Point(0, mapArea.Height - bottomWallThickness),
-                new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
+            BottomWall = new Wall(new Point(0, mapArea.Height - bottomWallThickness), new Point(mapArea.Width, mapArea.Height - bottomWallThickness), bottomWallThickness);
             MapNumber = 1;
         }
 
