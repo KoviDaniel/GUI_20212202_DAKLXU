@@ -159,7 +159,12 @@ namespace ShoresOfGold.Logic
 
         public void TimeStep()
         {
-            if (this.Enemies.Count == 0 && Boss.Health<=0) { 
+            if (this.Enemies.Count == 0 && this.MapNumber == 4) 
+            {
+                this.Boss.Appear = true;
+            }
+            if (this.Enemies.Count == 0 && Boss.Health<=0) {
+                this.Boss.Appear = false;
                 this.Bullets.Clear();
                 this.Player.Bullets.Clear();
             }

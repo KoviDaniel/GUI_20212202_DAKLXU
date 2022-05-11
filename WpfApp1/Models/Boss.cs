@@ -14,6 +14,7 @@ namespace ShoresOfGold.Models
         const int attackIntensity = 1000;
         int cooldown = 0;
         Size mapArea;
+        public bool Appear { get; set; }
         public int AttackType { get; set; }
         public int CloseAttackSize { get; set; }
         public Boss(Size mapArea, Player player)
@@ -27,6 +28,7 @@ namespace ShoresOfGold.Models
             this.CloseAttackSize = 475;
             this.AttackType = -1;
             Center = new System.Drawing.Point((int)mapArea.Width/2, (int)mapArea.Height / 2-360);
+            this.Appear = false;
         }
         private double Distance
         {
@@ -43,7 +45,10 @@ namespace ShoresOfGold.Models
         }
         public void GetDamage(int damage) 
         {
-            this.Health -= damage;
+            if (Appear == true)
+            {
+                this.Health -= damage;
+            }
         }
         public void AttackHandler() 
         {
