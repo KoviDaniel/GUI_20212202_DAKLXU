@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <!--<RowDefinition Height="1*"/>-->
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
@@ -18,11 +18,11 @@
         </Grid.Background>
         <Label Content="Shores of Gold" HorizontalAlignment="Center" VerticalAlignment="Center" 
                Style="{StaticResource lblDesign}" FontSize="130" Grid.Row="0" Foreground="Gold"/>
-        <Button Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <Button Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="1" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"
                 Click="Button_Click_Continue"/>
-        <Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>
+        <!--<Button Content="New Game" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Style="{StaticResource lblDesign}" Grid.Row="2" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"/>-->
         <Button Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Style="{StaticResource lblDesign}" Grid.Row="3" FontSize="70" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="Gold"
                 Click="Button_Click_Exit"/>
