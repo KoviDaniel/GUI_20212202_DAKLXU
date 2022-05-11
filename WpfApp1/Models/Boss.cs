@@ -11,7 +11,7 @@ namespace ShoresOfGold.Models
     {
         Player player;
         Random r = new Random(); //támadás típushoz
-        const int attackIntensity = 1000;
+        const int attackIntensity = 800;
         int cooldown = 0;
         Size mapArea;
         public bool Appear { get; set; }
@@ -50,14 +50,28 @@ namespace ShoresOfGold.Models
             if (Appear == true)
             {
                 this.Health -= damage;
+                this.IsDamaged = true;
             }
         }
+        private int showDamaged = 0;
         public void AttackHandler() 
         {
+            if (this.IsDamaged)
+            {
+                if (showDamaged == 50) this.IsDamaged = false;
+                showDamaged++;
+            }
+            else 
+            {
+                showDamaged = 0;
+            }
+
+
             if (this.player != null && this.Health>0 && this.player.Health > 0) {
                 if (cooldown == attackIntensity - 40) 
                 {
                     this.AttackType = r.Next(0, 2);
+                    IsAttacking = true;
                 }
                 if (cooldown >= attackIntensity)
                 {
@@ -71,6 +85,7 @@ namespace ShoresOfGold.Models
                     }
                     cooldown = 0;
                     this.AttackType = -1;
+                    this.IsAttacking = false;
                 }
             }
             ++cooldown;

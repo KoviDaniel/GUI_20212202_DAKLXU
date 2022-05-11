@@ -33,6 +33,7 @@
     <None Remove="Images\bobtheboat_half.png" />
     <None Remove="Images\bob_the_boat.png" />
     <None Remove="Images\Boss\bobtheboat_close.png" />
+    <None Remove="Images\Boss\bobtheboat_damaged.png" />
     <None Remove="Images\Boss\bobtheboat_half.png" />
     <None Remove="Images\Boss\bob_the_boat.png" />
     <None Remove="Images\Brute\brute_attack.png" />
@@ -92,6 +93,9 @@
 
   <ItemGroup>
     <Content Include="Images\Boss\bobtheboat_close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Boss\bobtheboat_damaged.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Boss\bobtheboat_half.png">

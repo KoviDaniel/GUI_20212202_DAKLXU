@@ -46,11 +46,11 @@ namespace ShoresOfGold.Logic
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
-            for (int i = 0; i < r.Next(3,7); i++)
+            for (int i = 0; i < r.Next(3,6); i++)
             { 
                 GenerateEnemies();
             }
-            for (int i = 0; i < r.Next(1, 5); i++)
+            for (int i = 0; i < r.Next(3, 6); i++)
             {
                 this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
             }
@@ -62,11 +62,11 @@ namespace ShoresOfGold.Logic
             this.Enemies = new List<Enemy>();
             this.Bullets = new List<Bullet>();
             this.Chests = new List<Chest>();
-            for (int i = 0; i < r.Next(3, 7); i++)
+            for (int i = 0; i < r.Next(3, 6); i++)
             {
                 GenerateEnemies();
             }
-            for (int i = 0; i < r.Next(1, 5); i++)
+            for (int i = 0; i < r.Next(3, 6); i++)
             {
                 this.Chests.Add(new Chest(mapArea, TopWall.Area.Bounds.Height, BottomWall.Area.Bounds.Y));
             }
