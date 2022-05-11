@@ -37,6 +37,9 @@ namespace ShoresOfGold.Models
             if (this.player != null && this.player.Health > 0 && Health > 0) 
             {
                 cooldown++;
+                //if (cooldown == AttackIntensity - 20) this.IsAttacking = true;
+                if (Distance <= AttackRange) { this.IsAttacking = true; }
+                else this.IsAttacking = false;
                 if (Distance <= AttackRange && cooldown >= AttackIntensity) 
                 {
                     this.IsDamaged = false;
@@ -48,6 +51,7 @@ namespace ShoresOfGold.Models
                     wTarget.Y = player.Center.Y;
                     Bullet b = new Bullet(this.Center, wTarget);
                     bullets.Add(b);
+                    this.IsAttacking = false;
                 }
             }
             BulletLife();
