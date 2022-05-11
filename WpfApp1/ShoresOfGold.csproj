@@ -7,95 +7,129 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\Zombie\right_attack\**" />
+    <Compile Remove="Images\Zombie\right_die\**" />
+    <Compile Remove="Images\Zombie\right_idle\**" />
+    <Compile Remove="Images\Zombie\right_move\**" />
+    <EmbeddedResource Remove="Images\Zombie\right_attack\**" />
+    <EmbeddedResource Remove="Images\Zombie\right_die\**" />
+    <EmbeddedResource Remove="Images\Zombie\right_idle\**" />
+    <EmbeddedResource Remove="Images\Zombie\right_move\**" />
+    <None Remove="Images\Zombie\right_attack\**" />
+    <None Remove="Images\Zombie\right_die\**" />
+    <None Remove="Images\Zombie\right_idle\**" />
+    <None Remove="Images\Zombie\right_move\**" />
+    <Page Remove="Images\Zombie\right_attack\**" />
+    <Page Remove="Images\Zombie\right_die\**" />
+    <Page Remove="Images\Zombie\right_idle\**" />
+    <Page Remove="Images\Zombie\right_move\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Fonts\Windlass.ttf" />
     <None Remove="Images\arrow.png" />
     <None Remove="Images\background.png" />
     <None Remove="Images\bobtheboat_close.png" />
     <None Remove="Images\bobtheboat_half.png" />
     <None Remove="Images\bob_the_boat.png" />
+    <None Remove="Images\Boss\bobtheboat_close.png" />
+    <None Remove="Images\Boss\bobtheboat_half.png" />
+    <None Remove="Images\Boss\bob_the_boat.png" />
+    <None Remove="Images\Brute\brute_attack.png" />
+    <None Remove="Images\Brute\brute_idle.png" />
     <None Remove="Images\Brute\brute_lidle_1.png" />
     <None Remove="Images\cannonball.png" />
     <None Remove="Images\chestclosed.png" />
     <None Remove="Images\chestopen.png" />
+    <None Remove="Images\Chests\chestclosed.png" />
     <None Remove="Images\Chests\chestopen_health_1.png" />
+    <None Remove="Images\Chests\chestopen_health_2.png" />
     <None Remove="Images\Chests\chestopen_health_3.png" />
+    <None Remove="Images\Chests\chestopen_melee_1.png" />
+    <None Remove="Images\Chests\chestopen_melee_2.png" />
     <None Remove="Images\Chests\chestopen_melee_3.png" />
     <None Remove="Images\Chests\chestopen_range_3.png" />
+    <None Remove="Images\Chests\chestopen_speed_1.png" />
+    <None Remove="Images\Chests\chestopen_speed_2.png" />
     <None Remove="Images\Chests\chestopen_speed_3.png" />
     <None Remove="Images\Chests\chestopen_stamina_3.png" />
     <None Remove="Images\End\lost.png" />
     <None Remove="Images\End\win.png" />
+    <None Remove="Images\Maps\back_decor_1.png" />
+    <None Remove="Images\Maps\back_decor_2.png" />
+    <None Remove="Images\Maps\back_decor_3.png" />
+    <None Remove="Images\Maps\back_decor_4.png" />
+    <None Remove="Images\Maps\battleground_1.png" />
+    <None Remove="Images\Maps\battleground_2.png" />
+    <None Remove="Images\Maps\battleground_3.png" />
+    <None Remove="Images\Maps\battleground_4.png" />
+    <None Remove="Images\Maps\front_decor_1.png" />
+    <None Remove="Images\Maps\front_decor_2.png" />
+    <None Remove="Images\Maps\front_decor_3.png" />
+    <None Remove="Images\Maps\front_decor_4.png" />
+    <None Remove="Images\Other\arrow.png" />
+    <None Remove="Images\Other\background.png" />
+    <None Remove="Images\Other\cannonball.png" />
     <None Remove="Images\pirate.png" />
-    <None Remove="Images\Player\lpirate_with_gun.png" />
-    <None Remove="Images\Player\lpirate_with_sword.png" />
+    <None Remove="Images\Player\pirate_idle.png" />
     <None Remove="Images\Player\pirate_lidle.png" />
-    <None Remove="Images\Player\pirate_ridle.png" />
+    <None Remove="Images\Player\pirate_with_gun.png" />
+    <None Remove="Images\Player\pirate_with_sword.png" />
     <None Remove="Images\Player\rpirate_with_gun.png" />
     <None Remove="Images\Player\rpirate_with_sword.png" />
+    <None Remove="Images\Sniper\sniper_attack.png" />
+    <None Remove="Images\Sniper\sniper_idle.png" />
     <None Remove="Images\zombie.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_1.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_2.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_3.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_4.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_5.png" />
-    <None Remove="Images\zombie\right_attack\zombie_rattack_6.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_1.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_2.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_3.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_4.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_5.png" />
-    <None Remove="Images\zombie\right_die\zombie_rdie_6.png" />
-    <None Remove="Images\zombie\right_idle\zombie_ridle_1.png" />
-    <None Remove="Images\zombie\right_idle\zombie_ridle_2.png" />
-    <None Remove="Images\zombie\right_idle\zombie_ridle_3.png" />
-    <None Remove="Images\zombie\right_idle\zombie_ridle_4.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_1.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_2.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_3.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_4.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_5.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_6.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_7.png" />
-    <None Remove="Images\zombie\right_move\zombie_rmove_8.png" />
+    <None Remove="Images\Zombie\zombie_attack.png" />
+    <None Remove="Images\Zombie\zombie_idle.png" />
     <None Remove="Sounds\ingame.wav" />
     <None Remove="Sounds\menu.wav" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\arrow.png">
+    <Content Include="Images\Boss\bobtheboat_close.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\bobtheboat_close.png">
+    <Content Include="Images\Boss\bobtheboat_half.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\bobtheboat_half.png">
+    <Content Include="Images\Boss\bob_the_boat.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\bob_the_boat.png">
+    <Content Include="Images\Brute\brute_attack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Brute\brute_lidle_1.png">
+    <Content Include="Images\Brute\brute_idle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\cannonball.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\chestclosed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\chestopen.png">
+    <Content Include="Images\Chests\chestclosed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Chests\chestopen_health_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Chests\chestopen_health_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Chests\chestopen_health_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Chests\chestopen_melee_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Chests\chestopen_melee_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Chests\chestopen_melee_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Chests\chestopen_range_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Chests\chestopen_speed_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Chests\chestopen_speed_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Chests\chestopen_speed_3.png">
@@ -110,28 +144,58 @@
     <Content Include="Images\End\win.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\pirate.png">
+    <Content Include="Images\Maps\back_decor_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\lpirate_with_gun.png">
+    <Content Include="Images\Maps\back_decor_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\lpirate_with_sword.png">
+    <Content Include="Images\Maps\back_decor_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\pirate_ridle.png">
+    <Content Include="Images\Maps\back_decor_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\pirate_lidle.png">
+    <Content Include="Images\Maps\battleground_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\rpirate_with_gun.png">
+    <Content Include="Images\Maps\battleground_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Player\rpirate_with_sword.png">
+    <Content Include="Images\Maps\battleground_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\zombie.png">
+    <Content Include="Images\Maps\battleground_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Maps\front_decor_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Maps\front_decor_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Maps\front_decor_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Maps\front_decor_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\cannonball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Player\pirate_with_gun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Player\pirate_with_sword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Player\pirate_idle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Remove="Images\back_decor.png" />
@@ -157,118 +221,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\background.png">
+    <Content Include="Images\Sniper\sniper_attack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\back_decor_1.png">
+    <Content Include="Images\Sniper\sniper_idle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\back_decor_2.png">
+    <Content Include="Images\Zombie\zombie_attack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\back_decor_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\back_decor_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\battleground_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\battleground_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\battleground_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\battleground_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\front_decor_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\front_decor_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\front_decor_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\front_decor_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\pirate.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_attack\zombie_rattack_6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_die\zombie_rdie_6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_idle\zombie_ridle_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_idle\zombie_ridle_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_idle\zombie_ridle_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_idle\zombie_ridle_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_7.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\zombie\right_move\zombie_rmove_8.png">
+    <Content Include="Images\Zombie\zombie_idle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\ingame.wav">
