@@ -77,7 +77,7 @@ namespace ShoresOfGold.Models
         #region Attacks
         private void HalfAreaAttack() 
         {
-            int opt=r.Next(0, 1);
+            int opt=r.Next(0, 2);
             if (opt == 0) {
                 if (this.player.Center.X < this.mapArea.Width / 2) 
                 {
