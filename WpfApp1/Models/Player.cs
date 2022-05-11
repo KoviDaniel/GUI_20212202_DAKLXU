@@ -162,10 +162,21 @@ namespace ShoresOfGold.Models
             return Math.Sqrt(Math.Pow((center.X-this.Center.X),2)+Math.Pow((center.Y-this.Center.Y),2));
         }
 
-
         private int restoreRate = 0;
+        private int damageShow = 0;
         public void Restoration() 
         {
+            //showing of the damage, not part of the restoration
+            if (this.IsDamaged)
+            {
+                if (damageShow == 50) this.IsDamaged = false;
+                damageShow++;
+            }
+            else 
+            {
+                this.damageShow = 0;
+            }
+
             if (restoreRate >= 50)
             {
                 if (this.Health > 0 && this.Health < MAX_HEALTH) 

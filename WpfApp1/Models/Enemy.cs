@@ -30,6 +30,7 @@ namespace ShoresOfGold.Models
 
         public double Power { get; set; }
         
+
         public Enemy()
         {
             
@@ -69,8 +70,19 @@ namespace ShoresOfGold.Models
             return v;
         }
 
+        protected int damageShow = 0;
+
         public void NewFollowPlayer() 
         {
+            if (this.IsDamaged == true)
+            {
+                if (damageShow == 50) this.IsDamaged = false;
+                damageShow++;
+            }
+            else 
+            {
+                damageShow = 0;
+            }
             if (player != null)
             {
                 double distance = this.Distance;
