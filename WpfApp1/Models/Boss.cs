@@ -15,6 +15,7 @@ namespace ShoresOfGold.Models
         int cooldown = 0;
         Size mapArea;
         public bool Appear { get; set; }
+        public int MAX_HEALTH { get; set; }
         public int AttackType { get; set; }
         public int CloseAttackSize { get; set; }
         public Boss(Size mapArea, Player player)
@@ -22,6 +23,7 @@ namespace ShoresOfGold.Models
             this.player = player;
             this.mapArea = mapArea;
             this.Speed = new Vector(0, 0);
+            this.MAX_HEALTH = 1000;
             this.Health = 1000;
             this.Width = 650;
             this.Height = 600;
